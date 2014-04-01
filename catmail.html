@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>mark fischer :: portfolio :: Catmail</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="portfolio.js"></script>
+</head>
+
+<body>
+
+<div id="page">
+
+	<div class="graphpaper">
+		<a href="index.html#catmail"><- back to the portfolio</a>
+		
+		<p>
+			I wrote the Catmail Opt-In application using the Zend Framework.  This was my first opportunity 
+			to build a production application with the framework, and it worked out great.  The actual opperations
+			that the application performed were pretty simple.  The challenging part was figuring out all 
+			the places where things could go wrong.  The Opt-In application was the controller between several
+			different systems, each one of which had its own interface and could present its own errors.  Each
+			of these potential error cases had to be identified, and dealt with &#8212; either try and correct the problem
+			if we could, or present it to the client in a friendly and helpful manner.  
+		</p>
+		
+		<p>
+			Over the course of a few months, we migrated thousands of students to Google for email.  There were some
+			problems, both on our end and Google's. The Opt-In application was able to display the current
+			states and statuses of each student's migration progress, and helped to make a complex transfer work
+			remarkably well.
+		</p>
+		
+	</div>
+	
+	<div class="webpage">
+		<img src="images/catmail-flow.gif" alt="Catmail flow diagram" />
+		
+		<div class="graphpaper comment rotate2" style="left: 500px; top: 240px;">
+			The Opt-In application controlled the interactions between the students, the Google API service, and
+			the migration service.
+		</div>
+
+	</div>
+
+	<div class="graphpaper">
+		<a href="index.html#catmail"><- back to the portfolio</a>		
+	</div>
+
+</div>
+
+</body>
+
+</html>

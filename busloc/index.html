@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Suntran Bus Locations</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="apple-touch-icon" href="suntran.png"/> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js"></script>
+	<script src="location.js"></script>
+</head>
+
+<body>
+
+<div data-role="page" class="type-interior">
+
+	<div data-role="header">
+		<h1>Nearby Stops</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div class="content-primary">
+		<ul id="stopsElement" data-role="listview">
+			<li>Searching...</li>
+		</ul>
+		<div id="imageElement"></div>
+		</div>
+	</div>
+
+</div><!-- /body -->
+
+<div id="result">Hello Bus</div>
+<div id="ll"></div>
+
+<div id="routeinfo"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>mark fischer :: portfolio :: Office of Student Computing Resources</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="portfolio.js"></script>
+</head>
+
+<body>
+
+<div id="page">
+
+	<div class="graphpaper">
+		<a href="index.html#workflow"><- back to the portfolio</a>
+		
+		<p>
+			When we first decided to try and solve our in-processing problem, we looked around for an 
+			existing solution to the workflow problem.  Unfortunately at the time (and largely still today)
+			the only solutions that tackled generic workflow management were hugely expensive applications
+			from the likes of Oracle and IBM.  Eventually we decided to go ahead and build a flexible 
+			workflow management application ourselves, with the hope of turning it into an open source 
+			project.
+		</p>
+		
+		<p>
+			The result is a fully object oriented application written in PHP.  The basic concepts are that
+			of a workflow, an element, and an execution.  A workflow defines the template that each 
+			execution will follow.  The execution is one run of the workflow, with a reference object
+			attached to it.  In the case of our in-processing workflow, the reference object is the person
+			being hired.
+		</p>
+				
+	</div>
+	
+	<div class="webpage">
+		<img src="images/workflow-overview.png" alt="Workflow overview" />
+		
+		<div class="graphpaper comment rotate2" style="left: 450px; top: 280px;">
+			The overview of a workflow execution displays an at-a-glance view of what steps are
+			finished, and where the workflow is currently at.
+		</div>
+
+		<div class="graphpaper comment rotate1" style="left: -50px; top: 650px;">
+			Each element is a separate object that can contain specific code for notifying people,
+			checking existing values, or doing other work.
+		</div>
+
+	</div>
+
+	<div class="webpage">
+		<img src="images/workflow-edit.png" alt="Workflow Element editing" />
+		
+		<div class="graphpaper comment rotate2" style="left: 450px; top: 100px;">
+			Each element can track whatever data is needed for that element.  When an element is marked
+			completed, the outbound elements attached to this one are activated.  Each element has an
+			activation and completion hook which allows custom code to be run.  
+			<p>In this case when the
+			element is completed, a new user is inserted into our users table, and the appropriate roles
+			for this position are assigned.</p>
+		</div>
+		
+		
+		<div class="graphpaper comment rotate1" style="left: 220px; top: 500px; width: 350px;">
+			Each workflow and element can be versioned, so that improvements can be made without breaking 
+			existing executions.
+		</div>
+
+	</div>
+
+	<div class="graphpaper">
+		<a href="index.html#workflow"><- back to the portfolio</a>		
+	</div>
+
+</div>
+
+</body>
+
+</html>

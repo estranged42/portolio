@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>mark fischer :: portfolio :: University Information Technology Services</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="portfolio.js"></script>
+</head>
+
+<body>
+
+
+
+
+<div id="page">
+
+	<div class="graphpaper">
+		<a href="index.html#zabbix"><- back to the portfolio</a>
+		
+		<p>
+			Zabbix is an open source Enterprise Monitoring solution.  It gathers information about servers
+			and network devices, and alerts operations staff to problems that arise.
+		</p>
+
+		<p>
+			Implementing and running Zabbix for UITS was a big chalenge.  UITS monitors over 3000 different
+			servers, network equipment, electrical, environmental, and vendor appliances.  Just getting
+			the basics of those devices imported and discovered took the better part of six months.  Once
+			the basics were in place, the fun began.
+		</p>
+		
+		<p>
+		  Gathering the data really turns out to be the easy part.  The difficult part in data analysis 
+		  is usually in asking the correct question.  Developing use cases, and asking the right
+		  questions was critical to the on-going success of this project.  With the right questions in
+		  hand, gathering, displaying, and alerting on the data flowed easily.
+		</p>
+
+    <p>
+      Because of its open source nature, Zabbix is very expandable.  There was never a case where 
+      the data we sought could not be imported into Zabbix.  Often this required writing customized
+      code to interface with a particular bit of software or application.  I wrote these custom collector
+      programs in a variety of languages: Perl, C, Python, C#, PowerShell, PHP, and
+      shell script.
+    </p>		
+
+    <p>
+      Zabbix is a treasure trove of data, and getting that data out in the right fashion was also
+      a project in itself.  Data can be displayed directly within the Zabbix web interface, but it
+      also contains a powerful REST API that allows data to be pulled out for use in customized 
+      dashboards, as well as other applications.
+    </p>
+		
+	</div>
+	
+	<div class="webpage">
+		<img src="images/zabbix-dashboard.png" alt="Picture of the Zabbix Dashboard" width="700"/>
+		
+		<div class="graphpaper comment rotate1" style="left: -150px; top: 200px">
+			Zabbix has a flexible dashboard and graphing system, making it easy to display customized
+			data for appropriate audiences.
+		</div>
+
+	</div>
+
+	<div class="webpage">
+		<img src="images/zabbix-dashing.png" alt="Picture of custom Dashboard" width="700"/>
+		
+		<div class="graphpaper comment rotate3" style="left: 520px; top: 120px">
+			API data from Zabbix can be pulled out for use in other more specialized applications.
+			Here data is pulled out and presented in a dedicated dashboard for the Infrastructure
+			Development group on a large flat screen in their offices.
+		</div>
+
+	</div>
+
+	<div class="webpage">
+		<img src="images/zabbix-uassist.png" style="position: relative; left: 50px;"
+		  alt="Picture of Zabbix drop-down customization" width="600"/>
+		
+		<div class="graphpaper comment rotate2" style="left: -120px; top: 280px">
+			The Open Source nature of Zabbix allowed me to add custom integration with our internal
+			trouble ticket system, UAssist.
+		</div>
+
+	</div>
+
+	<div class="webpage">
+		<img src="images/zabbix-uassist-simple-tickets.png" alt="Picture of the Simple Tickets" width="700"/>
+		
+		<div class="graphpaper comment rotate1" style="left: -150px; top: 200px">
+			The Zabbix REST API allowed me to pull out currently active alerts for inclusion in the
+			trouble ticket.  This eliminates the need for tedious copying and pasting.
+		</div>
+
+	</div>
+
+	<div class="graphpaper">
+		<a href="index.html#zabbix"><- back to the portfolio</a>		
+	</div>
+
+</div>
+
+</body>
+
+</html>
