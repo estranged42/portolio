@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>mark fischer :: portfolio :: MTG: Virtual Table</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="portfolio.js"></script>
+</head>
+
+<body>
+
+
+
+
+<div id="page">
+
+	<div class="graphpaper">
+		<a href="index.html#mtgtable"><- back to the portfolio</a>
+		
+		<p>
+            My borther and I wanted some way we could "see each other's cards" as we played Magic: The Gathering
+            virtually over Zoom. So the premise for this app was pretty basic: provide some way to place cards on
+            a virtual table so that we could share the screen and see what all the players had on the table.
+		</p>
+
+		<p>
+            Since I had been mostly doing work on the infrastructure side of things for the past 5 years or so,
+            I took this as an opportunity to get up to speed with some of the new front-end web application
+            technologies. The front-end of the application is built with <a href="https://vuejs.org">Vue.js</a>, 
+            and uses the <a href="https://vuetifyjs.com">Vuetify.js</a> component library. I was really impressed
+            with how easy it is these days to build incredibly rich, interactive front-end interfaces these days
+            with the modern javascript frameworks. 
+		</p>
+		
+	</div>
+	
+	<div class="webpage">
+		<img src="images/mtgtable-01.jpg" width="700" alt="Picture of an MTG Virtual Table website" />
+		
+		<div class="graphpaper comment rotate2" style="left: 520px; top: 220px">
+            Supports any number of players. Can re-order cards once placed. Customizable token cards can be
+            individually incremented. 
+		</div>
+
+		<div class="graphpaper comment rotate1" style="left: -150px; top: 250px">
+			Search for any Magic card, then drag it to a player. Card search powered by <a href="https://www.scryfall.com">Scryfall.com</a>
+		</div>
+
+    </div>
+
+    <div class="graphpaper">
+		
+		<p>
+            I also wanted to provide a way to share control of the table between players, allowing any player to
+            update the table. This required some back-end infrastructure, which is a serverless API using websockets
+            and AWS services.
+		</p>
+
+		<p>
+            One player starts things off by hosting a game. This creates a websocket connection to an AWS API Gateway,
+            which handles both the websocket connections, and interactions with AWS Lambda for the logic. The lambda 
+            function generates a game ID, receives the game data from the player, and stores the game information in
+            AWS Dynamo DB. As new players join, the lambda function adds the player's websocket connection info to the
+            game, and notifies all connected websockets of game data updates as they happen.
+		</p>
+            
+        <p>
+            These AWS serverless technologies facilitate a very low cost way to provide centralized 
+            back-end resources for a basic app like this where the traffic will be very low, and always-on resources
+            would be prohibitavely expensive.
+		</p>
+		
+		<p>
+            Of course all the AWS resources are deployed via an 
+            <a href="https://github.com/estranged42/mtg-virtual-table/blob/main/cf/website.yaml">AWS CloudFormation template</a>, 
+            and the <a href="https://www.serverless.com">serverless framework</a>, because infrastructure as code is awesome.
+		</p>
+		
+	</div>
+
+	<div class="webpage">
+		<img src="images/mtgtable-02.jpg" width="700" alt="Picture of an the app joined to a shared game table" />
+		
+		<div class="graphpaper comment rotate1" style="left: 520px; top: 120px">
+			Players can join a shared game table so everyone can see and update the table together.
+		</div>
+
+	</div>
+
+	<div class="graphpaper">
+		<a href="index.html#mtgtable"><- back to the portfolio</a>		
+	</div>
+
+</div>
+
+</body>
+
+</html>
