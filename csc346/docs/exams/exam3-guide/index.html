@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="Exam 3 Study Guide # Managed Cloud Services - Week 11a Slides - Week 11b Slides # Know the basic AWS Services we&#39;ve used or talked about this semester, and what they&#39;re used for. EC2 Virtual Machines Can SSH in You&#39;re responsible for OS patching and security RDS Relational Database Platform as a Service ALB Load Balancing SSL/TLS Termination Auto-scaling to handle public load ECS Managed Docker Container Service Run your Docker images in AWS Use with ALB ECR Elastic Container Registry Store your built Docker images in AWS Can pull images from here to run on ECS or EC2 etc.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Exam 3 Study Guide" />
+<meta property="og:description" content="Exam 3 Study Guide # Managed Cloud Services - Week 11a Slides - Week 11b Slides # Know the basic AWS Services we&#39;ve used or talked about this semester, and what they&#39;re used for. EC2 Virtual Machines Can SSH in You&#39;re responsible for OS patching and security RDS Relational Database Platform as a Service ALB Load Balancing SSL/TLS Termination Auto-scaling to handle public load ECS Managed Docker Container Service Run your Docker images in AWS Use with ALB ECR Elastic Container Registry Store your built Docker images in AWS Can pull images from here to run on ECS or EC2 etc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/exams/exam3-guide/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Exam 3 Study Guide | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="active">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Exam 3 Study Guide</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#managed-cloud-services---week-11a-slidesslides11a-managed-cloud-lambdapdf---week-11b-slidesslides11b-managed-cloud-dockerpdf">Managed Cloud Services - <a href="../../../slides/11a-managed-cloud-lambda.pdf">Week 11a Slides</a> - <a href="../../../slides/11b-managed-cloud-docker.pdf">Week 11b Slides</a></a></li>
+        <li><a href="#cloud-architectures---week-12-slidesslides12-cloud-architecturespdf">Cloud Architectures - <a href="../../../slides/12-cloud-architectures.pdf">Week 12 Slides</a></a></li>
+        <li><a href="#public-key-cryptography---week-13-slidesslides13-public-key-cryptographypdf">Public Key Cryptography - <a href="../../../slides/13-public-key-cryptography.pdf">Week 13 Slides</a></a></li>
+        <li><a href="#cookies---week-14-slidesslides14-cookies-local-storagepdf">Cookies - <a href="../../../slides/14-cookies-local-storage.pdf">Week 14 Slides</a></a></li>
+        <li><a href="#websockets---week-15-slidesslides15-websocketspdf">WebSockets - <a href="../../../slides/15-websockets.pdf">Week 15 Slides</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="exam-3-study-guide">
+  Exam 3 Study Guide
+  <a class="anchor" href="#exam-3-study-guide">#</a>
+</h1>
+<h3 id="managed-cloud-services---week-11a-slidesslides11a-managed-cloud-lambdapdf---week-11b-slidesslides11b-managed-cloud-dockerpdf">
+  Managed Cloud Services - <a href="../../../slides/11a-managed-cloud-lambda.pdf">Week 11a Slides</a> - <a href="../../../slides/11b-managed-cloud-docker.pdf">Week 11b Slides</a>
+  <a class="anchor" href="#managed-cloud-services---week-11a-slidesslides11a-managed-cloud-lambdapdf---week-11b-slidesslides11b-managed-cloud-dockerpdf">#</a>
+</h3>
+<ul>
+<li>Know the basic AWS Services we've used or talked about this semester, and what they're used for.</li>
+<li>EC2
+<ul>
+<li>Virtual Machines</li>
+<li>Can SSH in</li>
+<li>You're responsible for OS patching and security</li>
+</ul>
+</li>
+<li>RDS
+<ul>
+<li>Relational Database</li>
+<li>Platform as a Service</li>
+</ul>
+</li>
+<li>ALB
+<ul>
+<li>Load Balancing</li>
+<li>SSL/TLS Termination</li>
+<li>Auto-scaling to handle public load</li>
+</ul>
+</li>
+<li>ECS
+<ul>
+<li>Managed Docker Container Service</li>
+<li>Run your Docker images in AWS</li>
+<li>Use with ALB</li>
+</ul>
+</li>
+<li>ECR
+<ul>
+<li>Elastic Container Registry</li>
+<li>Store your built Docker images in AWS</li>
+<li>Can pull images from here to run on ECS or EC2 etc.</li>
+</ul>
+</li>
+<li>S3
+<ul>
+<li>Object storage</li>
+<li>Not a file system</li>
+<li>Key/Value Pairs</li>
+<li>Pay-as-you-go</li>
+<li>No size limits (no cost limits either!)</li>
+</ul>
+</li>
+<li>Lambda
+<ul>
+<li>Function as a Service</li>
+<li>Event Driven</li>
+<li>Pay-as-you-go</li>
+<li>Simpler than Docker for small / short workloads</li>
+</ul>
+</li>
+</ul>
+<h3 id="cloud-architectures---week-12-slidesslides12-cloud-architecturespdf">
+  Cloud Architectures - <a href="../../../slides/12-cloud-architectures.pdf">Week 12 Slides</a>
+  <a class="anchor" href="#cloud-architectures---week-12-slidesslides12-cloud-architecturespdf">#</a>
+</h3>
+<ul>
+<li>Architecture Diagrams are Good</li>
+<li>Consider your audience
+<ul>
+<li>More detail for technical / coworker audience</li>
+<li>Less detail for leadersup / supervisor audience</li>
+</ul>
+</li>
+<li>CloudFormation
+<ul>
+<li>Infrastructure as Code</li>
+<li>Repeatability</li>
+<li>Input Parameters</li>
+<li>Codify Resource Deployments</li>
+</ul>
+</li>
+</ul>
+<h3 id="public-key-cryptography---week-13-slidesslides13-public-key-cryptographypdf">
+  Public Key Cryptography - <a href="../../../slides/13-public-key-cryptography.pdf">Week 13 Slides</a>
+  <a class="anchor" href="#public-key-cryptography---week-13-slidesslides13-public-key-cryptographypdf">#</a>
+</h3>
+<ul>
+<li>Hashing
+<ul>
+<li>One Way</li>
+<li>Math</li>
+<li>Verify that the input hasn't been altered</li>
+<li>Hashing the same input always produces the same output</li>
+</ul>
+</li>
+<li>Symmetric Cryptography
+<ul>
+<li>Shared Secret</li>
+<li>One key is used to both encrypt and decrypt</li>
+<li>Depends on the key being securely shared</li>
+<li>Fast</li>
+</ul>
+</li>
+<li>Public Key Cryptography
+<ul>
+<li>Two Keys
+<ul>
+<li>Public</li>
+<li>Private</li>
+</ul>
+</li>
+<li>Key B decrypts data encoded by Key A</li>
+<li>Key A decrypts data encoded by Key B</li>
+<li>One Key kept... private</li>
+<li>One Key shared publicly</li>
+<li>Use Case: Privacy
+<ul>
+<li>Encrypt with a public key - only the private key holder can decrypt</li>
+</ul>
+</li>
+<li>Use Case: Authentication
+<ul>
+<li>Encrypt with private key - decrypting with public key proves where it came from</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Certificate Authorities
+<ul>
+<li>Chain of Trust
+<ul>
+<li>If I trust A, and A says B is trustworthy, I can trust B</li>
+<li>If I trust B, and B says C is trustworthy, I can trust C</li>
+</ul>
+</li>
+<li>OS Vendors certify a set of Root Certificate Authorities</li>
+<li>Root CAs can delegate to Intermediary CAs</li>
+<li>Certificates issued by Intermediate CAs can be trusted, because we trust the Root CAs</li>
+<li>Backbone of internet security</li>
+</ul>
+</li>
+</ul>
+<h3 id="cookies---week-14-slidesslides14-cookies-local-storagepdf">
+  Cookies - <a href="../../../slides/14-cookies-local-storage.pdf">Week 14 Slides</a>
+  <a class="anchor" href="#cookies---week-14-slidesslides14-cookies-local-storagepdf">#</a>
+</h3>
+<ul>
+<li>Cookies preserve state</li>
+<li>Host controls when and how cookies are set</li>
+<li>Sent in an HTTP response header: Set-Cookie</li>
+<li>Browser stores cookies separately for each Domain</li>
+<li>Cookies are only sent back to the same Domain</li>
+<li>Basic key/value pairs with some options</li>
+<li>Used to track state from one request to another by comparing the Cookie value in the HTTP Request with stored information on the Server side</li>
+<li>First-Party cookies sent by the same Domain as the parent Page Domain</li>
+<li>Third-Party cookies sent by Domains other than the parent Page Domain</li>
+<li>Security concerns
+<ul>
+<li>If attacker can gain access to cookie values, can impersonate users</li>
+</ul>
+</li>
+</ul>
+<h3 id="websockets---week-15-slidesslides15-websocketspdf">
+  WebSockets - <a href="../../../slides/15-websockets.pdf">Week 15 Slides</a>
+  <a class="anchor" href="#websockets---week-15-slidesslides15-websocketspdf">#</a>
+</h3>
+<ul>
+<li>When sateless HTTP doesn't work so well</li>
+<li>Useful for responsive User Interfaces</li>
+<li>When anynchronous communication needs to be fast and responsive</li>
+<li>Polling
+<ul>
+<li>Useful if the number of clients is small, and polling interval is large</li>
+</ul>
+</li>
+<li>WebSockets
+<ul>
+<li>Better if number of clients is large, and need for client to be notified of new information quickly</li>
+</ul>
+</li>
+<li>WebSockets ≠ TCP Sockets</li>
+<li>Begin live as a normal HTTP request with additional headers:</li>
+</ul>
+<pre tabindex="0"><code>Connection: Upgrade
+Upgrade: websocket
+</code></pre><ul>
+<li>Server responds with:</li>
+</ul>
+<pre tabindex="0"><code>HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
+</code></pre><ul>
+<li>Once the WebSocket upgrade handshake is completed, all furhter communication over that TCP socket no longer follows the HTTP protocol, it follows the WebSockets protocol</li>
+<li>WebSockets Protocol is Binary, not Text based</li>
+<li>WebSocket stays open until either side explicitly closes it</li>
+<li>Data can be sent in either direction. Server no longer has to wait for the client to initiate a request.</li>
+<li>Host can send to multiple connected WebSockets</li>
+<li>AWS API Gateway
+<ul>
+<li>Cloud Managed WebSocket endpoint</li>
+<li>Computes handshake and keeps track of connections</li>
+<li>Sends events to other AWS services, such as Lambda</li>
+<li>Use the AWS API to have API Gateway send data to clients over connected WebSockets</li>
+</ul>
+</li>
+<li>JavaScript API
+<ul>
+<li><code>const exampleSocket = new WebSocket(&quot;wss://example.com/api&quot;)</code></li>
+<li><code>ws://</code>: Start a WebSocket over a non-secured HTTP connection</li>
+<li><code>wss://</code>: Start a WebSocket over a TLS secured HTTPS connection</li>
+<li>Send data: <code>exampleSocket.send(data)</code></li>
+<li>Receive data: <code>exampleSocket.addEventListener(&quot;message&quot;, (e) =&gt; {processEvent(e)} )</code></li>
+</ul>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#managed-cloud-services---week-11a-slidesslides11a-managed-cloud-lambdapdf---week-11b-slidesslides11b-managed-cloud-dockerpdf">Managed Cloud Services - <a href="../../../slides/11a-managed-cloud-lambda.pdf">Week 11a Slides</a> - <a href="../../../slides/11b-managed-cloud-docker.pdf">Week 11b Slides</a></a></li>
+        <li><a href="#cloud-architectures---week-12-slidesslides12-cloud-architecturespdf">Cloud Architectures - <a href="../../../slides/12-cloud-architectures.pdf">Week 12 Slides</a></a></li>
+        <li><a href="#public-key-cryptography---week-13-slidesslides13-public-key-cryptographypdf">Public Key Cryptography - <a href="../../../slides/13-public-key-cryptography.pdf">Week 13 Slides</a></a></li>
+        <li><a href="#cookies---week-14-slidesslides14-cookies-local-storagepdf">Cookies - <a href="../../../slides/14-cookies-local-storage.pdf">Week 14 Slides</a></a></li>
+        <li><a href="#websockets---week-15-slidesslides15-websocketspdf">WebSockets - <a href="../../../slides/15-websockets.pdf">Week 15 Slides</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSC 346 - Spring 2024</title>
+    <link>http://portfolio.fischco.org/csc346/docs/homework/</link>
+    <description>Recent content on CSC 346 - Spring 2024</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://portfolio.fischco.org/csc346/docs/homework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homework 1</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw01/</guid>
+      <description>CSC 346 - Spring 2024 - Homework 1 # Most homeworks will be mini-projects, with some homeworks building on one another. This first homework will be a bit simpler though. I will provide solutions to each homework, so if you get stuck on one part it shouldn&#39;t impact the later parts too much.
+Points # This assignment will be worth 16 points (two points per part). Turning the assignment in early will earn you an additional 2 points extra credit.</description>
+    </item>
+    
+    <item>
+      <title>Homework 2</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw02/</guid>
+      <description>Homework 2 # In this assignment you will create a Dockerfile and image which will serve up a simple website.
+Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 4 points extra credit.
+Early submission: February 1st 11pm MST (UTC-7) Final Due Date: February 3rd 11pm MST (UTC-7) Starting Point # For each homework assignment I will provide a starter .</description>
+    </item>
+    
+    <item>
+      <title>Homework 3</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw03/</guid>
+      <description>CSC 346 - Homework 3 # In this homework assignment we&#39;ll be working with the HTTP protocol, and writing our own HTML web pages. You will turn in a .zip file of a folder containing the following files:
+What to turn in # yournetid-hw03/ Dockerfile html/ index.html http.html images/ ua-logo.png You don&#39;t have to turn in the contents of the scripts folder that comes in the starter zip, but it&#39;s fine if you do.</description>
+    </item>
+    
+    <item>
+      <title>Homework 4</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw04/</guid>
+      <description>CSC 346 - Homework 4 # In this homework assignment we&#39;ll begin working with the JavaScript programming language. You will turn in a .zip file of a folder containing the following files:
+What to turn in # yournetid-hw04/ Dockerfile html/ index.html js/ hw04.js Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.
+Early submission: February 15th 11pm MST (UTC-7) Final Due Date: February 17th 11pm MST (UTC-7) Getting Started # You will need to create one web page, one JavaScript file, and a Dockerfile defining an image that will serve up your simple website.</description>
+    </item>
+    
+    <item>
+      <title>Homework 5</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw05/</guid>
+      <description>CSC 346 - Homework 5 # In this homework assignment we&#39;ll begin working with Amazon Web Services. You will create an EC2 instance (AWS&#39;s Virtual Machine), and run a docker container on it containing the beginnings of our image sharing client.
+What to turn in # yournetid-hw05/ Dockerfile html/ index.html app.html js/ app.js Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.</description>
+    </item>
+    
+    <item>
+      <title>Homework 6</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw06/</guid>
+      <description>CSC 346 - Homework 6 # In this homework assignment we&#39;ll continue work on our PictureGram client using our same EC2 instance from HW05.
+What to turn in # There are two parts to be graded for this assignment. The first part is a .zip file containing your app files. This is similar to past assignments.
+yournetid-hw06/ Dockerfile html/ favicon.ico index.html js/ app.js picturegramSDK.js The second part is testing your EC2 server deployment.</description>
+    </item>
+    
+    <item>
+      <title>Homework 7</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw07/</guid>
+      <description>CSC 346 - Homework 7 # In this homework assignment you will deploy two serverless Lambda functions to faciliate image uploading for the Picturegram client. You will create two S3 buckets to hold the uploaded and resized image files. The first Lambda function will be for generating one-time-use signed upload URLs for uploading original images to the upload bucket. The second lambda function will trigger on new objects in the upload bucket, resize the images to standard sizes, and then store the resized images in a second S3 bucket which will be used as the source for images displayed in the Picturegram front end application.</description>
+    </item>
+    
+    <item>
+      <title>Homework 8</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw08/</guid>
+      <description>CSC 346 - Homework 8 # In this homework assignment you will deploy The PictureGram App from Homework 6 in AWS with the Elastic Container Service and an Application Load Blancer instead of directly on EC2. We&#39;ll also integrate the image upload system from homework 7 in to the app.
+You will need to create an Elastic Container Registry (ECR) repository to hold your docker image, and the build and push the image up.</description>
+    </item>
+    
+  </channel>
+</rss>

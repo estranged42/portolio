@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="CSC 346 - Homework 4 # In this homework assignment we&#39;ll begin working with the JavaScript programming language. You will turn in a .zip file of a folder containing the following files:
+What to turn in # yournetid-hw04/ Dockerfile html/ index.html js/ hw04.js Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.
+Early submission: February 15th 11pm MST (UTC-7) Final Due Date: February 17th 11pm MST (UTC-7) Getting Started # You will need to create one web page, one JavaScript file, and a Dockerfile defining an image that will serve up your simple website.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Homework 4" />
+<meta property="og:description" content="CSC 346 - Homework 4 # In this homework assignment we&#39;ll begin working with the JavaScript programming language. You will turn in a .zip file of a folder containing the following files:
+What to turn in # yournetid-hw04/ Dockerfile html/ index.html js/ hw04.js Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.
+Early submission: February 15th 11pm MST (UTC-7) Final Due Date: February 17th 11pm MST (UTC-7) Getting Started # You will need to create one web page, one JavaScript file, and a Dockerfile defining an image that will serve up your simple website." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/homework/hw04/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Homework 4 | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="active">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Homework 4</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#dockerfile">Dockerfile</a></li>
+    <li><a href="#part-1">Part 1</a></li>
+    <li><a href="#part-2">Part 2</a></li>
+    <li><a href="#part-3">Part 3</a></li>
+    <li><a href="#part-4">Part 4</a></li>
+    <li><a href="#part-5">Part 5</a></li>
+    <li><a href="#part-6">Part 6</a></li>
+    <li><a href="#final-results">Final Results</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="csc-346---homework-4">
+  CSC 346 - Homework 4
+  <a class="anchor" href="#csc-346---homework-4">#</a>
+</h1>
+<p>In this homework assignment we'll begin working with the JavaScript programming language. You will turn in a <code>.zip</code> file of a folder containing the following files:</p>
+<h2 id="what-to-turn-in">
+  What to turn in
+  <a class="anchor" href="#what-to-turn-in">#</a>
+</h2>
+<pre tabindex="0"><code>yournetid-hw04/
+        Dockerfile
+        html/
+            index.html
+            js/
+                hw04.js
+</code></pre><h2 id="points">
+  Points
+  <a class="anchor" href="#points">#</a>
+</h2>
+<p>This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.</p>
+<ul>
+<li>Early submission: February 15th 11pm MST (UTC-7)</li>
+<li>Final Due Date: February 17th 11pm MST (UTC-7)</li>
+</ul>
+<h2 id="getting-started">
+  Getting Started
+  <a class="anchor" href="#getting-started">#</a>
+</h2>
+<p>You will need to create one web page, one JavaScript file, and a Dockerfile defining an image that will serve up your simple website.</p>
+<p>The starter <code>.zip</code> for this assignment contains the basic directory structure, a starter Dockerfile, HTML file for Part 1, and a javascript file for the remaining parts.</p>
+<blockquote class="book-hint info">
+  <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw04.zip">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw04.zip</a>
+</blockquote>
+
+<h2 id="dockerfile">
+  Dockerfile
+  <a class="anchor" href="#dockerfile">#</a>
+</h2>
+<p>In order to view our webpage, we will include it in a docker container running the nginx web server. If you've set up your homework project folder as described above, the following Dockerfile should get your html files into the container.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> nginx:1.25</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./html /usr/share/nginx/html/<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>You can then build your container with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker build -t hw04:latest .
+</span></span></code></pre></div><p>If you want the convenience of not having to rebuild your docker image each time you change your web page, remember that you can mount in a folder from your working directory in the <code>docker run</code> command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker run -i --rm --name hw04container -p 8080:80 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">/html:/usr/share/nginx/html/&#34;</span> hw04:latest
+</span></span></code></pre></div><p>You can now open your page in a browser by visiting <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
+<p>This lets you edit and save your files, and just hit reload in your browser window, speeding up your development process.</p>
+<blockquote class="book-hint warning">
+  Not seeing what you expect?  Double check that you are in the correct homework folder, and that the tag of the image you built is the same one that you are running.
+</blockquote>
+
+<h2 id="part-1">
+  Part 1
+  <a class="anchor" href="#part-1">#</a>
+</h2>
+<p>First we need to include the javascript code in your HTML page. To do this you will need to add a <code>&lt;script&gt;</code> element to your HTML page which tells the browser how and were to load your javascript code file from. See slide 50 from the Javascript slides.</p>
+<p>When finished, your page should look pretty close to the following. If you don't see the &quot;Javascript file loaded!&quot; text under Part 1, you're not loading your javascript file quite right yet.</p>
+<p><img src="../hw04-start.png" alt="A screenshot of a simple HTML page with the elements described above" /></p>
+<h2 id="part-2">
+  Part 2
+  <a class="anchor" href="#part-2">#</a>
+</h2>
+<p>This will mostly just demonstrate how to think about solving the remaining problems. We want to display a message inside of the <code>part2answer</code> span when the button is clicked, similar to what is happening in Part 1. The contents of the span should be a string with the following format:</p>
+<blockquote>
+<p><em>elementName</em> clicked. x(<em>Xcoord</em>) y(<em>Ycoord</em>)</p>
+</blockquote>
+<p>These values will come from the <code>event</code> object which is passed when you receive a <code>click</code> event.</p>
+<p>First, we will need to define a function which will be called when our button is clicked. This will be a normal function declaration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">runPart2</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">answerElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;part2answer&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">answerText</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> clicked.  x(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">x</span><span style="color:#e6db74">}</span><span style="color:#e6db74">) y(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">y</span><span style="color:#e6db74">}</span><span style="color:#e6db74">)`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">answerElement</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">answerText</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We start off with the function declaration signature, expecting an <code>event</code> argument to be passed to our function. Next we will need to get a reference to our answer span, so we can update its text content with our answer. This is done with the <code>document.getElementById</code> method, and this is why we made sure to have <code>id</code> attributes on all of our important HTML elements. Having unique <code>id</code>s makes getting references to them with JavaScript very straightforward.</p>
+<p>Then we assemble a string containing our answer text, and assign it to the <code>answerText</code> variable. Here we used the backtick character to surround our string, which lets us use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">JavaScript's Template Literals</a> feature. This allows for direct variable interpolation inside of the string using the <code>${expression}</code> syntax. This allows for much cleaner strings when you need to have the values of variables included. Compare this to standard string concatenation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// The following two statements are equivalent
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">answerText</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> clicked.  x(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">x</span><span style="color:#e6db74">}</span><span style="color:#e6db74">) y(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">y</span><span style="color:#e6db74">}</span><span style="color:#e6db74">)`</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">answerText</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; clicked.  x(&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;) y(&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;)&#34;</span>
+</span></span></code></pre></div><p>Finally, we assign our <code>answerText</code> content to the <code>answerElement.textContent</code> property. This updates the page with our value.</p>
+<p>So far we have a function which will update an element on the page when it is called, but nothing is calling it yet.</p>
+<p>We want our function to be called when we click on the &quot;Run part 2&quot; button. To do this, we need to attach a new event listener to that button:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">part2</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;part2button&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">part2</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#a6e22e">runPart2</span>)
+</span></span></code></pre></div><p>Here again we need to first get a reference to the right button using <code>document.getElementById</code>. Then we register our <code>runPart2</code> function as a new event listener for the &quot;click&quot; event.</p>
+<p>At this point, your <code>hw04.js</code> file should look like this for Part 2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">runPart2</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">answerElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;part2answer&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">answerText</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> clicked.  x(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">x</span><span style="color:#e6db74">}</span><span style="color:#e6db74">) y(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">y</span><span style="color:#e6db74">}</span><span style="color:#e6db74">)`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">answerElement</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">answerText</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">part2</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;part2button&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">part2</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#a6e22e">runPart2</span>)
+</span></span></code></pre></div><p>Now you should be able to load up <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser (after running your docker container) and click on the Run part 2 button to see our code executed, and the page update.</p>
+<h2 id="part-3">
+  Part 3
+  <a class="anchor" href="#part-3">#</a>
+</h2>
+<p>For part 3, we want to get introduced to the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">JavaScript Date object</a>. For this problem, you will need to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date">create a new <code>Date</code> object</a> for the current date and time and assign it to a variable.  You then need to call your object's <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toDateString"><code>toDateString()</code> method</a>, and store the output of that in an <code>answerText</code> variable.  Lastly you need to update the <code>part3answer</code> span element with the <code>answerText</code>.</p>
+<p>Here's a skeleton of code for this to get you started:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">runPart3</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a new Date object and store it in a new variable.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Call the toDateString() method on your variable, and store
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//     the result in a new variable named answerText.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Obtain a reference to the part3answer element and 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//     store it in a variable named answerElement.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Assign the answerText to the answerElement&#39;s textContent property.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">answerElement</span>.<span style="color:#a6e22e">textContent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">answerText</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Obtain a reference to the part3button element, and store it
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     in a variable named part3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">part3</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;part3button&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Attach an event listener to the part3 element&#39;s click event
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     and pass it our runPart3 function.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">part3</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#a6e22e">runPart3</span>)
+</span></span></code></pre></div><h2 id="part-4">
+  Part 4
+  <a class="anchor" href="#part-4">#</a>
+</h2>
+<p>For Part 4, we want to convert a string of comma (<code>,</code>) separated values into an array. Here we will take the input from an <code>input</code> element on our page. For example if we type in <code>one,two,three</code> into the input field and click the Run part 4 button, it should output <code>[&quot;one&quot;,&quot;two&quot;,&quot;three&quot;]</code>. Recall from class that we can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split"><code>split()</code> method of the String object</a> to do this.</p>
+<h2 id="part-5">
+  Part 5
+  <a class="anchor" href="#part-5">#</a>
+</h2>
+<p>For Part 5, we will compute some values of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">famous Fibonacci sequence</a>. Recall that the Fibonacci sequence requires to initial conditions, and then the next value is computed by adding the current value and the previous value. For this, you will need to create your own Fibonacci Class.</p>
+<p>We'll use the newer <code>Class</code> syntax to define our Fibonacci class. See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes</a> for more information.</p>
+<p>To start off our Fibonacci calculations, we'll need two values. We will get these from a comma separated pair from the <code>part5input</code> element. For exmaple if we type in &quot;0,1&quot; into that field, we'll get the classic Fibonacci sequence.  We will print out the initial values, and then the next 10 values in the sequence, for a total of 10 values. Remember that our input will be Strings, and if you &quot;add&quot; strings together it's just string concatenation.  For example <code>&quot;1&quot; + &quot;1&quot;</code> reults in <code>&quot;11&quot;</code>, which is not what we want. You will need to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#description">convert these to a Number</a>.</p>
+<h2 id="part-6">
+  Part 6
+  <a class="anchor" href="#part-6">#</a>
+</h2>
+<p>For the last part, we'll make an API call to the <code>healthcheck</code> method of a <a href="http://portfolio.fischco.org/csc346/docs/examples/picturegram-api/">PictureGram API</a>. This method just replies with a basic &quot;OK&quot; status, and echos back details of the request itself.</p>
+<p>We'll need a separate function to be executed once the API call completes. This function will update the web page with the results of the API call. Since we made the <code>part6answer</code> element a <code>&lt;pre&gt;</code> element, it will be nicely formatted for the JSON data we'll get.</p>
+<p>For our <code>runPart6</code> function, we need to make an HTTP call using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Fetch API</a>.  I mean if you want to do it with <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">XmlHttpRequest</a> you can, bit wouldn't recommend it 😆.</p>
+<p>The <code>healthcheck</code> method of the API will echo back any query string arguments that are passed long. We'll just pass one along with our API request, called &quot;parameter&quot;, and use the value from <code>part6input</code>. Query string arguments are appended to the end of a URL after a question mark, and are <code>key=value</code> pairs.  If we put &quot;apple&quot; into the input field, then the API call we would make would be:</p>
+<pre tabindex="0"><code>https://csc346picturegram.test.apps.uits.arizona.edu/healthcheck?parameter=apple
+</code></pre><p>You can test this particular API out in a regular web browser. If you put that URL in to a browser and visit it, you can see what the response will be.</p>
+<blockquote class="book-hint warning">
+  <p>Note! The <code>fetch()</code> API will throw all sorts of CORS errors if you try and run your file by simply loading it in the browser from your local file system. i.e. if you did an &quot;Open File...&quot; from your browser and just open up your <code>index.html</code> that way.  The security model of browser won't let the network request be accessible to your JavaScript code.</p>
+<p>Be sure to run your container, and access your file through <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
+
+</blockquote>
+
+<p>For a more throughough walkthroug and explanation of the fetch API, see the <a href="http://portfolio.fischco.org/csc346/docs/examples/ajax-demo/">AJAX Example</a> under the Examples section of this site.</p>
+<h2 id="final-results">
+  Final Results
+  <a class="anchor" href="#final-results">#</a>
+</h2>
+<p>Your final result should look something similar to this. Things like the date will be different, and the results will depend on your input values.</p>
+<p><img src="../hw04-end.png" alt="A screenshot of a simple HTML page with all the buttons pushed and results shown" /></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#dockerfile">Dockerfile</a></li>
+    <li><a href="#part-1">Part 1</a></li>
+    <li><a href="#part-2">Part 2</a></li>
+    <li><a href="#part-3">Part 3</a></li>
+    <li><a href="#part-4">Part 4</a></li>
+    <li><a href="#part-5">Part 5</a></li>
+    <li><a href="#part-6">Part 6</a></li>
+    <li><a href="#final-results">Final Results</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

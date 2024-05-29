@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="CSC 346 - Spring 2024 - Homework 1 # Most homeworks will be mini-projects, with some homeworks building on one another. This first homework will be a bit simpler though. I will provide solutions to each homework, so if you get stuck on one part it shouldn&#39;t impact the later parts too much.
+Points # This assignment will be worth 16 points (two points per part). Turning the assignment in early will earn you an additional 2 points extra credit.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Homework 1" />
+<meta property="og:description" content="CSC 346 - Spring 2024 - Homework 1 # Most homeworks will be mini-projects, with some homeworks building on one another. This first homework will be a bit simpler though. I will provide solutions to each homework, so if you get stuck on one part it shouldn&#39;t impact the later parts too much.
+Points # This assignment will be worth 16 points (two points per part). Turning the assignment in early will earn you an additional 2 points extra credit." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/homework/hw01/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Homework 1 | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="active">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Homework 1</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a></li>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#part-1-docker">Part 1: Docker</a>
+      <ul>
+        <li><a href="#install-docker">Install Docker</a></li>
+        <li><a href="#command-line-interface--shell">Command Line Interface &amp; Shell</a></li>
+        <li><a href="#run-container">Run Container</a></li>
+        <li><a href="#what-to-turn-in-1">What to turn in</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-2-exploring">Part 2: Exploring</a>
+      <ul>
+        <li><a href="#where-are-you">Where are you?</a></li>
+        <li><a href="#whats-in-the-directory-you-are-in">What's in the directory you are in?</a></li>
+        <li><a href="#what-are-in-some-other-directories">What are in some other directories?</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3-creating-a-file">Part 3: Creating a File</a></li>
+    <li><a href="#part-4-moving-and-copying">Part 4: Moving and Copying</a></li>
+    <li><a href="#part-5-directories">Part 5: Directories</a></li>
+    <li><a href="#part-6-grep-and-pipes">Part 6: Grep and Pipes</a></li>
+    <li><a href="#part-7-multiple-containers">Part 7: Multiple containers</a></li>
+    <li><a href="#part-8-cleaning-up">Part 8: Cleaning Up</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="csc-346---spring-2024---homework-1">
+  CSC 346 - Spring 2024 - Homework 1
+  <a class="anchor" href="#csc-346---spring-2024---homework-1">#</a>
+</h1>
+<p>Most homeworks will be mini-projects, with some homeworks building on one another. This first homework will be a bit simpler though. I will provide solutions to each homework, so if you get stuck on one part it shouldn't impact the later parts too much.</p>
+<h2 id="points">
+  Points
+  <a class="anchor" href="#points">#</a>
+</h2>
+<p>This assignment will be worth 16 points (two points per part). Turning the assignment in early will earn you an additional 2 points extra credit.</p>
+<ul>
+<li>Early submission: January 25th 11pm MST (UTC-7)</li>
+<li>Final Due Date: January 27th 11pm MST (UTC-7)</li>
+</ul>
+<h2 id="starting-point">
+  Starting Point
+  <a class="anchor" href="#starting-point">#</a>
+</h2>
+<p>For each homework assignment I will provide a starter <code>.zip</code> file. The starter zip for this assignment contains a text file which you will fill in with answers for parts of the assignment.</p>
+<blockquote class="book-hint info">
+  <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw01.zip">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw01.zip</a>
+</blockquote>
+
+<h2 id="what-to-turn-in">
+  What to turn in
+  <a class="anchor" href="#what-to-turn-in">#</a>
+</h2>
+<p>Each homework assignment will be submitted as a single <code>.zip</code> file. Rename the starter zip you download for this assignment with your netid in place of <code>NETID</code>. So if I was turning in this assignment I would rename the folder to <code>fischerm-hw01</code> and then zip it up and submit <code>fischerm-hw01.zip</code> to D2L.</p>
+<p>Turn in a .zip file of a folder containing the following files:</p>
+<pre tabindex="0"><code>NETID-hw01/
+    docker-screenshot.png (or .jpg)
+    hw01-answers.txt
+</code></pre><blockquote class="book-hint info">
+  <strong>Double Check!</strong> Not sure if your <code>.zip</code> file is correct?  Try expanding it and see what's <em>actually</em> inside before you turn it in.
+</blockquote>
+
+<h2 id="part-1-docker">
+  Part 1: Docker
+  <a class="anchor" href="#part-1-docker">#</a>
+</h2>
+<p>Much of the work for this class will be done within a Docker environment to have a uniform development environment
+across the wide variety of computers everyone in the class has access to.</p>
+<h3 id="install-docker">
+  Install Docker
+  <a class="anchor" href="#install-docker">#</a>
+</h3>
+<p>A small number of you may already have Docker installed; if you'd like, try typing docker in your shell. If you get a big help output, great, you don't have to install Docker! But most of you will get a &quot;command not found&quot; sort of error.</p>
+<p>Please install Docker Desktop. It is available, entirely free of charge, at</p>
+<blockquote class="book-hint info">
+  <a href="https://www.docker.com/products/docker-desktop/">https://www.docker.com/products/docker-desktop/</a>
+</blockquote>
+
+<p>After it installs, it will take a few minutes for the &quot;Engine&quot; to start; once it does, you should see a window that looks roughly like this:</p>
+<p><img src="../hw01-docker-desktop-screenshot.png" alt="An image of the Docker Desktop application running on a laptop" /></p>
+<h3 id="command-line-interface--shell">
+  Command Line Interface &amp; Shell
+  <a class="anchor" href="#command-line-interface--shell">#</a>
+</h3>
+<p>To run docker, you will need a shell, where you can type the commands. Again for consistency sake, I recommend installing VS Code. It is not required if you already have a development workflow that works for you. However it will be the tool that I will be most able to assist with.</p>
+<blockquote class="book-hint info">
+  <a href="https://code.visualstudio.com/Download">https://code.visualstudio.com/Download</a>
+</blockquote>
+
+<ul>
+<li>If you have installed VS Code you can use the built-in terminal (View -&gt; Terminal, or ctrl-~)</li>
+<li>If you are on Mac, you can open the Terminal application at <code>/Applications/Utilities/Terminal.app</code></li>
+<li>If you're on Linux, then bring up any Terminal or Commaand Prompt.</li>
+<li>If you're on Windows, depending on your OS version, you may have the new Windows Terminal experience, or the original CMD and PowerShell Prompts.</li>
+</ul>
+<h3 id="run-container">
+  Run Container
+  <a class="anchor" href="#run-container">#</a>
+</h3>
+<p>It's quite easy to run a container! Just go to your shell, and type the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker run -it python:3.10 bash
+</span></span></code></pre></div><p>You should see Docker download a few images, and then it will start up a new container, using the python
+image for version 3.10. You will see that you're inside the container because the prompt changes, like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ docker run -it python:3.10 bash
+</span></span><span style="display:flex;"><span>Unable to find image python:3.10 locally
+</span></span><span style="display:flex;"><span>latest: Pulling from library/python:3.10
+</span></span><span style="display:flex;"><span>16ec32c2132b: Pull complete
+</span></span><span style="display:flex;"><span>Digest: sha256:82becede498899ec668628e7cb0ad87b6e1c371cb8a1e597d83a47fac21d6af3
+</span></span><span style="display:flex;"><span>Status: Downloaded newer image <span style="color:#66d9ef">for</span> python:3.10
+</span></span><span style="display:flex;"><span>root@89908dbc0af1:/#
+</span></span></code></pre></div><p>You should see a blinking cursor on the last line, indicating that you are currently in an interactive shell within the container. The command line prompt <code>root@7af0c2e2c7c5:/#</code> tells you that you are the root user inside the container with an ID of <code>7af0c2e2c7c5</code>.</p>
+<h3 id="what-to-turn-in-1">
+  What to turn in
+  <a class="anchor" href="#what-to-turn-in-1">#</a>
+</h3>
+<p>Take a screenshot of your terminal window with the output of your docker run command. Name it &quot;docker-screenshot&quot; with whatever image extention it is, and put it into your folder to zip and turn in.</p>
+<h2 id="part-2-exploring">
+  Part 2: Exploring
+  <a class="anchor" href="#part-2-exploring">#</a>
+</h2>
+<p>Answer some basic questions about the container that you are in. (You're still inside the python container, right?) Turn in the answers to these questions:</p>
+<h3 id="where-are-you">
+  Where are you?
+  <a class="anchor" href="#where-are-you">#</a>
+</h3>
+<p>When the container first starts, what directory are you in?  What command could you use to find this?</p>
+<h3 id="whats-in-the-directory-you-are-in">
+  What's in the directory you are in?
+  <a class="anchor" href="#whats-in-the-directory-you-are-in">#</a>
+</h3>
+<p>Use <code>ls</code> or <code>ls -lh</code> to get a list of all of the things in the directory. Copy the list into your solutions file. (You don't need to know what any of these are, yet.)</p>
+<h3 id="what-are-in-some-other-directories">
+  What are in some other directories?
+  <a class="anchor" href="#what-are-in-some-other-directories">#</a>
+</h3>
+<p>How do you move into another directory? Look for the <code>/usr</code> directory. List everything that is in that directory as well.  Copy both the command you used and its output to your solutions file.</p>
+<h2 id="part-3-creating-a-file">
+  Part 3: Creating a File
+  <a class="anchor" href="#part-3-creating-a-file">#</a>
+</h2>
+<p>Most Docker images we'll work with don't have any command line text editors such as 'vim' or 'emacs' installed.  So we'll use the 'echo' command to create some basic files.</p>
+<p>Before you make these files, go to your home directory. Remember how to do that? Once you're in your home directory, create a new text file with &quot;Hello world&quot; in it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ echo Hello world &gt; hello.txt
+</span></span></code></pre></div><p>Use <code>ls</code> to see how the directory has changed, and <code>cat</code> to read the contents of the file. Put your results into your solutions file.</p>
+<h2 id="part-4-moving-and-copying">
+  Part 4: Moving and Copying
+  <a class="anchor" href="#part-4-moving-and-copying">#</a>
+</h2>
+<p>Rename your file from <code>hello.txt</code> to <code>hello-world.txt</code> Use <code>ls</code> to confirm that the name has changed. Use <code>cat</code> on the new filename, and also on the old filename. Put your results into your solutions file.</p>
+<p>Then, duplicate the file several times. Can you put a duplicate file (with a different name) into the current directory? Can you put on into a different directory? Once you've figured out how, record the commands that you used into your solutions file.</p>
+<h2 id="part-5-directories">
+  Part 5: Directories
+  <a class="anchor" href="#part-5-directories">#</a>
+</h2>
+<p>Create a new directory in your home directory, <code>cd</code> into it, and create three small files, all different. Use <code>ls -al</code> to show them. Which column in the output is the size of the file, do you think? Put your results into your solutions file.</p>
+<p>Attempt to remove the directory that you just created. What is the error? Work around the error, and put your observations into the solutions file.</p>
+<h2 id="part-6-grep-and-pipes">
+  Part 6: Grep and Pipes
+  <a class="anchor" href="#part-6-grep-and-pipes">#</a>
+</h2>
+<p>The grep program can be used to search for text in files and from STDIN. First let's look at a file. From anywhere in your container, use the following command to search through a log file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep group /var/log/alternatives.log
+</span></span></code></pre></div><p>What does the output of this command look like?  Compare this to the full text of the file.</p>
+<p>grep can be used on files, like you've done so far - but it can also read from its own stdin. To make it read from stdin, all you have to do is, not give it a file to search!</p>
+<p>Go back to the log file we were looking at before (/var/log/alternatives.log) and chain together two grep commands: the first should search for <code>install</code>; pipe it into a second, which searches for <code>quiet</code>. Which lines get printed?</p>
+<p>I often find it easier to remember only one form for grep, so sometimes I will just do a simple cat as the first command, and pipe it into a grep. Try out that version as well.</p>
+<p>Put your results into your solutions file.</p>
+<h2 id="part-7-multiple-containers">
+  Part 7: Multiple containers
+  <a class="anchor" href="#part-7-multiple-containers">#</a>
+</h2>
+<p>Open up multiple shells on your computer. If you're using VS Code, slect <code>Terminal &gt; New Terminal</code> from the menus. This should open a new tab with an additional shell prompt. Inside each one, start a python:3.10 container. Then make some file modifications in one of the containers. Check: do see the same changes in the other container, or not? What does this tell you about running multiple containers at the same time?</p>
+<h2 id="part-8-cleaning-up">
+  Part 8: Cleaning Up
+  <a class="anchor" href="#part-8-cleaning-up">#</a>
+</h2>
+<p>When you are done with your container, you need to clean it up.  We don't need to save anything that changed inside the container this time, so don't worry about that.</p>
+<p>Assuming that your original container is still running, it's time to stop it! The &quot;cleanest&quot; way to do this is to close it down from inside. Try typing <code>exit</code> on the command line, inside your shell, or holding down the <code>ctrl</code> key and the <code>D</code> key (<code>ctrl-d</code>).</p>
+<p>The shell program inside your container should terminate; when it does, the container itself will stop (because the process that was used to create it has exited).</p>
+<p>Docker should return you to the command line of your own computer. Once it does, re-check the status of all containers with <code>docker ps</code> and <code>docker ps -a</code> .
+Put your results into your solutions file.</p>
+<p>If any containers are still running, you can stop them using the <code>docker stop [container id]</code> command.</p>
+<p>You can remove a stopped container with the <code>docker rm [container id]</code> command.</p>
+<p>Docker images can take up a fair amount of space on your host. Use <code>docker images</code> to show the images you have downloaded and add that to your solutions file.</p>
+<p>To remove an image from your computer (remember you can always download it again) use <code>docker rmi [image id]</code>.</p>
+<p>If you're done with everything and you just want to clean up everything, you can use <code>docker system prune -a</code>. Remember this will delete any data stored in stoped containers and any images you've saved!</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a></li>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#part-1-docker">Part 1: Docker</a>
+      <ul>
+        <li><a href="#install-docker">Install Docker</a></li>
+        <li><a href="#command-line-interface--shell">Command Line Interface &amp; Shell</a></li>
+        <li><a href="#run-container">Run Container</a></li>
+        <li><a href="#what-to-turn-in-1">What to turn in</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-2-exploring">Part 2: Exploring</a>
+      <ul>
+        <li><a href="#where-are-you">Where are you?</a></li>
+        <li><a href="#whats-in-the-directory-you-are-in">What's in the directory you are in?</a></li>
+        <li><a href="#what-are-in-some-other-directories">What are in some other directories?</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3-creating-a-file">Part 3: Creating a File</a></li>
+    <li><a href="#part-4-moving-and-copying">Part 4: Moving and Copying</a></li>
+    <li><a href="#part-5-directories">Part 5: Directories</a></li>
+    <li><a href="#part-6-grep-and-pipes">Part 6: Grep and Pipes</a></li>
+    <li><a href="#part-7-multiple-containers">Part 7: Multiple containers</a></li>
+    <li><a href="#part-8-cleaning-up">Part 8: Cleaning Up</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

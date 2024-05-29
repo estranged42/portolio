@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="CSC 346 - Homework 7 # In this homework assignment you will deploy two serverless Lambda functions to faciliate image uploading for the Picturegram client. You will create two S3 buckets to hold the uploaded and resized image files. The first Lambda function will be for generating one-time-use signed upload URLs for uploading original images to the upload bucket. The second lambda function will trigger on new objects in the upload bucket, resize the images to standard sizes, and then store the resized images in a second S3 bucket which will be used as the source for images displayed in the Picturegram front end application.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Homework 7" />
+<meta property="og:description" content="CSC 346 - Homework 7 # In this homework assignment you will deploy two serverless Lambda functions to faciliate image uploading for the Picturegram client. You will create two S3 buckets to hold the uploaded and resized image files. The first Lambda function will be for generating one-time-use signed upload URLs for uploading original images to the upload bucket. The second lambda function will trigger on new objects in the upload bucket, resize the images to standard sizes, and then store the resized images in a second S3 bucket which will be used as the source for images displayed in the Picturegram front end application." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/homework/hw07/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Homework 7 | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="active">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Homework 7</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a></li>
+    <li><a href="#part-1-s3-buckets">Part 1: S3 buckets</a></li>
+    <li><a href="#part-2-signed-upload-url-lambda-function">Part 2: Signed Upload URL Lambda Function</a>
+      <ul>
+        <li><a href="#environment-variables">Environment Variables</a></li>
+        <li><a href="#testing-signed-upload-url-function">Testing Signed Upload URL Function</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3-image-resizing-lambda-function">Part 3: Image Resizing Lambda Function</a>
+      <ul>
+        <li><a href="#event-trigger">Event Trigger</a></li>
+        <li><a href="#lambda-layer">Lambda Layer</a></li>
+        <li><a href="#environment-variables-1">Environment Variables</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-4-upload-an-image">Part 4: Upload an Image</a></li>
+    <li><a href="#part-4-automated-testing">Part 4: Automated Testing</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#cloudformation-stack-deployment-errors">CloudFormation Stack Deployment Errors</a></li>
+        <li><a href="#lambda-function-execution-errors">Lambda Function Execution Errors</a></li>
+        <li><a href="#upload-url-errors">Upload URL Errors</a></li>
+        <li><a href="#file-upload-errors">File Upload Errors</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="csc-346---homework-7">
+  CSC 346 - Homework 7
+  <a class="anchor" href="#csc-346---homework-7">#</a>
+</h1>
+<p>In this homework assignment you will deploy two serverless Lambda functions to faciliate image uploading for the Picturegram client. You will create two S3 buckets to hold the uploaded and resized image files. The first Lambda function will be for generating one-time-use signed upload URLs for uploading original images to the upload bucket. The second lambda function will trigger on new objects in the upload bucket, resize the images to standard sizes, and then store the resized images in a second S3 bucket which will be used as the source for images displayed in the Picturegram front end application.</p>
+<h2 id="what-to-turn-in">
+  What to turn in
+  <a class="anchor" href="#what-to-turn-in">#</a>
+</h2>
+<p>Turn in a .zip file of a folder containing the following files:</p>
+<pre tabindex="0"><code>yournetid-hw07/
+    resize-bucket-permissions.png (or .jpg)
+    upload-bucket-permissions.png (or .jpg)
+    image-urls.txt
+</code></pre><h2 id="points">
+  Points
+  <a class="anchor" href="#points">#</a>
+</h2>
+<p>This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.</p>
+<ul>
+<li>Early submission:  April 11th 11pm MST (UTC-7)</li>
+<li>Final Due Date: April 13th 11pm MST (UTC-7)</li>
+</ul>
+<h2 id="starting-point">
+  Starting Point
+  <a class="anchor" href="#starting-point">#</a>
+</h2>
+<p>The starter zip for this assignment contains the python code that will be used for the Lambda functions. While I encourage you to read through the code files (they aren't long), this assignment focuses more on deploying and configuring the Cloud Infrastructure components, and not on the lambda code itself.</p>
+<blockquote class="book-hint info">
+  <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw07.zip">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw07.zip</a>
+</blockquote>
+
+<h2 id="part-1-s3-buckets">
+  Part 1: S3 buckets
+  <a class="anchor" href="#part-1-s3-buckets">#</a>
+</h2>
+<p>To start, create two S3 buckets from the provided template. One should be for receiving the uploaded original images. The second will hold the resized images for download by your app.. I'll refer to these as the <strong>upload bucket</strong> and the <strong>download bucket</strong> in the assignment.</p>
+<p>Refer to the <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/slides/11a-managed-cloud-lambda.pdf">Week 11 slides</a> for creating the S3 buckets based on the supplied CloudFormation template.</p>
+<blockquote class="book-hint info">
+  <a href="https://fischerm-csc346-download.s3.amazonaws.com/s3_template.yaml">https://fischerm-csc346-download.s3.amazonaws.com/s3_template.yaml</a>
+</blockquote>
+
+<p>Once your S3 buckets are deployed, check them out in the AWS S3 console, and take a screenshot of the Permissions tab for each bucket. Names these images &quot;upload-bucket-permissions&quot; and &quot;download-bucket-permissions&quot;. They can be PNG files or JPEG files, what ever your screenshots come in.</p>
+<h2 id="part-2-signed-upload-url-lambda-function">
+  Part 2: Signed Upload URL Lambda Function
+  <a class="anchor" href="#part-2-signed-upload-url-lambda-function">#</a>
+</h2>
+<p>The first Lambda function will generate signed URLs that can be used to upload files directly to the upload bucket.  This is really useful for us in that we don't need to wory about local disk space on an EC2 instance or anything. Files can go directly from the user's browser to the S3 bucket. You do not need to add the Lambda Layer to this function, as it does not need any additional python modules.</p>
+<p>Use <code>generateurl.py</code> from the starter zip file for the code for this function.</p>
+<p>Refer to the <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/slides/11a-managed-cloud-lambda.pdf">Week 11 slide 63</a> for creating this function. The Function URL used to call the Lambda function is found under Configuration → Function URL.</p>
+<p>The upload function does not need a trigger configured. It will be invoked from the Function URL you configure.</p>
+<h3 id="environment-variables">
+  Environment Variables
+  <a class="anchor" href="#environment-variables">#</a>
+</h3>
+<p>Both Lambda functions need to know infromation about your S3 buckets. We can pass this information into the code through the use of Environment Variables. Select the Confifuration tab of the lambda function, then &quot;Environment variables&quot; in the left sidebar. You will need to create two env vars for the <code>generateurl.py</code> lambda function containing your two S3 bucket names. The generate URL function needs to know both of them. The <code>S3_UPLOAD_BUCKET_NAME</code> is used to create the presigned URL returned from this function, which your app will use to actually upload the image. The <code>S3_DOWNLOAD_BUCKET_NAME</code> is used to construct the URLs of the resulting images that will be created after the resize function runs. These URLs are also returned as part of the response, even though technically they won't be valid for a breif time while the resize function actually gets to work after the image is uploaded.</p>
+<h3 id="testing-signed-upload-url-function">
+  Testing Signed Upload URL Function
+  <a class="anchor" href="#testing-signed-upload-url-function">#</a>
+</h3>
+<p>To test out your first lambda function, find the URL created when you set up the Function URL. Take this URL to Postman or <code>curl</code> and use it to test out the function. Remember that you need to include a query string parameter with the name of the file you intend to upload.  For testing this can literally be any string, when we get to integrating this into our PictureGram client, we will take the filename off of whatever file we select to upload.</p>
+<p>The query string parameter key is <code>filename</code> and the value is whatever image you want to upload. Grab some tasteful image that's somewhat large to test with, something at least 1500px x 600px so we have something to resize.</p>
+<blockquote class="book-hint danger">
+  Your images are visible to your classmantes and the public. Be mindful of the <a href="https://deanofstudents.arizona.edu/student-rights-responsibilities/student-code-conduct">Student Code of Conduct</a> specifically section F and the prohibition on harassment, intimidation, and threats. Be respectful!
+</blockquote>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>curl -v https://alw676it2cnnrshan3627wop7m0eampr.lambda-url.us-east-1.on.aws/?filename=oldmain.jpg
+</span></span></code></pre></div><p>You should get a JSON response that looks something like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;upload_url&#34;</span>: <span style="color:#e6db74">&#34;https://fischerm-csc346-upload.s3.amazonaws.com/input/oldmain-d8365602-a16a-43fc-88de-17cb345e1866.jpg?AWSAccessKeyId=ASIAT5UK7QF4Q43HMI54&amp;Signature=p8mVTma3gl94ntFIHBMCbp7vI84%3D&amp;content-type=image%2Fjpeg&amp;x-amz-security-token=IQoJb3JpZ2luX2VjEBUaCXVzLWVhc3QtMSJHMEUCIQCBieHTs0PzOtDQKiwpDqaO9RZ30abeDZLAj19BHoCKbwIgcrAjrTkepINuJVE2iM81aus35dSIeVescPvY9SFjNR8qtQMIPRAEGgwyNjk4MDA2Njk1NjEiDDOc%2B2UTp%2FZrStOJWSqSA3zz%2B%2FdRG2Y19iHSgt8tjXCvVImIEVZXp4TYoFbrRY4citEHQbxY2Qq8A3KTTxUQAZWpOX9tP0ARpC0CURpZEyR373R5dgn%2BXH2mv5zEOuWIhdg4QtidD1pEAq7Wari%2FqRvPzaoAxxWRFwarRExoYyAOYEfZIi21VbLMuLiOyt2vTQaubUg1aqucxHPOxVW32YXkgFk2if2ZCZZlBFbC4z6dlIFT6qOF%2FVKc9K8EcTh3v5aJKeQJ%2FgqRQ492jMgmpOrWirZbSD8Wuk1DEsZTRC6OAlTkeic6%2FV9k0paQdbFTqg7BJky9P4k8EgwXrjtGMPLBpd%2FeUicC5AL4MC%2BkjZgi7liGq6A8r3tLpnhnwwwbJL%2BZry1my6Rtm9SRkUp1DnkNOZy5jXgOyRptvO0tTwZovVruO94sKggTOY%2B66YwRwIrVqHrARD36Cj0gE76bwUEhUU7rdylV6ciI5u9Pm0BskrbIhyIVDGNbmAyr%2FAs5LYCZlpxkee0WA5If0ZU14cUXr1jKYmSX3J9xI6N6StB9CzDx5KiwBjqeAYcvA%2FrUNFCdLFP%2Fm2srf9A6vmN3vNiBfivdFDE8m%2Fcvazu8DgIQg64stYCktFuAGYzxRsuaDHPCW3VuD%2FyTXtMd6tXiIcAExBVNny4l3N7ZyOJ7TSJLFRpqyjjHG%2FNxOvWKKnaGCdaqRq7F%2B3baA6ryUXO%2FJgIYKvjg56NfUGGWMK%2B0WStQ%2FtZZl0CS45QY%2BDxaAfD0yEhqJT1rf3Lf&amp;Expires=1711944606&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;full_url&#34;</span>: <span style="color:#e6db74">&#34;https://fischerm-csc346-download.s3.amazonaws.com/oldmain-d8365602-a16a-43fc-88de-17cb345e1866-scale1500.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;thumbnail_url&#34;</span>: <span style="color:#e6db74">&#34;https://fischerm-csc346-download.s3.amazonaws.com/oldmain-d8365602-a16a-43fc-88de-17cb345e1866-crop600.jpg&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>upload_url</code> attribute in the response contains the URL you will use to actually upload the image to the S3 bucket. This can again be done with either Postman or <code>curl</code>, although I find Postman easier.</p>
+<p>Refer to the <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/slides/11a-managed-cloud-lambda.pdf">Week 11 slide 65</a> for Postman examples.</p>
+<blockquote class="book-hint info">
+  The presigned upload URLs are only valid for 5 minutes (300 seconds, see the code). You may have to generate a new URL periodically while testing. There's no penalty or cost to calling the Signed Upload URL lambda function. You'll only be charged for the images that actually get uploaded.
+</blockquote>
+
+<h2 id="part-3-image-resizing-lambda-function">
+  Part 3: Image Resizing Lambda Function
+  <a class="anchor" href="#part-3-image-resizing-lambda-function">#</a>
+</h2>
+<p>The next Lambda function will resize any image that shows up in the upload bucket. It will make two standard sized images from this, and store them in the download bucket.</p>
+<p>Note that you will not test your function in the same way the slides show. The final function code provided assumes event data is coming in that matches an S3 CreateObject event. So you still need to <strong>Deploy</strong> your function code whenever you make changes, but the testing will be done by just uploading a new image to the upload bucket, and then checking the resize bucket and CloudWatch Logs. See the Troubleshooting section below for more information about CloudWatch Logs.</p>
+<p>Use <code>resize_image.py</code> from the starter zip file for the code for this function.</p>
+<p>Refer to the <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/slides/11a-managed-cloud-lambda.pdf">Week 11 slides 31</a> for creating the Lambda function.</p>
+<h3 id="event-trigger">
+  Event Trigger
+  <a class="anchor" href="#event-trigger">#</a>
+</h3>
+<p>You need to add an event trigger to the resize function. This is what connects new files showing up in the upload bucket, to triggering this function to run. Refer to the <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/slides/11a-managed-cloud-lambda.pdf">Week 11 slides 41</a> for adding triggers.</p>
+<blockquote class="book-hint warning">
+  Be sure to trigger on the UPLOAD s3 bucket, and set the <code>S3_DOWNLOAD_BUCKET_NAME</code> environment variable to your DOWNLOAD bucket. If you use the same bucket name in both places you can create an infinite recursive loop!
+</blockquote>
+
+<blockquote class="book-hint warning">
+  Go ahead and include the <code>input/</code> prefix when setting up the trigger. This can help prevent against accidental recursive problems. The <code>generateurl.py</code> function has this prefix defined when it creates the presigned uplaod URLs. This means all your uploaded images should end up in this 'folder'. The <code>resize_image.py</code> code puts all the resized images at the root level of the S3 bucket. So in the unlikely event you get your buckets crossed, hopefully this difference prevents the resized images from triggering additional resize function executions, since they won't be in the <code>input/</code> folder.
+</blockquote>
+
+<h3 id="lambda-layer">
+  Lambda Layer
+  <a class="anchor" href="#lambda-layer">#</a>
+</h3>
+<p>In order to use the imaging modules, you need to have the correct python modules available within your lambda runtime. I've packaged these up in a Lambda Layer that you can reference. Refer to the <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/slides/11a-managed-cloud-lambda.pdf">Week 11 slides 45</a> for adding triggers.</p>
+<blockquote class="book-hint info">
+  arn:aws:lambda:us-east-1:269800669561:layer:fischerm-csc346-imagelayer:5
+</blockquote>
+
+<h3 id="environment-variables-1">
+  Environment Variables
+  <a class="anchor" href="#environment-variables-1">#</a>
+</h3>
+<p>The resize function only needs to have your <code>S3_DOWNLOAD_BUCKET_NAME</code> set. The upload file names and bucket names will come in as part of the <code>event</code> object passed to your lambda handler as a result of getting the Event Trigger connected.</p>
+<blockquote class="book-hint warning">
+  Be sure to trigger on the UPLOAD s3 bucket, and set the <code>S3_DOWNLOAD_BUCKET_NAME</code> environment variable to your DOWNLOAD bucket. If you use the same bucket name in both places you can create an infinite recursive loop!
+</blockquote>
+
+<h2 id="part-4-upload-an-image">
+  Part 4: Upload an Image
+  <a class="anchor" href="#part-4-upload-an-image">#</a>
+</h2>
+<p>If all goes well, you should now be able to generate an upload URL, and then use that URL to upload an image to your upload bucket. Once there, your resize function should have been triggered to grab the original, resize it, and save the resized images in the resize bucket.</p>
+<p>Create a text file named <code>image-urls.txt</code>. Upload a test image for resizing, and include three URLs in the <code>image-urls.txt</code> text file:</p>
+<pre tabindex="0"><code>Original URL:
+Thumbnail URL:
+Large URL:
+</code></pre><p>The Thumbnail and Large URLs should be able to be viewed by anyone in a browser. We will examine these URLs as part of the grading. The Original URL is the file uploaded to your upload bucket. These won't be publically visible, but the TAs and I can look at the contents of your S3 bucket to verify it.</p>
+<h2 id="part-4-automated-testing">
+  Part 4: Automated Testing
+  <a class="anchor" href="#part-4-automated-testing">#</a>
+</h2>
+<p>I have updated the testing app you can use to test out your homework assignment once you get it running. All the tests you run through the app are logged, and we will look at the most recent test results for your NetID when we do the grading.</p>
+<blockquote class="book-hint info">
+  <a href="https://csc346.test.apps.uits.arizona.edu/">https://csc346.test.apps.uits.arizona.edu/</a>
+</blockquote>
+
+<p>You will need to log in through WebAuth to see the URL form.</p>
+<p>The input URL will be the Function URL for your Generate Upload URL Lambda function, ie <code>https://xxxxxxxxxxxxxx.lambda-url.us-east-1.on.aws/</code></p>
+<p>The tests take between 15 and 30 seconds to run, so be patient.</p>
+<h2 id="troubleshooting">
+  Troubleshooting
+  <a class="anchor" href="#troubleshooting">#</a>
+</h2>
+<h3 id="cloudformation-stack-deployment-errors">
+  CloudFormation Stack Deployment Errors
+  <a class="anchor" href="#cloudformation-stack-deployment-errors">#</a>
+</h3>
+<p>If you have problems deploying the S3 CloudFormation stacks, double check that the URL is correct when specifying the S3 template URL. Also check the Events tab of the stack to see what errors show up there. Bring errors to the Discord class channel and we'll work through them.</p>
+<h3 id="lambda-function-execution-errors">
+  Lambda Function Execution Errors
+  <a class="anchor" href="#lambda-function-execution-errors">#</a>
+</h3>
+<p>Your Lambda functions will be executed in two ways. The resize function is triggered whenever a new image shows up in the upload bucket. The upload function is executed when you send a GET API request to the Function URL. In any case, you don't have direct access to the Lambda console to see any errors.</p>
+<p>AWS Lambda integrates with the CloudWatch Logs service to store all the log files generated. Search for CloudWatch in the services bar, and then select <strong>Log groups</strong> in the sidebar. You will get one log group for each Lambda function.  Look at the individual log streams in there for possible errors.</p>
+<p><img src="../hw07-cloudwatch-logs-1.png" alt="A screenshot of the AWS CloudWatch Logs Console" /></p>
+<p><img src="../hw07-cloudwatch-logs-2.png" alt="A screenshot of the AWS CloudWatch Logs with a python error" /></p>
+<h3 id="upload-url-errors">
+  Upload URL Errors
+  <a class="anchor" href="#upload-url-errors">#</a>
+</h3>
+<p>If you get a &quot;Forbidden&quot; error when trying to hit your upload-url Function URL in postman:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Message&#34;</span>: <span style="color:#e6db74">&#34;Forbidden&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Check the configuration on your Function URL. Be sure that the Auth setting is &quot;NONE&quot;.</p>
+<h3 id="file-upload-errors">
+  File Upload Errors
+  <a class="anchor" href="#file-upload-errors">#</a>
+</h3>
+<p>If you get a &quot;signature does not match&quot; error when trying to upload the file to your signed upload URL, check and make sure that the HTTP method is <code>PUT</code>. Also maje sure that the image file type matches what you requested in the upload-url call.  For example if you requested <code>filename=image.jpg</code> you need to upload an image of type JPEG, with either a <code>.jpg</code> or <code>.jpeg</code> extension. The <code>Content-Type</code> header must match the signed URL.`</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a></li>
+    <li><a href="#part-1-s3-buckets">Part 1: S3 buckets</a></li>
+    <li><a href="#part-2-signed-upload-url-lambda-function">Part 2: Signed Upload URL Lambda Function</a>
+      <ul>
+        <li><a href="#environment-variables">Environment Variables</a></li>
+        <li><a href="#testing-signed-upload-url-function">Testing Signed Upload URL Function</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3-image-resizing-lambda-function">Part 3: Image Resizing Lambda Function</a>
+      <ul>
+        <li><a href="#event-trigger">Event Trigger</a></li>
+        <li><a href="#lambda-layer">Lambda Layer</a></li>
+        <li><a href="#environment-variables-1">Environment Variables</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-4-upload-an-image">Part 4: Upload an Image</a></li>
+    <li><a href="#part-4-automated-testing">Part 4: Automated Testing</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#cloudformation-stack-deployment-errors">CloudFormation Stack Deployment Errors</a></li>
+        <li><a href="#lambda-function-execution-errors">Lambda Function Execution Errors</a></li>
+        <li><a href="#upload-url-errors">Upload URL Errors</a></li>
+        <li><a href="#file-upload-errors">File Upload Errors</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

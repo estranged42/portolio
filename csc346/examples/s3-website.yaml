@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: S3 Public Website
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: The name of the S3 bucket.
+    AllowedPattern: "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)"
+    ConstraintDescription: Must be a valid character in a DNS name.
+
+
+Resources:
+  ## S3 bucket
+  S3UploadBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: "index.html"
+        ErrorDocument: "error.html"
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders:
+            - "*"
+          AllowedMethods:
+            - GET
+            - PUT
+            - HEAD
+          AllowedOrigins:
+            - "*"
+
+  # #### S3 Bukcet Policy
+  #
+  # Sets the required policy on the S3 bucket to allow web hosting.
+  S3BucketPublicPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: S3UploadBucket
+      PolicyDocument:
+        Statement:
+        - Action:
+          - s3:GetObject
+          Effect: Allow
+          Resource: !Sub "arn:aws:s3:::${S3UploadBucket}/*"
+          Principal: "*"

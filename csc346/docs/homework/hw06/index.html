@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="CSC 346 - Homework 6 # In this homework assignment we&#39;ll continue work on our PictureGram client using our same EC2 instance from HW05.
+What to turn in # There are two parts to be graded for this assignment. The first part is a .zip file containing your app files. This is similar to past assignments.
+yournetid-hw06/ Dockerfile html/ favicon.ico index.html js/ app.js picturegramSDK.js The second part is testing your EC2 server deployment.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Homework 6" />
+<meta property="og:description" content="CSC 346 - Homework 6 # In this homework assignment we&#39;ll continue work on our PictureGram client using our same EC2 instance from HW05.
+What to turn in # There are two parts to be graded for this assignment. The first part is a .zip file containing your app files. This is similar to past assignments.
+yournetid-hw06/ Dockerfile html/ favicon.ico index.html js/ app.js picturegramSDK.js The second part is testing your EC2 server deployment." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/homework/hw06/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Homework 6 | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="active">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Homework 6</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a>
+      <ul>
+        <li><a href="#indexhtml">index.html</a></li>
+        <li><a href="#appjs">app.js</a></li>
+        <li><a href="#picturegramsdkjs">picturegramSDK.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-1-load-older-posts">Part 1: Load Older Posts</a>
+      <ul>
+        <li><a href="#picturegramsdkjs-1">picturegramSDK.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-2-authentication">Part 2: Authentication</a>
+      <ul>
+        <li><a href="#picturegramsdkjs-2">picturegramSDK.js</a></li>
+        <li><a href="#asyncawait">Async/Await</a></li>
+        <li><a href="#store-auth-response">Store Auth Response</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3-check-logged-in-status">Part 3: Check Logged In Status</a>
+      <ul>
+        <li><a href="#isloggedin">isLoggedIn()</a></li>
+        <li><a href="#setup">setup()</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-4-new-posts">Part 4: New Posts</a>
+      <ul>
+        <li><a href="#createpost">createPost()</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-5-ec2">Part 5: EC2</a></li>
+    <li><a href="#part-6-testing">Part 6: Testing</a>
+      <ul>
+        <li><a href="#troubleshooting-tips">Troubleshooting Tips</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="csc-346---homework-6">
+  CSC 346 - Homework 6
+  <a class="anchor" href="#csc-346---homework-6">#</a>
+</h1>
+<p>In this homework assignment we'll continue work on our PictureGram client using our same EC2 instance from HW05.</p>
+<h2 id="what-to-turn-in">
+  What to turn in
+  <a class="anchor" href="#what-to-turn-in">#</a>
+</h2>
+<p>There are two parts to be graded for this assignment. The first part is a .zip file containing your app files. This is similar to past assignments.</p>
+<pre tabindex="0"><code>yournetid-hw06/
+        Dockerfile
+        html/
+            favicon.ico
+            index.html
+            js/
+                app.js
+                picturegramSDK.js
+</code></pre><p>The second part is testing your EC2 server deployment. See <a href="#part-5-testing">Part 5: Testing</a> for instructions on how to do this.  Your .zip file and the on-demand remote testing must be completed by the due date of the assignment.</p>
+<h2 id="points">
+  Points
+  <a class="anchor" href="#points">#</a>
+</h2>
+<p>This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.</p>
+<ul>
+<li>Early submission:  March 21st 11pm MST (UTC-7)</li>
+<li>Final Due Date: March 23rd 11pm MST (UTC-7)</li>
+</ul>
+<h2 id="starting-point">
+  Starting Point
+  <a class="anchor" href="#starting-point">#</a>
+</h2>
+<p>For this assignment, begin by downloading the following Zip file. This contains the basic diretory structure, and some starting HTML documents. Place these files into your <code>yournetid-hw06</code> directory, and add to the files as needed.</p>
+<blockquote class="book-hint info">
+  <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw06.zip">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw06.zip</a>
+</blockquote>
+
+<p>Since this class is more about the Cloud Computing bits of things, and less about web app development, the JavaScript for this assignment is limited to filling in some additional functionality which is similar to some existing code that is in the starter file.</p>
+<h3 id="indexhtml">
+  index.html
+  <a class="anchor" href="#indexhtml">#</a>
+</h3>
+<p>We don't need multiple pages anymore, so <code>app.html</code> has been removed, and all the logic and user interface just happens directly in <code>index.html</code>. You won't have to make any changes in this file, but it's a good idea to look at it and see how the markup looks, and how the JavaScript files are included.</p>
+<h3 id="appjs">
+  app.js
+  <a class="anchor" href="#appjs">#</a>
+</h3>
+<p>The main application logic still happens in <code>app.js</code>. There's a lot more code in the starter version, but still has some places for you to fill in functionality.</p>
+<h3 id="picturegramsdkjs">
+  picturegramSDK.js
+  <a class="anchor" href="#picturegramsdkjs">#</a>
+</h3>
+<p>I moved the API access function in to a separate file, and made it in to a class which is instantiated inside <code>app.js</code>. This will be similar to using Software Development Kits (SDKs) provided by 3rd party services you're likely to use. There's one main <code>apiCall()</code> method which is fully implimented. There are convenience methods for the rest of the functionality. Some of these are implimented in the starter kit, and others you'll impliment as part of the homework assignment.</p>
+<h2 id="part-1-load-older-posts">
+  Part 1: Load Older Posts
+  <a class="anchor" href="#part-1-load-older-posts">#</a>
+</h2>
+<p>The starter app will load the 5 most recent posts, basically starting where HW05 left off. For this part you will impliment a button which loads older posts when clicked.</p>
+<h3 id="picturegramsdkjs-1">
+  picturegramSDK.js
+  <a class="anchor" href="#picturegramsdkjs-1">#</a>
+</h3>
+<p>First you will impliment the <code>getPostsBefore()</code> method of the picturegramSDK. This will allow you to load older posts. Remove the <code>console.log</code> line, and replace it with code that will call <code>this.#apiCall( ... )</code> correctly, and return that result. See <code>getPosts()</code> in the same file for an example.</p>
+<p>This needs to call the <code>posts/before/${timestamp}</code> action of the picturegramSDK. It uses the <code>GET</code> http method, so be sure to specify that. The timestamp will passed in to the method in the <code>endTime</code> variable, so you should be able to append that value to construct your method string.</p>
+<p>After this method is implimented, the &quot;Load Older Posts&quot; button the the app page should work. See if you can trace the connections from user click, to button event listener, to the <code>getPostsBefore()</code> method and to the final HTTP API call that's made.</p>
+<h2 id="part-2-authentication">
+  Part 2: Authentication
+  <a class="anchor" href="#part-2-authentication">#</a>
+</h2>
+<h3 id="picturegramsdkjs-2">
+  picturegramSDK.js
+  <a class="anchor" href="#picturegramsdkjs-2">#</a>
+</h3>
+<p>Next you need to impliment the <code>authenticate()</code> method on the picturegramSDK class. Remove the <code>console.log</code> line of code containing the early <code>return</code>, then follow the comments to implement the rest of the functionality.  Replace the <code>undefined == undefined</code> if check with a correct conditional.</p>
+<p>This should be similar to the <code>getPostsBefore</code> method. You need to take the arguments passed in to the function, and build an <code>action</code> string which you will pass to the <code>this.#apiCall( ... )</code>. This API call is also a GET.</p>
+<p>It will be very helpful to familiarize yourself with what a response JSON object looks like from the <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/docs/examples/picturegram-api/#get-authenticateticketserviceserviceurl"><code>authenticate</code> API call from the PictureGram API documentation</a>.</p>
+<h3 id="asyncawait">
+  Async/Await
+  <a class="anchor" href="#asyncawait">#</a>
+</h3>
+<p>Note that the <code>authenticate</code> method is marked as <code>async</code>. This is because we need to <code>await</code> the response from our <code>apiCall</code> so that we can process the results. If you look at the picturegramSDK, only the functions that need to deal with the response of an <code>apiCall</code> directly in them are <code>async/await</code>. The others return the Promise object from <code>apiCall</code> to the caller context. In all cases however, calls to the picturegramSDK that require <code>apiCall</code> access must be made in an <code>async/await</code> aware context. See the <code>async function loadPosts</code> implementation in <code>app.js</code> as an example.</p>
+<h3 id="store-auth-response">
+  Store Auth Response
+  <a class="anchor" href="#store-auth-response">#</a>
+</h3>
+<p>When we get the <code>authResponse</code> from the <code>authenticate/${ticket}?service=${service}</code> api call, we need to store the resulting <code>username</code> and <code>jwt</code> values as local class attributes, and also store in the browser's <code>window.sessionStorage</code>. This way if you reload your page, you will remain logged in and not have to authenticate each time.</p>
+<p>Storing the values on class attributes is as simple as assigning them to <code>this.attributeName</code>.  Look at the top of <code>class picturegramSDK</code> to see the attributes that are defined as part of the class.</p>
+<p>Storing the information in <code>window.sessionStorage</code> can be done by calling the appropriate <code>window.sessionStorage.setItem()</code> method. See the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">Mozilla Developer documentation</a> for details.</p>
+<h2 id="part-3-check-logged-in-status">
+  Part 3: Check Logged In Status
+  <a class="anchor" href="#part-3-check-logged-in-status">#</a>
+</h2>
+<p>After a successful login, the user interface is updated to show the username, and provide a logout link instead of a login link. In order to be able to reload the page, or leave and come back in the same browser session, we stored the username and jwt auth token in the browser's <code>sessionStorage</code>. Now we need to try and read these values back out again, and update the interface if we have stored values.</p>
+<h3 id="isloggedin">
+  isLoggedIn()
+  <a class="anchor" href="#isloggedin">#</a>
+</h3>
+<p>Implement the <code>isLoggedIn()</code> method in picturegramSDK.js.  You can determine if someone is logged in or not by testing to see if the current picturegramSDK object has the <code>authJWT</code> attribute set, or if it is null. Replace the <code>undefined == undefined</code> if check with a correct conditional. If <code>this.authJWT</code> is null, we can try and load the username and jwt token from <code>sessionStorage</code> using <code>window.sessionStorage.getItem()</code>. If we retrieve values from <code>sessionStorage</code>, then we can assign those back to the local object attributes, and finally test <code>this.authJWT</code> again to see if we have login information now. If we do we can return <code>true</code>, and return <code>false</code> if not.</p>
+<h3 id="setup">
+  setup()
+  <a class="anchor" href="#setup">#</a>
+</h3>
+<p>Finally, now that we have a method to determine if the user is logged in or not, we need to use that in the <code>setup()</code> function in <code>app.js</code>. Replace the <code>undefined == undefined</code> if check with a correct conditional.</p>
+<p>Since we assign the username and jwt values to local object attributes, we can reference them from our <code>pg</code> object using <code>pg.username</code>. If there is a logged in user, call the <code>updateLoginButton()</code> function and pass in <code>pg.username</code>. If not, call <code>updateLoginButton()</code> with no argument.</p>
+<p>Take a look at the <code>updateLoginButton</code> function to see what the behavior is in each case.</p>
+<h2 id="part-4-new-posts">
+  Part 4: New Posts
+  <a class="anchor" href="#part-4-new-posts">#</a>
+</h2>
+<p>Once you can successfully log in, the interface should update to show the new post form. There is already code connecting the &quot;POST!&quot; button to the <code>handleNewPost()</code> function in <code>app.js</code>. This function gets the contents of the textarea and then calls <code>pg.createPost()</code>, which you will implement next.</p>
+<h3 id="createpost">
+  createPost()
+  <a class="anchor" href="#createpost">#</a>
+</h3>
+<p>In <code>picturegramSDK.js</code> find the <code>createPost()</code> method. Implementing this will actually only involve one line of code, but there's a lot that goes into that line.  Unlike the previous API calls that you have implemented, this one will use the <code>POST</code> HTTP method since it is sending data to the API. The API action we want to call is <code>posts</code>, so take a look at the <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/docs/examples/picturegram-api/#post-posts">PictureGram API Documentation</a> for that method.</p>
+<p>Also unlike the previous API calls, this one requires authorization, since we don't want to just allow anonymous message and image posting. So you must include the optional <code>requiresAuth</code> argument of the <code>#apiCall()</code> method.  Lastly this API call needs to include the data itself to send to the server as the fourth <code>data</code> argument.  The contents of this last argument must be a JavaScript object, with one key: <code>message</code> and the value from <code>postText</code> that is being passed in.</p>
+<blockquote class="book-hint info">
+  Note that for this homework we only need to include the <code>message</code> key and value, since we don't yet support image uploads. So you can ignore the <code>image_full_url</code> and <code>image_thumbnail_url</code> keys from the documentation.
+</blockquote>
+
+<p>The result from the <code>#apiCall()</code> will be returned from this method.</p>
+<p>Once your API call works, the new post should show up in your client.</p>
+<blockquote class="book-hint danger">
+  Your posts are visible to your classmantes and the public. Be mindful of the <a href="https://deanofstudents.arizona.edu/student-rights-responsibilities/student-code-conduct">Student Code of Conduct</a> specifically section F and the prohibition on harassment, intimidation, and threats. The posts are logged to your NetID.  Be respectful!
+</blockquote>
+
+<h2 id="part-5-ec2">
+  Part 5: EC2
+  <a class="anchor" href="#part-5-ec2">#</a>
+</h2>
+<p>As with homework 05, once you have the app implimented and working correctly on your local Docker environment, you need to move it to an EC2 instance so that you can access your app live on the internet. See <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/docs/homework/hw05/#part-4-run-your-app-on-your-ec2-instance">Part 4 from Homework 5</a> for details on running your app on your EC2 instance.</p>
+<p>You will need to set up an EC2 instance, and complete the following tasks:</p>
+<ul>
+<li>Install docker</li>
+<li>Start the docker service</li>
+<li>Copy your homework 6 files to the EC2 host (Dockerfile, html, js etc)</li>
+<li>Build your docker image on the EC2 host</li>
+<li>Run your docker image on the EC2 host</li>
+</ul>
+<blockquote class="book-hint info">
+  <p>When you run your docker image on the EC2 host, you want the publicly available port to be maped to 80, instead of 8080 as we've been doing locally. This matches with the security group configurations around your EC2 instance.</p>
+<p>The docker service runs as <code>root</code> on your EC2 instance, so you will need to use the <code>sudo</code> command before your <code>docker</code> commands to elevate your current user privileges.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo docker build -t homework06:latest .
+</span></span><span style="display:flex;"><span>sudo docker run -i --rm -p80:80 homework06:latest
+</span></span></code></pre></div>
+</blockquote>
+
+<h2 id="part-6-testing">
+  Part 6: Testing
+  <a class="anchor" href="#part-6-testing">#</a>
+</h2>
+<p>I have updated the testing app you can use to test out your homework assignment once you get it running. All the tests you run through the app are logged, and we will look at the most recent test results for your NetID when we do the grading. So make sure your last test is the good one. 😀</p>
+<blockquote class="book-hint info">
+  <a href="https://csc346.test.apps.uits.arizona.edu/">https://csc346.test.apps.uits.arizona.edu/</a>
+</blockquote>
+
+<p>You will need to log in through WebAuth to see the URL form.</p>
+<p><img src="../hw06-tests.png" alt="A screenshot of the remote app testing form" /></p>
+<p>The tests take between one to two minutes to run, so be patient.</p>
+<p>You can only test a publicly accessible URL. This cannot be used to test your http://localhost:8080/ version. Think about why this would be.</p>
+<p>I am not doing a full test of all the functionality required for this homework. I am only performing 4 tests remotely:</p>
+<ul>
+<li>Can your application be accessed, and does the resulting URL match the one entered.</li>
+<li>Are there 5 initial chats when the page loads.</li>
+<li>Does the <code>#olderchatsbutton</code> button exist, and load more chats when clicked.</li>
+<li>Is there a <code>Login</code> link with an <code>href</code> attribute pointing to the correct URL.</li>
+</ul>
+<p>Creating new posts still needs to work!  We will test that separately when we grade the assignment.</p>
+<h3 id="troubleshooting-tips">
+  Troubleshooting Tips
+  <a class="anchor" href="#troubleshooting-tips">#</a>
+</h3>
+<ul>
+<li>Can you visit your app's URL directly in a browser window? If you cannot load your app, the testing app won't be able to either.</li>
+<li>Check the URL. Did you enter a complete URL such as <code>http://53.2.35.19</code>?</li>
+<li>Does your URL use <code>http://</code>? We have not configured TLS support, and port 443 is not open on your security group. Make sure to use <code>http</code>.</li>
+<li>Did you map your docker port 80 to your host's port 80?  <code>-p80:80</code>.  Only port 80 is open on our security group to allow incomming connections.</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a>
+      <ul>
+        <li><a href="#indexhtml">index.html</a></li>
+        <li><a href="#appjs">app.js</a></li>
+        <li><a href="#picturegramsdkjs">picturegramSDK.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-1-load-older-posts">Part 1: Load Older Posts</a>
+      <ul>
+        <li><a href="#picturegramsdkjs-1">picturegramSDK.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-2-authentication">Part 2: Authentication</a>
+      <ul>
+        <li><a href="#picturegramsdkjs-2">picturegramSDK.js</a></li>
+        <li><a href="#asyncawait">Async/Await</a></li>
+        <li><a href="#store-auth-response">Store Auth Response</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3-check-logged-in-status">Part 3: Check Logged In Status</a>
+      <ul>
+        <li><a href="#isloggedin">isLoggedIn()</a></li>
+        <li><a href="#setup">setup()</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-4-new-posts">Part 4: New Posts</a>
+      <ul>
+        <li><a href="#createpost">createPost()</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-5-ec2">Part 5: EC2</a></li>
+    <li><a href="#part-6-testing">Part 6: Testing</a>
+      <ul>
+        <li><a href="#troubleshooting-tips">Troubleshooting Tips</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

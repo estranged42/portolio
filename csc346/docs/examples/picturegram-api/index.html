@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="PictureGram API # This Sample API specification describes how a client will interact with a Sample API, but does not describe how the API functionality is implimented.
+Reference API Endpoint # The endpoint base URL is:
+https://csc346picturegram.test.apps.uits.arizona.edu/ This is used as the base URL for all API methods described below.
+GET /healthcheck # Returns a basic healthcheck for the API. Useful for testing out if you are able to connect to the API, and if the API can access all of the information it needs.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="PictureGram API" />
+<meta property="og:description" content="PictureGram API # This Sample API specification describes how a client will interact with a Sample API, but does not describe how the API functionality is implimented.
+Reference API Endpoint # The endpoint base URL is:
+https://csc346picturegram.test.apps.uits.arizona.edu/ This is used as the base URL for all API methods described below.
+GET /healthcheck # Returns a basic healthcheck for the API. Useful for testing out if you are able to connect to the API, and if the API can access all of the information it needs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/examples/picturegram-api/" /><meta property="article:section" content="docs" />
+
+
+
+<title>PictureGram API | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="active">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>PictureGram API</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#reference-api-endpoint">Reference API Endpoint</a></li>
+    <li><a href="#get-healthcheck"><code>GET /healthcheck</code></a></li>
+    <li><a href="#get-authenticateticketserviceserviceurl"><code>GET /authenticate/&lt;ticket&gt;?service=&lt;serviceURL&gt;</code></a></li>
+    <li><a href="#get-users"><code>GET /users</code></a></li>
+    <li><a href="#post-posts"><code>POST /posts</code></a>
+      <ul>
+        <li><a href="#properties">Properties</a></li>
+      </ul>
+    </li>
+    <li><a href="#get-posts"><code>GET /posts</code></a></li>
+    <li><a href="#get-postsafterstarttime"><code>GET /posts/after/&lt;startTime&gt;</code></a></li>
+    <li><a href="#get-postsbeforeendtime"><code>GET /posts/before/&lt;endTime&gt;</code></a></li>
+    <li><a href="#get-loginserviceserviceurl"><code>GET /login?service=&lt;serviceURL&gt;</code></a></li>
+    <li><a href="#get-processloginservicetokenticketcasticket"><code>GET /processlogin/&lt;serviceToken&gt;?ticket=&lt;CASticket&gt;</code></a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="picturegram-api">
+  PictureGram API
+  <a class="anchor" href="#picturegram-api">#</a>
+</h1>
+<p>This Sample API specification describes how a client will interact with a Sample API, but does not describe how the API functionality is implimented.</p>
+<h2 id="reference-api-endpoint">
+  Reference API Endpoint
+  <a class="anchor" href="#reference-api-endpoint">#</a>
+</h2>
+<p>The endpoint base URL is:</p>
+<blockquote class="book-hint info">
+  <a href="https://csc346picturegram.test.apps.uits.arizona.edu/">https://csc346picturegram.test.apps.uits.arizona.edu/</a>
+</blockquote>
+
+<p>This is used as the base URL for all API methods described below.</p>
+<h2 id="get-healthcheck">
+  <code>GET /healthcheck</code>
+  <a class="anchor" href="#get-healthcheck">#</a>
+</h2>
+<p>Returns a basic healthcheck for the API. Useful for testing out if you are able to connect to the API, and if the API can access all of the information it needs. If query string arguments are passed as part of the URL, they will be echoed as part of the <code>request</code> section.</p>
+<p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-get-healthcheck" id="tabs-get-healthcheck-0" checked="checked" />
+  <label for="tabs-get-healthcheck-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /healthcheck?fruit<span style="color:#f92672">=</span>apple HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-get-healthcheck" id="tabs-get-healthcheck-1"  />
+  <label for="tabs-get-healthcheck-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --location --request GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/healthcheck?fruit=apple&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 200</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;request&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/Prod/healthcheck&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;HTTP/1.1&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;sourceIp&#34;</span>: <span style="color:#e6db74">&#34;67.1.115.222&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;userAgent&#34;</span>: <span style="color:#e6db74">&#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:122.0) Gecko/20100101 Firefox/122.0&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;headers&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;accept&#34;</span>: <span style="color:#e6db74">&#34;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;accept-encoding&#34;</span>: <span style="color:#e6db74">&#34;gzip, deflate, br&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;accept-language&#34;</span>: <span style="color:#e6db74">&#34;en-US,en;q=0.5&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;content-length&#34;</span>: <span style="color:#e6db74">&#34;0&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;host&#34;</span>: <span style="color:#e6db74">&#34;csc346picturegram.test.apps.uits.arizona.edu&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;sec-fetch-dest&#34;</span>: <span style="color:#e6db74">&#34;document&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;sec-fetch-mode&#34;</span>: <span style="color:#e6db74">&#34;navigate&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;sec-fetch-site&#34;</span>: <span style="color:#e6db74">&#34;none&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;sec-fetch-user&#34;</span>: <span style="color:#e6db74">&#34;?1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;upgrade-insecure-requests&#34;</span>: <span style="color:#e6db74">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;user-agent&#34;</span>: <span style="color:#e6db74">&#34;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:122.0) Gecko/20100101 Firefox/122.0&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;x-amzn-trace-id&#34;</span>: <span style="color:#e6db74">&#34;Root=1-65c42df0-5f4ee70e0bf634c72db3126a&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;x-forwarded-for&#34;</span>: <span style="color:#e6db74">&#34;67.1.115.222&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;x-forwarded-port&#34;</span>: <span style="color:#e6db74">&#34;443&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;x-forwarded-proto&#34;</span>: <span style="color:#e6db74">&#34;https&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;queryString&#34;</span>: <span style="color:#e6db74">&#34;fruit=apple&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="get-authenticateticketserviceserviceurl">
+  <code>GET /authenticate/&lt;ticket&gt;?service=&lt;serviceURL&gt;</code>
+  <a class="anchor" href="#get-authenticateticketserviceserviceurl">#</a>
+</h2>
+<p>Attempts to validate a CAS ticket and returns an API session key. This requires a query string argument containing the serviceURL to authenticate as inaddition to the CAS ticket to validate. This serviceURL must match the one used when calling the <code>GET /login</code> action.</p>
+<p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-get-authenticate" id="tabs-get-authenticate-0" checked="checked" />
+  <label for="tabs-get-authenticate-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /authenticate/ST-1662939?service<span style="color:#f92672">=</span>&lt;serviceURL&gt; HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-get-authenticate" id="tabs-get-authenticate-1"  />
+  <label for="tabs-get-authenticate-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --location --request GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/authenticate/ST-1662939?service=&lt;serviceURL&gt;&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 200</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;jwt&#34;</span>: <span style="color:#e6db74">&#34;eyJ0eXAiO.eyJ1aWQiOiJm...aXNjaGVybSIsIml.MxKiIhc_6hbz2rpjzGo&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;yournetid&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Response 400</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;ERROR&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Invalid Ticket: &lt;error&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="get-users">
+  <code>GET /users</code>
+  <a class="anchor" href="#get-users">#</a>
+</h2>
+<p>Get a list of all the users of this service.</p>
+<p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-get-users" id="tabs-get-users-0" checked="checked" />
+  <label for="tabs-get-users-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /users HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-get-users" id="tabs-get-users-1"  />
+  <label for="tabs-get-users-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --location --request GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/users&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 200</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;users&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;usernam&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Mark Fischer&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;usernam&#34;</span>: <span style="color:#e6db74">&#34;ym1014&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Yingjie Ma&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;usernam&#34;</span>: <span style="color:#e6db74">&#34;harshitanarnoli&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Harshita Narnoli&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;numusers&#34;</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="post-posts">
+  <code>POST /posts</code>
+  <a class="anchor" href="#post-posts">#</a>
+</h2>
+<p>Create a new post. This action requires you to pass a JWT authentication token in as a Bearer token in an Authorization header. The body of the POST contains the message to add. The username is retrieved from the JWT auth token, and the timestamp is logged on the API server.</p>
+<h3 id="properties">
+  Properties
+  <a class="anchor" href="#properties">#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Notes</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td>The text of the post.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>image_full_url</td>
+<td>URL to a full-size image. Do not set this if there is no image for this post.</td>
+<td>No</td>
+</tr>
+<tr>
+<td>image_thumbnail_url</td>
+<td>URL to a thumbnail image. Do not set this if there is no image for this post.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>body</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;This is some new message for a post.&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;image_full_url&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/fullsize_image.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;image_thumbnail_url&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/thumbnail_image.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-post-posts" id="tabs-post-posts-0" checked="checked" />
+  <label for="tabs-post-posts-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>POST /posts HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span><span style="display:flex;"><span>Authorization: Bearer eyJ0eXAiOiJKV1QiLC...You2iKxkAh8_Dr1lS0
+</span></span><span style="display:flex;"><span>Content-Type: application/json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;This is some new message to post in a post.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-post-posts" id="tabs-post-posts-1"  />
+  <label for="tabs-post-posts-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --request POST <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/posts&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--header <span style="color:#e6db74">&#39;Authorization: Bearer eyJ0eXAiOiJKV1QiLC...You2iKxkAh8_Dr1lS0&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--header <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>--data-raw <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;message&#34;: &#34;This is some new message to post in a post.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 200</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="get-posts">
+  <code>GET /posts</code>
+  <a class="anchor" href="#get-posts">#</a>
+</h2>
+<p>Get a list of posts. Currently this returns only the first 5 recent posts.</p>
+<p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-get-posts" id="tabs-get-posts-0" checked="checked" />
+  <label for="tabs-get-posts-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /posts HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-get-posts" id="tabs-get-posts-1"  />
+  <label for="tabs-get-posts-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --location --request GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/posts&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 200</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;count&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;messages&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_thumbnail_url&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/images/DSC7866-sm.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Congratulations! If you&#39;re seeing these posts then you&#39;ve probably got your basic app working.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_description&#34;</span>: <span style="color:#e6db74">&#34;Night time celebration of students in graduation gowns in the forground, with fireworks exploading in the background.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_full_url&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/images/DSC7866.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811130.770543&#34;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Another sample post with no image attached.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811082.482178&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Initial message post.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811045.597851&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;last_message_timestamp&#34;</span>: <span style="color:#e6db74">&#34;1664771391.765176&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="get-postsafterstarttime">
+  <code>GET /posts/after/&lt;startTime&gt;</code>
+  <a class="anchor" href="#get-postsafterstarttime">#</a>
+</h2>
+<p>Get a list of posts that were posted after the <code>startTime</code>. The <code>startTime</code> slot should be a seconds based timestamp with optional decimal, such as <code>1664848042.519957</code>.</p>
+<p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-get-posts-after" id="tabs-get-posts-after-0" checked="checked" />
+  <label for="tabs-get-posts-after-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /posts/after/1664848042.519957 HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-get-posts-after" id="tabs-get-posts-after-1"  />
+  <label for="tabs-get-posts-after-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --location --request GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/posts/after/1664848042.519957&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 200</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;count&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;messages&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_thumbnail_url&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/images/DSC7866-sm.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Congratulations! If you&#39;re seeing these posts then you&#39;ve probably got your basic app working.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_description&#34;</span>: <span style="color:#e6db74">&#34;Night time celebration of students in graduation gowns in the forground, with fireworks exploading in the background.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_full_url&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/images/DSC7866.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811130.770543&#34;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Another sample post with no image attached.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811082.482178&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Initial message post.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811045.597851&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;last_message_timestamp&#34;</span>: <span style="color:#e6db74">&#34;1664771391.765176&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="get-postsbeforeendtime">
+  <code>GET /posts/before/&lt;endTime&gt;</code>
+  <a class="anchor" href="#get-postsbeforeendtime">#</a>
+</h2>
+<p>Get a list of posts that were posted before the <code>endTime</code>. The <code>endTime</code> slot should be a seconds based timestamp with optional decimal, such as <code>1664771391.765176</code>.</p>
+<p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-get-posts-before" id="tabs-get-posts-before-0" checked="checked" />
+  <label for="tabs-get-posts-before-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /posts/before/1664771391.765176 HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-get-posts-before" id="tabs-get-posts-before-1"  />
+  <label for="tabs-get-posts-before-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --location --request GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/posts/before/1664771391.765176&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 200</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;count&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;messages&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_thumbnail_url&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/images/DSC7866-sm.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Congratulations! If you&#39;re seeing these posts then you&#39;ve probably got your basic app working.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_description&#34;</span>: <span style="color:#e6db74">&#34;Night time celebration of students in graduation gowns in the forground, with fireworks exploading in the background.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;image_full_url&#34;</span>: <span style="color:#e6db74">&#34;https://example.com/images/DSC7866.jpg&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811130.770543&#34;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Another sample post with no image attached.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811082.482178&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;Initial message post.&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;fischerm&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;chat&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;timestamp&#34;</span>: <span style="color:#e6db74">&#34;1708811045.597851&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;last_message_timestamp&#34;</span>: <span style="color:#e6db74">&#34;1664771391.765176&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="get-loginserviceserviceurl">
+  <code>GET /login?service=&lt;serviceURL&gt;</code>
+  <a class="anchor" href="#get-loginserviceserviceurl">#</a>
+</h2>
+<p>This is not really an API call, as you make this request directly as a browser navigation. This URL should be constructed in such a way that the user clicks on a link to this URL. The API call will result in a 302 redirection to the University's WebAuth system for authentication, and then handle the response, and redirect back to your app.</p>
+<p>The return URL from this process is the <code>serviceURL</code> passed in as the <code>service</code> query string parameter. Note that the response to this is not a JSON object, it is an HTTP response of <code>text/html</code> with a <code>location</code> header set with the redirection to the Shibboleth Identity Provider. The service URL provided to Shibboleth is a return call to this API and the <code>processlogin</code> action.</p>
+<p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-get-login" id="tabs-get-login-0" checked="checked" />
+  <label for="tabs-get-login-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /login?service<span style="color:#f92672">=</span>http://localhost:8080/ HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-get-login" id="tabs-get-login-1"  />
+  <label for="tabs-get-login-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --location --request GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/login?service=http://localhost:8080/&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 302</strong></p>
+<pre tabindex="0"><code>HTTP/1.1 302 
+date: Thu, 20 Oct 2022 17:44:54 GMT
+content-type: text/html
+content-length: 0
+location: https://shibboleth.arizona.edu/webauth/login?service=https://csc346picturegram.test.apps.uits.arizona.edu/processlogin/aHR0cDovL2xvY2FsaG9zdDo4MDgwLw
+ 
+</code></pre><h2 id="get-processloginservicetokenticketcasticket">
+  <code>GET /processlogin/&lt;serviceToken&gt;?ticket=&lt;CASticket&gt;</code>
+  <a class="anchor" href="#get-processloginservicetokenticketcasticket">#</a>
+</h2>
+<p>This is not really an API call, as you make this request directly as a browser navigation. This URL is only ever called by the user's browser as it is redirected from the Shibboleth Idnetity Provider after the user has logged in. This method takes the serviceToken, decodes the base64 encoded data in it which contains the URL of your application. This is how the API knows where to redirect this response to, along with the CAS ticket. The API call will result in a 302 redirection to the University's WebAuth system for authentication, and then handle the response, and redirect back to your app.</p>
+<p>Note that the response to this is not a JSON object, it is an HTTP response of <code>text/html</code> with a <code>location</code> header set with the redirection to your application, along with the CAS ticket.</p>
+<p><strong>Request</strong>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-get-processlogin" id="tabs-get-processlogin-0" checked="checked" />
+  <label for="tabs-get-processlogin-0">HTTP</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>GET /processlogin/aHR0cDovL2xv?ticket<span style="color:#f92672">=</span>ST-1666...54638 HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: csc346picturegram.test.apps.uits.arizona.edu
+</span></span><span style="display:flex;"><span> 
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-get-processlogin" id="tabs-get-processlogin-1"  />
+  <label for="tabs-get-processlogin-1">curl</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --location --request GET <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#39;https://csc346picturegram.test.apps.uits.arizona.edu/processlogin/aHR0cDovL2xv?ticket=ST-1666...54638&#39;</span>
+</span></span></code></pre></div></div></div>
+</p>
+<p><strong>Response 302</strong></p>
+<pre tabindex="0"><code>HTTP/1.1 302 
+date: Thu, 20 Oct 2022 17:44:54 GMT
+content-type: text/html
+content-length: 0
+location: http://localhost:8080/?ticket=ST-166628...mn8idKJW1b8BPdk7
+ 
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#reference-api-endpoint">Reference API Endpoint</a></li>
+    <li><a href="#get-healthcheck"><code>GET /healthcheck</code></a></li>
+    <li><a href="#get-authenticateticketserviceserviceurl"><code>GET /authenticate/&lt;ticket&gt;?service=&lt;serviceURL&gt;</code></a></li>
+    <li><a href="#get-users"><code>GET /users</code></a></li>
+    <li><a href="#post-posts"><code>POST /posts</code></a>
+      <ul>
+        <li><a href="#properties">Properties</a></li>
+      </ul>
+    </li>
+    <li><a href="#get-posts"><code>GET /posts</code></a></li>
+    <li><a href="#get-postsafterstarttime"><code>GET /posts/after/&lt;startTime&gt;</code></a></li>
+    <li><a href="#get-postsbeforeendtime"><code>GET /posts/before/&lt;endTime&gt;</code></a></li>
+    <li><a href="#get-loginserviceserviceurl"><code>GET /login?service=&lt;serviceURL&gt;</code></a></li>
+    <li><a href="#get-processloginservicetokenticketcasticket"><code>GET /processlogin/&lt;serviceToken&gt;?ticket=&lt;CASticket&gt;</code></a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

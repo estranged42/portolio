@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSC 346 - Spring 2024</title>
+    <link>http://portfolio.fischco.org/csc346/docs/exams/</link>
+    <description>Recent content on CSC 346 - Spring 2024</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://portfolio.fischco.org/csc346/docs/exams/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exam 1 Study Guide</title>
+      <link>http://portfolio.fischco.org/csc346/docs/exams/exam1-guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/exams/exam1-guide/</guid>
+      <description>Exam 1 Study Guide # Cloud Intro - Week 1 Slides # Understand differences and advantages of Datacenters with and without Virtual Machines, and Cloud Computing Review the Job differences between Datacenter and Cloud architectures Basic Linux CLI commands Docker - Week 2 Slides # Docker run, build, images, start, exec commands Docker port mappings Write a basic Dockerfile based on a specification HTTP &amp;amp; HTML - Week 3 Slides # Know the main HTTP methods (GET, POST, etc) Know the basic parts of an HTTP request: Request method &amp;amp; resource, headers, TWO linefeeds Know the anatomy of an HTML element Know the anatomy of a URL Know the basic HTML tags we went over in class Understand how a DOM tree maps to an HTML document Network Sockets - Week 4 Slides # Know the 3 parts of a socket (host IP, port, protocol) Know when BIND, LISTEN, and CONNECT are used in establishing a socket Javascript - Week 5 Slides # Javascript Datatypes Booleans Arrays Functions Objects The document object Event Listeners AJAX/Fetch basics Authentication - Week 6 Slides # Definition of Authentication Definition of Authorization How does HTTP Basic Authentication work?</description>
+    </item>
+    
+    <item>
+      <title>Exam 2 Study Guide</title>
+      <link>http://portfolio.fischco.org/csc346/docs/exams/exam2-guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/exams/exam2-guide/</guid>
+      <description>Exam 2 Study Guide # AWS - Week 7 Slides # Know how to get your AWS CLI Credentials Know the difference between a region and and availability zone Know the XaaS basics IaaS - Infrastructure as a Service PaaS - Platform as a Service SaaS - Software as a Service Know the basic AWS Services and what they&#39;re used for EC2 RDS Shared Responsibility Model What are you responsible for vs AWS?</description>
+    </item>
+    
+    <item>
+      <title>Exam 3 Study Guide</title>
+      <link>http://portfolio.fischco.org/csc346/docs/exams/exam3-guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/exams/exam3-guide/</guid>
+      <description>Exam 3 Study Guide # Managed Cloud Services - Week 11a Slides - Week 11b Slides # Know the basic AWS Services we&#39;ve used or talked about this semester, and what they&#39;re used for. EC2 Virtual Machines Can SSH in You&#39;re responsible for OS patching and security RDS Relational Database Platform as a Service ALB Load Balancing SSL/TLS Termination Auto-scaling to handle public load ECS Managed Docker Container Service Run your Docker images in AWS Use with ALB ECR Elastic Container Registry Store your built Docker images in AWS Can pull images from here to run on ECS or EC2 etc.</description>
+    </item>
+    
+    <item>
+      <title>Exam Notes</title>
+      <link>http://portfolio.fischco.org/csc346/docs/exams/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/exams/notes/</guid>
+      <description>window.addEventListener(&amp;#39;eventName&amp;#39;, callback); window.alert(&amp;#39;msg text&amp;#39;); window.close(); window.confirm(&amp;#39;msg text&amp;#39;); element.attributes element.innerHTML element.parentNode element.style.propertyname = &amp;#34;newCSSvalue&amp;#34;; element.textContent element.appendChild(newElementObject); element.classList.add(&amp;#34;newClassName&amp;#34;); element.removeChild(elementToRemove); string.toUpperCase(); string.toLowerCase(); console.log(msg); console.trace(); console.warn(msg); document.body document.title document.createElement(&amp;#39;elementType&amp;#39;); document.getElementsByClassName(&amp;#39;className&amp;#39;); document.getElementsByTagName(&amp;#39;tagName&amp;#39;); document.getElementById(&amp;#39;idName&amp;#39;); // Notes Page myArray = [&amp;#34;one&amp;#34;, &amp;#34;two&amp;#34;, &amp;#34;three&amp;#34;]; Problem 10 - Option B should read: &amp;quot;I have your Private Key, and you have your corresponding Public Key.&amp;quot;</description>
+    </item>
+    
+  </channel>
+</rss>

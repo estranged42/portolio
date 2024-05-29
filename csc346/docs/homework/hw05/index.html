@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="CSC 346 - Homework 5 # In this homework assignment we&#39;ll begin working with Amazon Web Services. You will create an EC2 instance (AWS&#39;s Virtual Machine), and run a docker container on it containing the beginnings of our image sharing client.
+What to turn in # yournetid-hw05/ Dockerfile html/ index.html app.html js/ app.js Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Homework 5" />
+<meta property="og:description" content="CSC 346 - Homework 5 # In this homework assignment we&#39;ll begin working with Amazon Web Services. You will create an EC2 instance (AWS&#39;s Virtual Machine), and run a docker container on it containing the beginnings of our image sharing client.
+What to turn in # yournetid-hw05/ Dockerfile html/ index.html app.html js/ app.js Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/homework/hw05/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Homework 5 | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="active">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Homework 5</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a></li>
+    <li><a href="#part-0-set-up-your-aws-academy-account">Part 0: Set up your AWS Academy Account</a></li>
+    <li><a href="#part-1-set-up-ec2-instance">Part 1: Set up EC2 Instance</a></li>
+    <li><a href="#part-2-working-remotely">Part 2: Working Remotely</a>
+      <ul>
+        <li><a href="#direct-editing">Direct Editing</a></li>
+        <li><a href="#remote-editing-with-vs-code">Remote Editing With VS Code</a></li>
+        <li><a href="#transfer-files-from-your-laptop">Transfer files from your laptop</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3-image-sharing-client">Part 3: Image Sharing Client</a>
+      <ul>
+        <li><a href="#appjs">app.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-4-run-your-app-on-your-ec2-instance">Part 4: Run Your App on Your EC2 Instance</a>
+      <ul>
+        <li><a href="#install-docker">Install Docker</a></li>
+        <li><a href="#build-image-and-run-container">Build Image and Run Container</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-5-automated-tests">Part 5: Automated Tests</a>
+      <ul>
+        <li><a href="#troubleshooting-tips">Troubleshooting Tips</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="csc-346---homework-5">
+  CSC 346 - Homework 5
+  <a class="anchor" href="#csc-346---homework-5">#</a>
+</h1>
+<p>In this homework assignment we'll begin working with Amazon Web Services. You will create an EC2 instance (AWS's Virtual Machine), and run a docker container on it containing the beginnings of our image sharing client.</p>
+<h2 id="what-to-turn-in">
+  What to turn in
+  <a class="anchor" href="#what-to-turn-in">#</a>
+</h2>
+<pre tabindex="0"><code>yournetid-hw05/
+        Dockerfile
+        html/
+            index.html
+            app.html
+            js/
+                app.js
+</code></pre><h2 id="points">
+  Points
+  <a class="anchor" href="#points">#</a>
+</h2>
+<p>This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.</p>
+<ul>
+<li>Early submission:  March 1st 11pm MST (UTC-7)</li>
+<li>Final Due Date: March 2nd 11pm MST (UTC-7)</li>
+</ul>
+<h2 id="starting-point">
+  Starting Point
+  <a class="anchor" href="#starting-point">#</a>
+</h2>
+<p>For this assignment, begin by downloading the following Zip file. This contains the basic diretory structure, and some starting HTML documents. Place these files into your <code>yournetid-hw05</code> directory, and add to the files as needed.</p>
+<blockquote class="book-hint info">
+  <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw05.zip">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw05.zip</a>
+</blockquote>
+
+<h2 id="part-0-set-up-your-aws-academy-account">
+  Part 0: Set up your AWS Academy Account
+  <a class="anchor" href="#part-0-set-up-your-aws-academy-account">#</a>
+</h2>
+<p>You should already have completed setting up your AWS Academy account. If you haven't done this yet, or are stuck, please contact the TAs as soon as possible. See the AWS Slides for how to set up your AWS Academy account, and VS Code CLI credentials.</p>
+<p><a href="https://www.awsacademy.com/LMS_Login">Log in to the AWS Academy Console here</a>.</p>
+<h2 id="part-1-set-up-ec2-instance">
+  Part 1: Set up EC2 Instance
+  <a class="anchor" href="#part-1-set-up-ec2-instance">#</a>
+</h2>
+<p>The lecture slides for <a href="../../../slides/08-VMs.pdf">AWS-VMs</a> go through in detail how to set up a basic EC2 instance. You should be able to follow the slides to set up your basic t3.micro EC2 instance, and get docker installed.</p>
+<p>Be sure you can remotely connect to your EC2 instance with SSH, either diretly in your Terminal, <a href="https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui">through PowerShell</a>, or using Putty.</p>
+<h2 id="part-2-working-remotely">
+  Part 2: Working Remotely
+  <a class="anchor" href="#part-2-working-remotely">#</a>
+</h2>
+<p>For the rest of the assignment, you will need to figure out a reliable way to move files back and forth from your laptop to your EC2 instance, or else work on files directly on the EC2 instance.</p>
+<p>For all of the following options, make sure your AWS Academy session is active and your EC2 instance is running. You will also need to make sure you have downloaded the SSH Key File from the AWS Academy console, and put it somewhere you can find. You'll need this file to connect to your EC2 instance. Lastly you will need to note the current public IP address of your EC2 instance.</p>
+<h3 id="direct-editing">
+  Direct Editing
+  <a class="anchor" href="#direct-editing">#</a>
+</h3>
+<p>If you really love <code>vim</code> or <code>nano</code> or <code>emacs</code>, go crazy! You'll have access to all of these tools on your Amazon Linux instance.</p>
+<h3 id="remote-editing-with-vs-code">
+  Remote Editing With VS Code
+  <a class="anchor" href="#remote-editing-with-vs-code">#</a>
+</h3>
+<p>VS Code has a wonderful <a href="https://code.visualstudio.com/docs/remote/ssh">Remote SSH plugin</a> that works great with Amazon Linux EC2 instances. This allows you to open a local VS Code window on your laptop which is directly connected to a remote host. Once connected, you can work in VS Code exactly as you would locally, but all the files are edited directly on the remote host, and you also have access to a terminal session on the remote host as well. You can even drag and drop files from your laptop into the VS Code file browser to copy them directly to the host. Right-click on a remote file to download it to your laptop.</p>
+<p>This can take some time to set up, but I have found it worth the trouble. See the VS Code Remote SSH slides for a complete walkthrough.</p>
+<blockquote class="book-hint info">
+  <a href="../../../slides/20-vscode-remote-ssh.pdf">VS Code Remote SSH Walkthrough</a>
+</blockquote>
+
+<p><img src="../hw05-remote-ssh.png" alt="A screenshot of VS Code connected to a remote EC2 instance" /></p>
+<h3 id="transfer-files-from-your-laptop">
+  Transfer files from your laptop
+  <a class="anchor" href="#transfer-files-from-your-laptop">#</a>
+</h3>
+<p>Many times it is easier to work on things locally on your laptop, and then move things to the server when you're done. This assignment is probably best done like this. Using the provided Dockerfile, run your container locally and build the required HTML pages and JavaScript code as described in Part 3.</p>
+<p>Once you have your container working correctly, you can then move your files to the server.</p>
+<h4 id="mac--linux-cli-rsync">
+  Mac / Linux CLI: rsync
+  <a class="anchor" href="#mac--linux-cli-rsync">#</a>
+</h4>
+<p>If you're on a macOS or Linux laptop, you can use the <code>rsync</code> command line tool to move all the files in a directory to a remote host.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rsync -rlvz -e <span style="color:#e6db74">&#39;ssh -i ./labsuser.pem&#39;</span> hw05/ ec2-user@&lt;EC2 Public IP&gt;:~/hw05/
+</span></span></code></pre></div><p>You will need to change the <code>./labsuser.pem</code> part to match your file name, and wherever you have placed your public key file downlaoded from AWS Academy. Substitute the public IP address you noted from the EC2 console <code>ec2-user@&lt;EC2 Public IP&gt;</code> ie <code>ec2-user@18.212.36.7</code>. The colon after the IP address separates the host IP from the path on the host you want to copy files to. <code>~/hw05/</code> means to create a <code>hw05</code> directory inside the home directory of the <code>ec2-user</code> account.</p>
+<h4 id="windows-winscp">
+  Windows WinSCP
+  <a class="anchor" href="#windows-winscp">#</a>
+</h4>
+<p>If you're on Windows, <a href="https://winscp.net/eng/docs/guide_amazon_ec2">WinSCP is a good choice, and has good documentation</a>. Instead of the <code>.pem</code> version of the private key, you will want to download the <code>.ppk</code> version from the AWS Academy console.</p>
+<p><img src="../hw05-ppk.png" alt="A screenshot of the AWS Academy course highlighting the PPK download button" /></p>
+<p>Follow the &quot;Direct Connections&quot; <a href="https://winscp.net/eng/docs/guide_amazon_ec2">instructions on the WinSCP documentation site</a> for connecting to an EC2 instance. Note that you can use the IP address or the hostname from the EC2 console. Be sure to select your <code>.ppk</code> file in the <a href="https://winscp.net/eng/docs/ui_login_authentication">Advanced Site Settings &gt; SSH &gt; Authentication</a> window.</p>
+<h2 id="part-3-image-sharing-client">
+  Part 3: Image Sharing Client
+  <a class="anchor" href="#part-3-image-sharing-client">#</a>
+</h2>
+<p>For the actual content of the website for this assignment, you can start with the <code>NETID-hw05.zip</code> file contents. You won't have to edit <code>index.html</code> or <code>app.html</code> files at all for this assignment. They will be set up for you, but it's still a good idea to take a look at them and see what's in them.</p>
+<blockquote class="book-hint info">
+  Hint: Experiment with the chat API call in Postman first, to get a feel for the structure of the data that is returned.<br>
+<code>GET https://csc346picturegram.test.apps.uits.arizona.edu/chat</code>
+</blockquote>
+
+<h3 id="appjs">
+  app.js
+  <a class="anchor" href="#appjs">#</a>
+</h3>
+<p>You'll be doing all your work for this assignment in the <code>app.js</code> file. You will need to load new chat messages from the Class Chat API and display them on a web page. The starter javascript file has extensive comments to guide you through implimenting this.</p>
+<p><img src="../hw05-app.png" alt="A screenshot of VS Code connected to a remote EC2 instance" /></p>
+<h2 id="part-4-run-your-app-on-your-ec2-instance">
+  Part 4: Run Your App on Your EC2 Instance
+  <a class="anchor" href="#part-4-run-your-app-on-your-ec2-instance">#</a>
+</h2>
+<p>After you have your application working locally, we want to run it on the EC2 host you created.</p>
+<h3 id="install-docker">
+  Install Docker
+  <a class="anchor" href="#install-docker">#</a>
+</h3>
+<p>If you haven't installed Docker on your EC2 instance, do that by running the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo yum install docker
+</span></span></code></pre></div><p>You'll need to use the <code>sudo</code> command before many of the installation and docker commands, since the <code>ec2-user</code> used to log into the EC2 host cannot run these commands directly.</p>
+<p>After Docker finishes installing, run the service now, and configure it to startup whenever your EC2 instance boots up.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo systemctl start docker
+</span></span><span style="display:flex;"><span>sudo systemctl enable docker
+</span></span></code></pre></div><p>You should be able to run basic <code>docker</code> commands now using <code>sudo</code>, such as <code>sudo docker ps -a</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[ec2-user@ip-172-31-21-172 ~]$ sudo docker ps -a
+</span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+</span></span></code></pre></div><h3 id="build-image-and-run-container">
+  Build Image and Run Container
+  <a class="anchor" href="#build-image-and-run-container">#</a>
+</h3>
+<p>Once you have Docker installed and configured, transfer your <code>Dockerfile</code> and <code>html</code> files to your EC2 instance. Navigate your CLI console to the folder containing the <code>Dockerfile</code> and <code>html</code> folder, and build the image. Don't forget to use sudo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo docker build -t hw05:latest .
+</span></span></code></pre></div><p>After the image is built, you should be able to run it.  Note that since we're running this container on a &quot;real&quot; server host, we can use port 80 on the host to map to port 80 in the container.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sudo docker run -it --rm -p 80:80 hw05:latest
+</span></span></code></pre></div><p>Assuming everything worked, you should be able to visit your EC2 instance by going directly to its public IP address:</p>
+<blockquote class="book-hint info">
+  http://3.95.11.168/index.html
+</blockquote>
+
+<p>To find your EC2 instance public IP address, visit the AWS EC2 Console, select the instance, and find the &quot;Public IPv4 address&quot;.</p>
+<p><img src="../hw05-ec2-ip.png" alt="Image of the AWS EC2 Web Console with an EC2 instance selected, and the public ip address highlighted" /></p>
+<p><img src="../hw05-ec2-app.png" alt="App running in a browser served up from an EC2 instance" /></p>
+<h2 id="part-5-automated-tests">
+  Part 5: Automated Tests
+  <a class="anchor" href="#part-5-automated-tests">#</a>
+</h2>
+<p>With your application running on a publicly available IP address. Anyone can access your app from the public internet. This means we can also have automated tests run to see how you did.</p>
+<p>I have developed a testing app you can use to test out your homework assignment once you get it running on your EC2 instance. You will need to perform a test wtih this app before the due date to receive credit for the EC2 portion of this assignment. All the tests you run through the app are logged, and we will look at the most recent test results for your NetID when we do the grading. So make sure your last test is the good one. :)</p>
+<blockquote class="book-hint info">
+  <a href="https://csc346.test.apps.uits.arizona.edu/">https://csc346.test.apps.uits.arizona.edu/</a>
+</blockquote>
+
+<p>You will need to log in through WebAuth to see the URL form.</p>
+<p><img src="../hw05-testing.png" alt="A screenshot of the remote app testing form" /></p>
+<p>The tests take between 10 and 60 seconds to run, so be patient.</p>
+<p><img src="../hw05-testing-complete.png" alt="A screenshot of the remote app completed tests" /></p>
+<p>You can only test a publicly accessible URL. This cannot be used to test your http://localhost:8080/ version. Think about why this would be.</p>
+<blockquote class="book-hint info">
+  The automated tests do not test all of the things we will be looking at for this assignment. Passing all of these tests is a really good sign that you're on the right track. We will also be looking at your <code>app.js</code> file for completeness.
+</blockquote>
+
+<h3 id="troubleshooting-tips">
+  Troubleshooting Tips
+  <a class="anchor" href="#troubleshooting-tips">#</a>
+</h3>
+<ul>
+<li>Can you visit your app's URL directly in a browser window? If you cannot load your app, the testing app won't be able to either.</li>
+<li>Check the URL. Did you enter a complete URL such as <code>http://53.2.35.19</code>?</li>
+<li>Does your URL use <code>http://</code>? We have not configured TLS support, and port 443 is not open on your security group. Make sure to use <code>http</code>.</li>
+<li>Did you map your docker port 80 to your host's port 80?  <code>-p80:80</code>.  Only port 80 is open on our security group to allow incomming connections.</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a></li>
+    <li><a href="#part-0-set-up-your-aws-academy-account">Part 0: Set up your AWS Academy Account</a></li>
+    <li><a href="#part-1-set-up-ec2-instance">Part 1: Set up EC2 Instance</a></li>
+    <li><a href="#part-2-working-remotely">Part 2: Working Remotely</a>
+      <ul>
+        <li><a href="#direct-editing">Direct Editing</a></li>
+        <li><a href="#remote-editing-with-vs-code">Remote Editing With VS Code</a></li>
+        <li><a href="#transfer-files-from-your-laptop">Transfer files from your laptop</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3-image-sharing-client">Part 3: Image Sharing Client</a>
+      <ul>
+        <li><a href="#appjs">app.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-4-run-your-app-on-your-ec2-instance">Part 4: Run Your App on Your EC2 Instance</a>
+      <ul>
+        <li><a href="#install-docker">Install Docker</a></li>
+        <li><a href="#build-image-and-run-container">Build Image and Run Container</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-5-automated-tests">Part 5: Automated Tests</a>
+      <ul>
+        <li><a href="#troubleshooting-tips">Troubleshooting Tips</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

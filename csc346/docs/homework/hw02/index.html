@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="Homework 2 # In this assignment you will create a Dockerfile and image which will serve up a simple website.
+Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 4 points extra credit.
+Early submission: February 1st 11pm MST (UTC-7) Final Due Date: February 3rd 11pm MST (UTC-7) Starting Point # For each homework assignment I will provide a starter .">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Homework 2" />
+<meta property="og:description" content="Homework 2 # In this assignment you will create a Dockerfile and image which will serve up a simple website.
+Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 4 points extra credit.
+Early submission: February 1st 11pm MST (UTC-7) Final Due Date: February 3rd 11pm MST (UTC-7) Starting Point # For each homework assignment I will provide a starter ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/homework/hw02/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Homework 2 | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="active">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Homework 2</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a></li>
+    <li><a href="#part-1---dockerfile">Part 1 - Dockerfile</a>
+      <ul>
+        <li><a href="#nginx">nginx</a></li>
+        <li><a href="#about-alpine">About Alpine</a></li>
+        <li><a href="#start-simple-and-iterate">Start Simple and Iterate</a></li>
+        <li><a href="#port-mappings">Port Mappings</a></li>
+        <li><a href="#website">Website</a></li>
+        <li><a href="#modify-nginx-default-config">Modify nginx default config</a></li>
+        <li><a href="#where-should-the-website-files-go">Where should the website files go?</a></li>
+        <li><a href="#what-to-turn-in">What to turn in</a></li>
+        <li><a href="#debugging-errors">Debugging Errors</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="homework-2">
+  Homework 2
+  <a class="anchor" href="#homework-2">#</a>
+</h1>
+<p>In this assignment you will create a Dockerfile and image which will serve up a simple website.</p>
+<h2 id="points">
+  Points
+  <a class="anchor" href="#points">#</a>
+</h2>
+<p>This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 4 points extra credit.</p>
+<ul>
+<li>Early submission: February 1st 11pm MST (UTC-7)</li>
+<li>Final Due Date: February 3rd 11pm MST (UTC-7)</li>
+</ul>
+<h2 id="starting-point">
+  Starting Point
+  <a class="anchor" href="#starting-point">#</a>
+</h2>
+<p>For each homework assignment I will provide a starter <code>.zip</code> file. The starter zip for this assignment contains an empty Dockerfile you will fill out with commands to build an image.</p>
+<blockquote class="book-hint info">
+  <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw02.zip">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw02.zip</a>
+</blockquote>
+
+<h2 id="part-1---dockerfile">
+  Part 1 - Dockerfile
+  <a class="anchor" href="#part-1---dockerfile">#</a>
+</h2>
+<h3 id="nginx">
+  nginx
+  <a class="anchor" href="#nginx">#</a>
+</h3>
+<p>There are many web server applications out there: Apache httpd, nginx, Microsoft IIS, and more.</p>
+<p>We'll use the nginx web server for our first image that we build. It is lightweight, fast, and focused on the core jobs of a HTTP server.</p>
+<p>There is an official httpd image maintained by the nginx project.</p>
+<blockquote class="book-hint info">
+  <strong>There is an official nginx image maintained on Docker Hub.</strong>
+<a href="https://hub.docker.com/_/nginx">https://hub.docker.com/_/nginx</a>
+</blockquote>
+
+<p>You will use two different versions of this image for this problem. For the development phase, use the 1.25 version of the image. Once you get everything working and are satisfied, switch to the 1.25-alpine version.</p>
+<blockquote class="book-hint info">
+  <strong>Why nginx:1.25 and not nginx:latest?</strong>
+You can never tell when software projects are going to update things. Who knows when 1.26 will be released. Maybe something will change
+in a newer version that makes some of these homework instructions not quite work right.  It's pretty unlikely that a project will update things in a breaking way in the 2 weeks or so a homework assignment is out there, but you never know! This should help introduce you to the idea of pinning your depencencies to a known good version. This allows you the flexibility (but also the responsibility) to update things on your schedule, and not someone elses'.
+</blockquote>
+
+<h3 id="about-alpine">
+  About Alpine
+  <a class="anchor" href="#about-alpine">#</a>
+</h3>
+<blockquote class="book-hint info">
+  <a href="https://alpinelinux.org/about/">https://alpinelinux.org/about/</a>
+</blockquote>
+
+<p>Alpine linux is an extremely small and minimal distribution of the linux operating system. Docker images based on alpine are typically an order of magnitude smaller than their corresponding 'full' images.  For example, the <code>nginx:1.25</code> image is about 135MB in size, while the nginx:1.25-alpine image is only 43MB. Other images are even more dramatic, the python:3.10 image we've been using so far weighs in at 1.01GB, while the python:3.10-alpine image is only 55.1MB!</p>
+<p>So why don't we use alpine all the time? Well quite frankly there's nothing in them, that's why they're so small. There's no <code>bash</code> shell, you have to use the very minimal <code>sh</code> shell. There are no <code>manual</code> pages for anything, and the <code>man</code> command does not exist. There's no <code>ssh</code>, no <code>vim</code>, and no other common system languages such as <code>perl</code>. Additionally the commands it does support, like the basics of <code>ls</code>, <code>cd</code>, <code>grep</code>, etc are all actually aliases to the <code>busybox</code> program. Busybox aims to recreate most of the common functionality of many commands, but with a focus on size and efficiency. So it won't have all the options available and may behave differently than the 'real' versions of these commands.  However the <code>busybox</code> binary is only 873K, which is smaller than the full versions of <code>ls</code> (140K), <code>cp</code> (136K), <code>grep</code> (175K), <code>mv</code> (132K), and <code>tar</code> (524K) combined, yet provides dozens more commands.</p>
+<p>Remember when I mentioned that speed of deployment makes a difference? Being able to deploy a 50-60MB image takes much less time than deploying a nearly 1GB image.</p>
+<p>However, due to the limitations in alpine, I definitely do not recommend starting there. Get everything working first, and then switch to alpine for final testing, and submit that version of the Dockerfile.</p>
+<h3 id="start-simple-and-iterate">
+  Start Simple and Iterate
+  <a class="anchor" href="#start-simple-and-iterate">#</a>
+</h3>
+<p>Start with a very basic Dockerfile. You can have just a single line in there to start with, and then build the image from that and try to run it. Yours should behave exactly like the default <code>nginx:1.25</code> image at this point.</p>
+<p>What is the most basic Dockerfile you can make?</p>
+<p>Can you perform a very basic <code>docker build ...</code> command succesfully?</p>
+<p>As you make progress with various steps, you can update your Dockerfile, re-build your image, and run a new container from the updated image.</p>
+<h3 id="port-mappings">
+  Port Mappings
+  <a class="anchor" href="#port-mappings">#</a>
+</h3>
+<p>In order for you to see the web page the container will serve up from your host's browser, you must expose ports from inside the container. You do this with the <code>-p</code> option to the <code>docker run</code> command. <a href="https://docs.docker.com/engine/reference/commandline/container_run/#publish">Read up on the syntax of port mapping at the Docker documentation site.</a></p>
+<p>The httpd server runs on port 80 by default inside the container, and you will need to map that to port 8080 on your host. You should be able to view the default web page by going to <a href="http://localhost:8080/">http://localhost:8080/</a> in your browser.</p>
+<p><img src="../hw02-nginx-default.png" alt="An image of the the Firefox browser showing the default nginx landing page" /></p>
+<h3 id="website">
+  Website
+  <a class="anchor" href="#website">#</a>
+</h3>
+<p>Rather than simply serving up a default web page, I have prepared a very basic website for you to use instead. It is located here:</p>
+<blockquote class="book-hint info">
+  <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/hw02-files.tar">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/hw02-files.tar</a>
+</blockquote>
+
+<p>You will need to download this file into your container during the build process, 'un-tar' it, and replace the default webpage that comes with nginx. To download the file, I would recommend using the <code>curl</code> command that is available with the nginx image.</p>
+<blockquote class="book-hint info">
+  <strong>Important</strong> It's fine to download this <code>.tar</code> file to your workstation and play around with it during development, but it won't be part of your assignment submission. Commands to download this file and set it up in the image must all be part of your <code>Dockerfile</code>.
+</blockquote>
+
+<p>Once you have downloaded the <code>.tar</code> file, you will need to un-tar it, then move the files from the hw02-files directory that was unzipped and replace the default files. If you haven't used the <code>tar</code> command before, the basics of the command are:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ tar <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>filename.tar<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>$ tar -xf hw02-files.tar
+</span></span></code></pre></div><p>The <code>-xf</code> options tells the <code>tar</code> command to &quot;eXtract&quot; an archive, and that the source to extract is coming from a &quot;File&quot; and not STDIN.</p>
+<p>Move the files from the expanded folder into the default website location within the container. See the next section for hints on where that might be.</p>
+<p>When you get everything working, you should be able to see the following in your browser when running your container and visiting <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
+<p><img src="../hw02-homepage.png" alt="An image of the the Firefox browser showing a web page for this assignment." /></p>
+<h3 id="modify-nginx-default-config">
+  Modify nginx default config
+  <a class="anchor" href="#modify-nginx-default-config">#</a>
+</h3>
+<p>Lastly we want to change some of the default configuration of the nginx web server. To do this, we must first get a copy of the default <code>default.conf</code> file out of the container. Refer to the lectures slides for ways we discussed on getting things out of a container.</p>
+<blockquote class="book-hint info">
+  The configuration file is located at <code>/etc/nginx/conf.d/default.conf</code> inside the container.
+</blockquote>
+
+<p>When you get the file, place it in your working directory on your host, in the same folder your Dockerfile is in.</p>
+<p>Open <code>default.conf</code> in your editor of choice, and look for the <code>error_page</code> directive.  Un-comment this line be removing the leading <code>#</code> character, and save the file.</p>
+<blockquote class="book-hint info">
+  <strong>Official nginx documentation</strong><br>
+<a href="https://nginx.org/en/docs/">https://nginx.org/en/docs/</a>
+</blockquote>
+
+<p>Update your Dockerfile to put your version of <code>default.conf</code> into the container, overwriting the one from the base image.</p>
+<p>Perform a new build, and run your container to test your configuration change. If you visit a page that doesn't exist, such as <a href="http://localhost:8080/lightsabers">http://localhost:8080/lightsabers</a> you should see a version of the 404 error page that has &quot;CSC 346 Spring 2024&quot; in the footer instead of the default &quot;nginx 1.25&quot;.  If you see that version of the error page then you've got it correct!</p>
+<p><img src="../hw02-nginx-404.png" alt="An image of the the nginx 404 page with a customized class footer" /></p>
+<h3 id="where-should-the-website-files-go">
+  Where should the website files go?
+  <a class="anchor" href="#where-should-the-website-files-go">#</a>
+</h3>
+<p>Poke around! Use your unix command line tools to look at where you are when you enter the container. What files and folders are here? Do you see anything that look like web pages?  Look through the <code>default.conf</code> configuration file. Is there anything in there that hints at where web pages are stored?</p>
+<h3 id="what-to-turn-in">
+  What to turn in
+  <a class="anchor" href="#what-to-turn-in">#</a>
+</h3>
+<p>You should turn in a zip file of a folder containing two files: your <code>Dockerfile</code> and your modified <code>default.conf</code></p>
+<pre tabindex="0"><code>yournetid-hw02/
+        Dockerfile
+        default.conf
+</code></pre><p>Zip up the whole folder, not just the two files inside it. Turn in the zip file to D2L.</p>
+<blockquote class="book-hint info">
+  Don't forget to switch your base image to <code>nginx:1.25-alpine</code> and test that before turning in.
+</blockquote>
+
+<blockquote class="book-hint info">
+  <strong>Double Check!</strong> Not sure if your <code>.zip</code> file is correct?  Try expanding it and see what's <em>actually</em> inside before you turn it in.
+</blockquote>
+
+<h3 id="debugging-errors">
+  Debugging Errors
+  <a class="anchor" href="#debugging-errors">#</a>
+</h3>
+<h4 id="getting-unable-to-connect-errors-in-your-browser-when-trying-to-access-your-container">
+  Getting unable to connect errors in your browser when trying to access your container?
+  <a class="anchor" href="#getting-unable-to-connect-errors-in-your-browser-when-trying-to-access-your-container">#</a>
+</h4>
+<p>Here are a couple ideas on how to troubleshoot.</p>
+<ul>
+<li>Go back a step.  Rather than running your image, can you get the <code>nginx:1.25</code> image to work? Maybe the problem is not with your image, but how you're running it.</li>
+<li>Is nginx running inside your container? What unix command could you use to find this out?</li>
+<li>When you issued your <code>docker run</code> command, what command did you tell the container to execute? If you are in a bash shell, does that override the default image <code>CMD</code>?</li>
+<li>Can you start nginx manually from within the container? What is the default <code>CMD</code> that the <code>nginx:1.25</code> image has set? How could you find that out? (hint, look at Docker Hub: <a href="https://hub.docker.com/_/nginx">https://hub.docker.com/_/nginx</a> and find the Dockerfile for 1.25)</li>
+<li>Did you get your port mappings correct?  You should be using <code>8080</code> for your host port, and <code>80</code> for your container port. What URL are you going to in your browser to test?</li>
+</ul>
+<h4 id="did-you-run-nginx-but-now-cant-get-out-of-it">
+  Did you run <code>nginx</code> but now can't get out of it?
+  <a class="anchor" href="#did-you-run-nginx-but-now-cant-get-out-of-it">#</a>
+</h4>
+<p>Most running unix programs can be quit by holding down the <code>control</code> key along with the <code>c</code> key.  You may see this abbreviated as <code>^c</code> or sometimes just referred to as 'cancel'.</p>
+<h4 id="the-nginx-container-runs-but-i-still-only-see-the-default-site">
+  The <code>nginx</code> container runs but I still only see the default site.
+  <a class="anchor" href="#the-nginx-container-runs-but-i-still-only-see-the-default-site">#</a>
+</h4>
+<p>Make sure you are putting the new website files into the correct location inside the container. Connect to the running container with a new <code>bash</code> shell and explore the file system. Where did your files actually end up?</p>
+<h4 id="getting-a-caught-sigwinch-shutting-down-gracefully-error-when-running-your-container">
+  Getting a <code>caught SIGWINCH, shutting down gracefully</code> error when running your container?
+  <a class="anchor" href="#getting-a-caught-sigwinch-shutting-down-gracefully-error-when-running-your-container">#</a>
+</h4>
+<p>Sometimes resizing your terminal window after running the container results in these errors.  Use ctrl-c to cancel your running container and re-start it.</p>
+<p>So far in class we've only run containers with the <code>-it</code> options. This runs the container in an interactive mode and connects the terminal.
+However the <code>nginx</code> program doesn't like the <code>-t</code> option if you run it directly from <code>docker run</code> instead of manually from a shell inside the container. Try removing the <code>-t</code> option and running it again. You'll have to remember to replace it if you need to poke around inside your container again, or you could have <code>nginx</code> running in one terminal, and then use <code>docker exec</code> to connect a second terminal to the running container, and poke around there.</p>
+<p>You can also explore the <code>-d</code> option instead of <code>-it</code>. This runs the container in detached mode. It will just print the container ID and return you to your terminal. This is how most services are run in production, where you just want the main program (<code>httpd</code> in our case) to run continually.</p>
+<p>How do you exit a detached container?  Look at the documentation for <code>docker stop</code>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#starting-point">Starting Point</a></li>
+    <li><a href="#part-1---dockerfile">Part 1 - Dockerfile</a>
+      <ul>
+        <li><a href="#nginx">nginx</a></li>
+        <li><a href="#about-alpine">About Alpine</a></li>
+        <li><a href="#start-simple-and-iterate">Start Simple and Iterate</a></li>
+        <li><a href="#port-mappings">Port Mappings</a></li>
+        <li><a href="#website">Website</a></li>
+        <li><a href="#modify-nginx-default-config">Modify nginx default config</a></li>
+        <li><a href="#where-should-the-website-files-go">Where should the website files go?</a></li>
+        <li><a href="#what-to-turn-in">What to turn in</a></li>
+        <li><a href="#debugging-errors">Debugging Errors</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

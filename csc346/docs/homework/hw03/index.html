@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="CSC 346 - Homework 3 # In this homework assignment we&#39;ll be working with the HTTP protocol, and writing our own HTML web pages. You will turn in a .zip file of a folder containing the following files:
+What to turn in # yournetid-hw03/ Dockerfile html/ index.html http.html images/ ua-logo.png You don&#39;t have to turn in the contents of the scripts folder that comes in the starter zip, but it&#39;s fine if you do.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Homework 3" />
+<meta property="og:description" content="CSC 346 - Homework 3 # In this homework assignment we&#39;ll be working with the HTTP protocol, and writing our own HTML web pages. You will turn in a .zip file of a folder containing the following files:
+What to turn in # yournetid-hw03/ Dockerfile html/ index.html http.html images/ ua-logo.png You don&#39;t have to turn in the contents of the scripts folder that comes in the starter zip, but it&#39;s fine if you do." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/homework/hw03/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Homework 3 | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="active">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Homework 3</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#part-1---dockerfile">Part 1 - Dockerfile</a></li>
+    <li><a href="#part-2---indexhtml">Part 2 - index.html</a>
+      <ul>
+        <li><a href="#indexhtml-contents">index.html contents</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3---httphtml">Part 3 - http.html</a>
+      <ul>
+        <li><a href="#httphtml-contents">http.html contents</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#check-cacheing">Check Cacheing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="csc-346---homework-3">
+  CSC 346 - Homework 3
+  <a class="anchor" href="#csc-346---homework-3">#</a>
+</h1>
+<p>In this homework assignment we'll be working with the HTTP protocol, and writing our own HTML web pages. You will turn in a <code>.zip</code> file of a folder containing the following files:</p>
+<h2 id="what-to-turn-in">
+  What to turn in
+  <a class="anchor" href="#what-to-turn-in">#</a>
+</h2>
+<pre tabindex="0"><code>yournetid-hw03/
+        Dockerfile
+        html/
+            index.html
+            http.html
+            images/
+                ua-logo.png
+</code></pre><p>You don't have to turn in the contents of the <code>scripts</code> folder that comes in the starter zip, but it's fine if you do.</p>
+<blockquote class="book-hint info">
+  <strong>Double Check!</strong> Not sure if your <code>.zip</code> file is correct?  Try expanding it and see what's <em>actually</em> inside before you turn it in.
+</blockquote>
+
+<h2 id="points">
+  Points
+  <a class="anchor" href="#points">#</a>
+</h2>
+<p>This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 3 points extra credit.</p>
+<ul>
+<li>Early submission: February 8th 11pm MST (UTC-7)</li>
+<li>Final Due Date: February 10th 11pm MST (UTC-7)</li>
+</ul>
+<h2 id="getting-started">
+  Getting Started
+  <a class="anchor" href="#getting-started">#</a>
+</h2>
+<p>The starter zip for this assignment contains an empty Dockerfile you will fill out with commands to build an image, as well as an empty <code>html</code> folder, and some <code>.sh</code> and <code>.ps1</code> scripts to assist with building your image and running your container. You don't have to use these scripts, but they might help.</p>
+<blockquote class="book-hint info">
+  <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw03.zip">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/NETID-hw03.zip</a>
+</blockquote>
+
+<p>Inside of the <code>html</code> folder, create one last folder named <code>images</code>. This is where you will put the <a href="../ua-logo.png">University of Arizona logo after you download it</a>.</p>
+<h2 id="part-1---dockerfile">
+  Part 1 - Dockerfile
+  <a class="anchor" href="#part-1---dockerfile">#</a>
+</h2>
+<p>In order to view our webpage, we will include it in a docker container running the nginx web server.</p>
+<p>If you want the convenience of not having to rebuild your docker image each time you change your web page, remember that you can mount in a folder from your working directory in the <code>docker run</code> command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -i --rm --name hw -p 8080:80 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">/html:/usr/share/nginx/html/&#34;</span> nginx:1.25
+</span></span></code></pre></div><p>See <code>scripts/dev.*</code> for helper scripts.</p>
+<p>You can now open your page in a browser by visiting <a href="http://localhost:8080/">http://localhost:8080/</a>.</p>
+<p>This lets you edit and save your HTML pages, and just hit reload in your browser window, speeding up your development process.</p>
+<p>Once you are comfortable that you have your HTML files correct, you will need to update the starter Dockerfile to <code>COPY</code> the contents of the <code>html</code> folder from your project directory inside the container in the correct location, so that when the container is run, your new site will be displayed.</p>
+<p>You can then build and run your container with the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>docker build --tag hw:latest .
+</span></span><span style="display:flex;"><span>docker run -i --rm --name hw -p 8080:80 hw:latest
+</span></span></code></pre></div><p>See <code>scripts/build.*</code> and <code>scripts/run.*</code> for helper scripts.</p>
+<blockquote class="book-hint warning">
+  Not seeing what you expect?  Seeing the default nginx page or maybe the page from Homework 2?  Web browsers cache contents, and may not have actually reloaded your location. Check the <a href="#troubleshooting">Troubleshooting</a> section below.
+</blockquote>
+
+<h2 id="part-2---indexhtml">
+  Part 2 - index.html
+  <a class="anchor" href="#part-2---indexhtml">#</a>
+</h2>
+<p>Create a new text file inside of the <code>html</code> folder called <code>index.html</code>. The names of these files is significant. The web server looks for <code>.html</code> files inside of its location <code>root</code> directory to serve up as html content. Additionally the special name of <code>index.html</code> means that the web server will return this page when just the directory containing that index is requested, ie the following two requests will result in the same page being returned.</p>
+<div class="book-columns flex flex-wrap">
+
+  <div class="flex-even markdown-inner">
+    <pre tabindex="0"><code>GET /homework/ HTTP/1.1
+</code></pre>
+  </div>
+
+  <div class="flex-even markdown-inner">
+     <!-- magic separator, between columns -->
+<pre tabindex="0"><code>GET /homework/index.html HTTP/1.1
+</code></pre>
+  </div>
+
+</div>
+
+<blockquote class="book-hint info">
+  Note: this is a feature of the web server, <em>not</em> the HTTP protocol.
+</blockquote>
+
+<p>See the <code>location</code> section of the <code>default.conf</code> file for nginx from homework 2.</p>
+<pre tabindex="0"><code>    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+</code></pre><h3 id="indexhtml-contents">
+  index.html contents
+  <a class="anchor" href="#indexhtml-contents">#</a>
+</h3>
+<p>Your <code>index.html</code> page must contain the following:</p>
+<ul>
+<li>The !doctype</li>
+<li><code>html</code> element</li>
+<li><code>head</code> element</li>
+<li><code>title</code> element with contents of &quot;Homework 3&quot;</li>
+<li><code>body</code> element</li>
+<li><code>h1</code> header element with contents of &quot;CSC 346 Homework 3&quot;</li>
+<li><code>h2</code> header element with contents of &quot;Image&quot;</li>
+<li><code>p</code> element with an <code>img</code> element inside it, with the <code>ua-logo.png</code> image as its source. <a href="../ua-logo.png">You can download the <code>ua-logo.png</code> from this link.</a>
+<ul>
+<li>The <code>img</code> tag should have the <code>alt</code> attribute set inside of it to &quot;The official 'Block A' logo for the University of Arizona.&quot;</li>
+</ul>
+</li>
+<li><code>h2</code> header element with contents of &quot;Paragraph&quot;</li>
+<li><code>p</code> element with contents of &quot;Here is some text inside of a paragraph element.&quot;</li>
+<li><code>h2</code> header element with contents of &quot;Unordered List of Droids&quot;</li>
+<li><code>ul</code> unordered list containing 4 list items (<code>li</code> elements): R2-D2, C3P0, D-0, BB-8.</li>
+<li><code>h2</code> header element with contents of &quot;Table&quot;</li>
+<li><code>table</code> with 2 columns, table headers, and 2 data rows:
+<ul>
+<li>Column headers of &quot;tag&quot; and &quot;description&quot;</li>
+<li>Two rows describing the following basic HTML elements, with the name of the tag in the first column, and the description in the second.
+<ul>
+<li><code>&lt;ol&gt;</code>: An ordered list tag</li>
+<li><code>&lt;img&gt;</code>: An image tag</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>h2</code> header element with contents of &quot;Link&quot;</li>
+<li><code>p</code> element with the text &quot;This is a link to an HTTP example.&quot; and have that text be a clickable <code>a</code> element that goes to a second page named <code>http.html</code>.</li>
+</ul>
+<p>When finished, your page should look pretty close to the following:</p>
+<p><img src="../hw03-html.png" alt="A screenshot of a simple HTML page with the elements described above" /></p>
+<blockquote class="book-hint warning">
+  <strong>Wait!</strong>
+How do we show HTML elements in an HTML page?  You have to use HTML entity encoding.
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/Entity">https://developer.mozilla.org/en-US/docs/Glossary/Entity</a>
+</blockquote>
+
+<h2 id="part-3---httphtml">
+  Part 3 - http.html
+  <a class="anchor" href="#part-3---httphtml">#</a>
+</h2>
+<p>For our second web page, we want to have it show the output of a <code>nc</code> call that you make in a terminal window. Similar to the first assignment, where you ran commands in the terminal and copy/pasted the results in to a text file. This time you'll copy and paste the results into an HTML file.</p>
+<h3 id="httphtml-contents">
+  http.html contents
+  <a class="anchor" href="#httphtml-contents">#</a>
+</h3>
+<p>Create a new text file inside your <code>html</code> folder, and name it <code>http.html</code>. Similar to the index page, this new page needs to have <code>html</code>, <code>head</code>, <code>title</code>, and <code>body</code> elemetnts.  Inside the <code>body</code> element for this page place the following:</p>
+<ul>
+<li><code>title</code> element should have the contents &quot;Homework 3 HTTP Example&quot;</li>
+<li><code>h1</code> element with contents of &quot;CSC 346 Homework 3 HTTP Example&quot;</li>
+<li><code>p</code> element containing a <code>pre</code> element
+<ul>
+<li>Inside the <code>p &gt; pre</code> element, show a full HTTP/1.1 request that <code>GET</code>s a sample page from the course website: <a href="https://www2.cs.arizona.edu/classes/cs346/spring24/homework/hw03-http-get.html">https://www2.cs.arizona.edu/classes/cs346/spring24/homework/hw03-http-get.html</a></li>
+<li>Include <strong>ONLY</strong> the response code and response headers. Not the HTML text from the response body.</li>
+</ul>
+</li>
+<li><code>p</code> element with the text &quot;Home&quot; which is an <code>a</code> anchor tag that takes us back to <code>index.html</code>.</li>
+</ul>
+<blockquote class="book-hint info">
+  <p>If your laptop doesn't have the <code>nc</code> command, SSH to <code>lectura.cs.arizona.edu</code> and run it from there.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>fischerm@lectura:~$ nc -v www2.cs.arizona.edu 80
+</span></span></code></pre></div>
+</blockquote>
+
+<blockquote class="book-hint warning">
+  www2.cs.arizona.edu has a relatively short timeout period. Unlike example.com, if you don't send a valid HTTP request within about 10 seconds, you'll either get a <code>HTTP/1.1 408 Request Time-out</code> error, or the connection will just close.  Try typing your request in a separate text document and then pasting it into your <code>nc</code> socket.  Don't forget the two CRLF sequences required to end the HTTP request!
+</blockquote>
+
+<p><img src="../hw03-http.png" alt="A screenshot of a simple HTML page with the output of a basic HTTP request" /></p>
+<h2 id="troubleshooting">
+  Troubleshooting
+  <a class="anchor" href="#troubleshooting">#</a>
+</h2>
+<h3 id="check-cacheing">
+  Check Cacheing
+  <a class="anchor" href="#check-cacheing">#</a>
+</h3>
+<p>Modern web browsers will <em>cache</em> many of the resources we request: HTML pages, CSS files, Javascript files, images, etc. This is great for performance and speed, but drives us crazy as developers. If you find yourself making changes and not having them show up when you reload the browser, it might be a cacheing issue.</p>
+<h4 id="firefox-disable-cacheing">
+  Firefox: Disable Cacheing
+  <a class="anchor" href="#firefox-disable-cacheing">#</a>
+</h4>
+<p>If you're using the Firefox web browser, you can disable cacheing when the developer tools are open.</p>
+<ul>
+<li>From the Tools menu, go to the Browser Tools submenu, and select &quot;Web Developer Tools&quot;. Or, right-click anywhere on the page and select &quot;Inspect&quot; from the context menu.</li>
+<li>From the developer tools that opens in the lower part of the window, select the &quot;Network&quot; tab.</li>
+<li>In the toolbar just below the tabs, check the &quot;Disable Cache&quot; checkbox.</li>
+</ul>
+<p>Firefox will remember this checkbox from session to session, but it will only function if the Web Developer Tools panel is open.</p>
+<p><img src="../hw03-firefox-cache.png" alt="A screenshot of the Firefox browser with the Web Developers panel open, and a blue rectangle outline highlighting the &#39;Disable Cache&#39; checkbox." /></p>
+<h4 id="shift-reload">
+  Shift-Reload
+  <a class="anchor" href="#shift-reload">#</a>
+</h4>
+<p>Most browsers will treat a &quot;Shift-Reaload&quot; action as instructiong the browser to not use the cache for the next set of requests and instead download all the resources again. Different browsers do this differently. Some work with Shift-Ctrl-R but others only work if you hold down the Shift key while clicking the reload button in a toolbar.</p>
+<h4 id="reload-a-bunch">
+  Reload a bunch
+  <a class="anchor" href="#reload-a-bunch">#</a>
+</h4>
+<p>Sometimes if you just mash the reload button several times, the browser gets the hint and actually reloads the page.</p>
+<h4 id="flush-caches">
+  Flush Caches
+  <a class="anchor" href="#flush-caches">#</a>
+</h4>
+<p>All browsers have a way to flush the cache. However this can sometimes flush <em>all</em> of the cached data in your browser, including 'remembered' logins to other websites.</p>
+<h4 id="private-window--incognito-window">
+  Private Window / Incognito Window
+  <a class="anchor" href="#private-window--incognito-window">#</a>
+</h4>
+<p>Opening a new private window will effectively start with an empty cache. This is sometimes the best way to make sure you're &quot;starting fresh&quot; with a website or HTTP request.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-turn-in">What to turn in</a></li>
+    <li><a href="#points">Points</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#part-1---dockerfile">Part 1 - Dockerfile</a></li>
+    <li><a href="#part-2---indexhtml">Part 2 - index.html</a>
+      <ul>
+        <li><a href="#indexhtml-contents">index.html contents</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-3---httphtml">Part 3 - http.html</a>
+      <ul>
+        <li><a href="#httphtml-contents">http.html contents</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#check-cacheing">Check Cacheing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="Raw HTTP Example # In this class I will keep referring to the syntax for executing a &quot;raw&quot; HTTP command over the network. I really want folks to have a good gasp of how this relatively simple protocol works. It forms the basis for nearly all our interactions with servers and API calls.
+HTTP vs HTTPS # Before you can experiment with an HTTP command, you need to connect to a web server of some sort.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Raw HTTP Example" />
+<meta property="og:description" content="Raw HTTP Example # In this class I will keep referring to the syntax for executing a &quot;raw&quot; HTTP command over the network. I really want folks to have a good gasp of how this relatively simple protocol works. It forms the basis for nearly all our interactions with servers and API calls.
+HTTP vs HTTPS # Before you can experiment with an HTTP command, you need to connect to a web server of some sort." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/examples/http/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Raw HTTP Example | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="active">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Raw HTTP Example</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#http-vs-https">HTTP vs HTTPS</a></li>
+    <li><a href="#netcat">netcat</a>
+      <ul>
+        <li><a href="#netcat-dockerfile">netcat Dockerfile</a></li>
+      </ul>
+    </li>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#timeout">Timeout</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="raw-http-example">
+  Raw HTTP Example
+  <a class="anchor" href="#raw-http-example">#</a>
+</h1>
+<p>In this class I will keep referring to the syntax for executing a &quot;raw&quot; HTTP command over the network. I really want folks to have a good gasp of how this relatively simple protocol works. It forms the basis for nearly all our interactions with servers and API calls.</p>
+<h2 id="http-vs-https">
+  HTTP vs HTTPS
+  <a class="anchor" href="#http-vs-https">#</a>
+</h2>
+<p>Before you can experiment with an HTTP command, you need to connect to a web server of some sort. However the very raw network connections we use to test with generally do not support encryption. They rely on the original plaintext HTTP connections over port 80. Finding valid websites to test against is getting harder, as the vast majority of all sites will force a redirection from http://... to https://... for connection attempts.</p>
+<p>The wonderful <a href="https://example.com">example.com</a> is maintained by iana.org, and is a really great resource for experimenting with HTTP commands, as well as being a &quot;valid&quot; example website and URL for all sorts of uses. Thankfully they still allow &quot;plaintext&quot; HTTP connections, and do not force upgrades to HTTPS for all connection attempts. Additionally, the Computer Science department's lectura server also supports plaintext HTTP connections still (at least as of Spring 2024). That's what we'll use for this demo.</p>
+<h2 id="netcat">
+  netcat
+  <a class="anchor" href="#netcat">#</a>
+</h2>
+<p>To create a raw TCP socket to a remote server, we'll use the <code>netcat</code> command line program: <code>nc</code>.  If this program isn't present on your computer, you can either SSH to lectura and run it from there, or load up a Docker container to install it in, then run it from there.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>nc -v [ip address or hostname] [port]
+</span></span></code></pre></div><h3 id="netcat-dockerfile">
+  netcat Dockerfile
+  <a class="anchor" href="#netcat-dockerfile">#</a>
+</h3>
+<p>If you're having trouble running <code>nc</code> somewhere, you can build your own docker image from the following <code>Dockerfile</code>. Create a new directory, and then create a new <code>Dockerfile</code> inside and copy the following into it. This Dockerfile will create an image based off of <code>debian:bookworm</code> with a few extra things installed already. All we need to do is install <code>netcat</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> buildpack-deps:bookworm-curl</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> set -eux; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	apt-get update; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	apt-get install -y --no-install-recommends <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        netcat-traditional<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Build and run it to get a bash shell, then run <code>nc</code> inside the container.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>docker build csc346:netcat .
+</span></span><span style="display:flex;"><span>docker run -it --rm csc346:netcat bash
+</span></span></code></pre></div><h2 id="example">
+  Example
+  <a class="anchor" href="#example">#</a>
+</h2>
+<p>Here is a basic <code>nc</code> based example that requests the webpage from the following URL:</p>
+<blockquote class="book-hint info">
+  <a href="http://www2.cs.arizona.edu/courses/descriptions.html">http://www2.cs.arizona.edu/courses/descriptions.html</a>
+</blockquote>
+
+<p>First we need to connect to the host itself, which for this URL is <code>www2.cs.arizona.edu</code>. Since we're doing plaintext HTTP, we will connect on port 80.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>nc -v www2.cs.arizona.edu 80
+</span></span></code></pre></div><p>When we hit enter, we should get a connection response from <code>nc</code> saying we've established a connection. At that point you'll be at a blank line, and any text typed or pasted in here will be sent to the remote host when you hit the enter key.</p>
+<p>It is at this point that we send our actual HTTP request.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>GET /courses/descriptions.html HTTP/1.1
+</span></span><span style="display:flex;"><span>Host: www2.cs.arizona.edu
+</span></span></code></pre></div><p>After typing in those two lines, the critical part is that you have to indicate to the server that you're done with the request, and that the server should process it and send back the response. The HTTP specification states that we do this by sending TWO <code>CRLF</code> sequences. When doing this interactively, this means you have to hit <code>Return</code> twice.</p>
+<p>In the following animation, you can see that the server doesn't respond until the second <code>Return</code> happens following the Request.</p>
+<p><img src="../http.gif" alt="An animation of an HTTP request with the netcat command line utility." /></p>
+<h2 id="timeout">
+  Timeout
+  <a class="anchor" href="#timeout">#</a>
+</h2>
+<p>If you don't send that second CRLF sequence, the server will just sit there waiting, and eventually time out.</p>
+<p><img src="../http-timeout.gif" alt="An animation of an HTTP request with the netcat command line utility." /></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#http-vs-https">HTTP vs HTTPS</a></li>
+    <li><a href="#netcat">netcat</a>
+      <ul>
+        <li><a href="#netcat-dockerfile">netcat Dockerfile</a></li>
+      </ul>
+    </li>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#timeout">Timeout</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

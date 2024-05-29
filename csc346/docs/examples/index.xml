@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSC 346 - Spring 2024</title>
+    <link>http://portfolio.fischco.org/csc346/docs/examples/</link>
+    <description>Recent content on CSC 346 - Spring 2024</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://portfolio.fischco.org/csc346/docs/examples/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AJAX Example</title>
+      <link>http://portfolio.fischco.org/csc346/docs/examples/ajax-demo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/examples/ajax-demo/</guid>
+      <description>AJAX Example # Overview # Here&#39;s a walkthrough of a very basic example of a webpage accessing data using JavaScript&#39;s XMLHttpRequest object, and the newer fetch API. Through the twists and turns of web standards over the years, this has become the way that JavaScript in a browser can initiate HTTP requests to other resources. This has become known as &amp;quot;AJAX&amp;quot;: Asynchronos JavaScript and XML.
+You can see this in action by visiting this AJAX Books Example.</description>
+    </item>
+    
+    <item>
+      <title>PictureGram API</title>
+      <link>http://portfolio.fischco.org/csc346/docs/examples/picturegram-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/examples/picturegram-api/</guid>
+      <description>PictureGram API # This Sample API specification describes how a client will interact with a Sample API, but does not describe how the API functionality is implimented.
+Reference API Endpoint # The endpoint base URL is:
+https://csc346picturegram.test.apps.uits.arizona.edu/ This is used as the base URL for all API methods described below.
+GET /healthcheck # Returns a basic healthcheck for the API. Useful for testing out if you are able to connect to the API, and if the API can access all of the information it needs.</description>
+    </item>
+    
+    <item>
+      <title>Raw HTTP Example</title>
+      <link>http://portfolio.fischco.org/csc346/docs/examples/http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/examples/http/</guid>
+      <description>Raw HTTP Example # In this class I will keep referring to the syntax for executing a &amp;quot;raw&amp;quot; HTTP command over the network. I really want folks to have a good gasp of how this relatively simple protocol works. It forms the basis for nearly all our interactions with servers and API calls.
+HTTP vs HTTPS # Before you can experiment with an HTTP command, you need to connect to a web server of some sort.</description>
+    </item>
+    
+  </channel>
+</rss>

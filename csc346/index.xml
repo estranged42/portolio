@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome to CSC 346 - Spring 2024 on CSC 346 - Spring 2024</title>
+    <link>http://portfolio.fischco.org/csc346/</link>
+    <description>Recent content in Welcome to CSC 346 - Spring 2024 on CSC 346 - Spring 2024</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://portfolio.fischco.org/csc346/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AJAX Example</title>
+      <link>http://portfolio.fischco.org/csc346/docs/examples/ajax-demo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/examples/ajax-demo/</guid>
+      <description>AJAX Example # Overview # Here&#39;s a walkthrough of a very basic example of a webpage accessing data using JavaScript&#39;s XMLHttpRequest object, and the newer fetch API. Through the twists and turns of web standards over the years, this has become the way that JavaScript in a browser can initiate HTTP requests to other resources. This has become known as &amp;quot;AJAX&amp;quot;: Asynchronos JavaScript and XML.
+You can see this in action by visiting this AJAX Books Example.</description>
+    </item>
+    
+    <item>
+      <title>Exam 1 Study Guide</title>
+      <link>http://portfolio.fischco.org/csc346/docs/exams/exam1-guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/exams/exam1-guide/</guid>
+      <description>Exam 1 Study Guide # Cloud Intro - Week 1 Slides # Understand differences and advantages of Datacenters with and without Virtual Machines, and Cloud Computing Review the Job differences between Datacenter and Cloud architectures Basic Linux CLI commands Docker - Week 2 Slides # Docker run, build, images, start, exec commands Docker port mappings Write a basic Dockerfile based on a specification HTTP &amp;amp; HTML - Week 3 Slides # Know the main HTTP methods (GET, POST, etc) Know the basic parts of an HTTP request: Request method &amp;amp; resource, headers, TWO linefeeds Know the anatomy of an HTML element Know the anatomy of a URL Know the basic HTML tags we went over in class Understand how a DOM tree maps to an HTML document Network Sockets - Week 4 Slides # Know the 3 parts of a socket (host IP, port, protocol) Know when BIND, LISTEN, and CONNECT are used in establishing a socket Javascript - Week 5 Slides # Javascript Datatypes Booleans Arrays Functions Objects The document object Event Listeners AJAX/Fetch basics Authentication - Week 6 Slides # Definition of Authentication Definition of Authorization How does HTTP Basic Authentication work?</description>
+    </item>
+    
+    <item>
+      <title>Exam 2 Study Guide</title>
+      <link>http://portfolio.fischco.org/csc346/docs/exams/exam2-guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/exams/exam2-guide/</guid>
+      <description>Exam 2 Study Guide # AWS - Week 7 Slides # Know how to get your AWS CLI Credentials Know the difference between a region and and availability zone Know the XaaS basics IaaS - Infrastructure as a Service PaaS - Platform as a Service SaaS - Software as a Service Know the basic AWS Services and what they&#39;re used for EC2 RDS Shared Responsibility Model What are you responsible for vs AWS?</description>
+    </item>
+    
+    <item>
+      <title>Exam 3 Study Guide</title>
+      <link>http://portfolio.fischco.org/csc346/docs/exams/exam3-guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/exams/exam3-guide/</guid>
+      <description>Exam 3 Study Guide # Managed Cloud Services - Week 11a Slides - Week 11b Slides # Know the basic AWS Services we&#39;ve used or talked about this semester, and what they&#39;re used for. EC2 Virtual Machines Can SSH in You&#39;re responsible for OS patching and security RDS Relational Database Platform as a Service ALB Load Balancing SSL/TLS Termination Auto-scaling to handle public load ECS Managed Docker Container Service Run your Docker images in AWS Use with ALB ECR Elastic Container Registry Store your built Docker images in AWS Can pull images from here to run on ECS or EC2 etc.</description>
+    </item>
+    
+    <item>
+      <title>Exam Notes</title>
+      <link>http://portfolio.fischco.org/csc346/docs/exams/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/exams/notes/</guid>
+      <description>window.addEventListener(&amp;#39;eventName&amp;#39;, callback); window.alert(&amp;#39;msg text&amp;#39;); window.close(); window.confirm(&amp;#39;msg text&amp;#39;); element.attributes element.innerHTML element.parentNode element.style.propertyname = &amp;#34;newCSSvalue&amp;#34;; element.textContent element.appendChild(newElementObject); element.classList.add(&amp;#34;newClassName&amp;#34;); element.removeChild(elementToRemove); string.toUpperCase(); string.toLowerCase(); console.log(msg); console.trace(); console.warn(msg); document.body document.title document.createElement(&amp;#39;elementType&amp;#39;); document.getElementsByClassName(&amp;#39;className&amp;#39;); document.getElementsByTagName(&amp;#39;tagName&amp;#39;); document.getElementById(&amp;#39;idName&amp;#39;); // Notes Page myArray = [&amp;#34;one&amp;#34;, &amp;#34;two&amp;#34;, &amp;#34;three&amp;#34;]; Problem 10 - Option B should read: &amp;quot;I have your Private Key, and you have your corresponding Public Key.&amp;quot;</description>
+    </item>
+    
+    <item>
+      <title>Homework 1</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw01/</guid>
+      <description>CSC 346 - Spring 2024 - Homework 1 # Most homeworks will be mini-projects, with some homeworks building on one another. This first homework will be a bit simpler though. I will provide solutions to each homework, so if you get stuck on one part it shouldn&#39;t impact the later parts too much.
+Points # This assignment will be worth 16 points (two points per part). Turning the assignment in early will earn you an additional 2 points extra credit.</description>
+    </item>
+    
+    <item>
+      <title>Homework 2</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw02/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw02/</guid>
+      <description>Homework 2 # In this assignment you will create a Dockerfile and image which will serve up a simple website.
+Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 4 points extra credit.
+Early submission: February 1st 11pm MST (UTC-7) Final Due Date: February 3rd 11pm MST (UTC-7) Starting Point # For each homework assignment I will provide a starter .</description>
+    </item>
+    
+    <item>
+      <title>Homework 3</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw03/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw03/</guid>
+      <description>CSC 346 - Homework 3 # In this homework assignment we&#39;ll be working with the HTTP protocol, and writing our own HTML web pages. You will turn in a .zip file of a folder containing the following files:
+What to turn in # yournetid-hw03/ Dockerfile html/ index.html http.html images/ ua-logo.png You don&#39;t have to turn in the contents of the scripts folder that comes in the starter zip, but it&#39;s fine if you do.</description>
+    </item>
+    
+    <item>
+      <title>Homework 4</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw04/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw04/</guid>
+      <description>CSC 346 - Homework 4 # In this homework assignment we&#39;ll begin working with the JavaScript programming language. You will turn in a .zip file of a folder containing the following files:
+What to turn in # yournetid-hw04/ Dockerfile html/ index.html js/ hw04.js Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.
+Early submission: February 15th 11pm MST (UTC-7) Final Due Date: February 17th 11pm MST (UTC-7) Getting Started # You will need to create one web page, one JavaScript file, and a Dockerfile defining an image that will serve up your simple website.</description>
+    </item>
+    
+    <item>
+      <title>Homework 5</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw05/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw05/</guid>
+      <description>CSC 346 - Homework 5 # In this homework assignment we&#39;ll begin working with Amazon Web Services. You will create an EC2 instance (AWS&#39;s Virtual Machine), and run a docker container on it containing the beginnings of our image sharing client.
+What to turn in # yournetid-hw05/ Dockerfile html/ index.html app.html js/ app.js Points # This assignment will be worth 50 points. Turning the assignment in early will earn you an additional 5 points extra credit.</description>
+    </item>
+    
+    <item>
+      <title>Homework 6</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw06/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw06/</guid>
+      <description>CSC 346 - Homework 6 # In this homework assignment we&#39;ll continue work on our PictureGram client using our same EC2 instance from HW05.
+What to turn in # There are two parts to be graded for this assignment. The first part is a .zip file containing your app files. This is similar to past assignments.
+yournetid-hw06/ Dockerfile html/ favicon.ico index.html js/ app.js picturegramSDK.js The second part is testing your EC2 server deployment.</description>
+    </item>
+    
+    <item>
+      <title>Homework 7</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw07/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw07/</guid>
+      <description>CSC 346 - Homework 7 # In this homework assignment you will deploy two serverless Lambda functions to faciliate image uploading for the Picturegram client. You will create two S3 buckets to hold the uploaded and resized image files. The first Lambda function will be for generating one-time-use signed upload URLs for uploading original images to the upload bucket. The second lambda function will trigger on new objects in the upload bucket, resize the images to standard sizes, and then store the resized images in a second S3 bucket which will be used as the source for images displayed in the Picturegram front end application.</description>
+    </item>
+    
+    <item>
+      <title>Homework 8</title>
+      <link>http://portfolio.fischco.org/csc346/docs/homework/hw08/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/homework/hw08/</guid>
+      <description>CSC 346 - Homework 8 # In this homework assignment you will deploy The PictureGram App from Homework 6 in AWS with the Elastic Container Service and an Application Load Blancer instead of directly on EC2. We&#39;ll also integrate the image upload system from homework 7 in to the app.
+You will need to create an Elastic Container Registry (ECR) repository to hold your docker image, and the build and push the image up.</description>
+    </item>
+    
+    <item>
+      <title>PictureGram API</title>
+      <link>http://portfolio.fischco.org/csc346/docs/examples/picturegram-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/examples/picturegram-api/</guid>
+      <description>PictureGram API # This Sample API specification describes how a client will interact with a Sample API, but does not describe how the API functionality is implimented.
+Reference API Endpoint # The endpoint base URL is:
+https://csc346picturegram.test.apps.uits.arizona.edu/ This is used as the base URL for all API methods described below.
+GET /healthcheck # Returns a basic healthcheck for the API. Useful for testing out if you are able to connect to the API, and if the API can access all of the information it needs.</description>
+    </item>
+    
+    <item>
+      <title>Raw HTTP Example</title>
+      <link>http://portfolio.fischco.org/csc346/docs/examples/http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://portfolio.fischco.org/csc346/docs/examples/http/</guid>
+      <description>Raw HTTP Example # In this class I will keep referring to the syntax for executing a &amp;quot;raw&amp;quot; HTTP command over the network. I really want folks to have a good gasp of how this relatively simple protocol works. It forms the basis for nearly all our interactions with servers and API calls.
+HTTP vs HTTPS # Before you can experiment with an HTTP command, you need to connect to a web server of some sort.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css">
+
+<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/main/css/arizona-bootstrap.min.css">
+<meta name="description" content="AJAX Example # Overview # Here&#39;s a walkthrough of a very basic example of a webpage accessing data using JavaScript&#39;s XMLHttpRequest object, and the newer fetch API. Through the twists and turns of web standards over the years, this has become the way that JavaScript in a browser can initiate HTTP requests to other resources. This has become known as &quot;AJAX&quot;: Asynchronos JavaScript and XML.
+You can see this in action by visiting this AJAX Books Example.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="AJAX Example" />
+<meta property="og:description" content="AJAX Example # Overview # Here&#39;s a walkthrough of a very basic example of a webpage accessing data using JavaScript&#39;s XMLHttpRequest object, and the newer fetch API. Through the twists and turns of web standards over the years, this has become the way that JavaScript in a browser can initiate HTTP requests to other resources. This has become known as &quot;AJAX&quot;: Asynchronos JavaScript and XML.
+You can see this in action by visiting this AJAX Books Example." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://portfolio.fischco.org/csc346/docs/examples/ajax-demo/" /><meta property="article:section" content="docs" />
+
+
+
+<title>AJAX Example | CSC 346 - Spring 2024</title>
+<link rel="manifest" href="/csc346/manifest.json">
+<link rel="icon" href="/csc346/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/csc346/book.min.d51bbb52e2488901c7e88b7b51aaa9d45b425ee7b86e262fd6e61ee86f1de386.css" integrity="sha256-1Ru7UuJIiQHH6It7Uaqp1FtCXue4biYv1uYe6G8d44Y=" crossorigin="anonymous">
+  <script defer src="/csc346/flexsearch.min.js"></script>
+  <script defer src="/csc346/en.search.min.32b22e257e20361f18e3a42943a3adc671ec92b1cac331c46ccbbc1018d0464c.js" integrity="sha256-MrIuJX4gNh8Y46QpQ6OtxnHskrHKwzHEbMu8EBjQRkw=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+
+  <div class="bg-red p-3 mb-5" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12"><span class="text-uppercase heading-style m-0 text-white">The University of Arizona</span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h5 class="book-brand">
+  <a class="flex align-center" href="/csc346/"><span>CSC 346 - Spring 2024</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Homework</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw01/" class="">Homework 1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw02/" class="">Homework 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw03/" class="">Homework 3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw04/" class="">Homework 4</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw05/" class="">Homework 5</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw06/" class="">Homework 6</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw07/" class="">Homework 7</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/homework/hw08/" class="">Homework 8</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Examples</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/ajax-demo/" class="active">AJAX Example</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/picturegram-api/" class="">PictureGram API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/examples/http/" class="">Raw HTTP Example</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>Exams</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam1-guide/" class="">Exam 1 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam2-guide/" class="">Exam 2 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/exam3-guide/" class="">Exam 3 Study Guide</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/csc346/docs/exams/notes/" class="">Exam Notes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/csc346/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>AJAX Example</strong>
+
+  <label for="toc-control">
+    
+    <img src="/csc346/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#xml">XML?</a></li>
+      </ul>
+    </li>
+    <li><a href="#html-page">HTML Page</a></li>
+    <li><a href="#javascript-with-xmlhttprequest">JavaScript with XMLHttpRequest</a>
+      <ul>
+        <li><a href="#readystatechange-event">readystatechange event</a></li>
+        <li><a href="#open">open</a></li>
+        <li><a href="#send">send</a></li>
+      </ul>
+    </li>
+    <li><a href="#javascript-and-the-fetch-api">Javascript and the fetch API</a></li>
+    <li><a href="#updating-the-page">Updating the Page</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="ajax-example">
+  AJAX Example
+  <a class="anchor" href="#ajax-example">#</a>
+</h1>
+<h2 id="overview">
+  Overview
+  <a class="anchor" href="#overview">#</a>
+</h2>
+<p>Here's a walkthrough of a very basic example of a webpage accessing data using JavaScript's <code>XMLHttpRequest</code> object, and the newer <code>fetch</code> API. Through the twists and turns of web standards over the years, this has become the way that JavaScript in a browser can initiate HTTP requests to other resources. This has become known as &quot;AJAX&quot;: Asynchronos JavaScript and XML.</p>
+<p>You can see this in action by visiting this <a href="../../../examples/ajax-books.html">AJAX Books Example</a>.</p>
+<h3 id="xml">
+  XML?
+  <a class="anchor" href="#xml">#</a>
+</h3>
+<p>In the early days of the internet <code>XML</code> was a common, flexible, text-based data interchange format. However it is verbose, and its flexibility leads to it being somewhat difficult to parse. As Javascript became more popular, the object notation it pioneered became used as a data format separate from the language itself. This becane simple &quot;JSON&quot;: JavaScript Object Notation. Without going into the specifics of each format, just know that even though the JavaScript way to make HTTP requests is <code>XMLHttpRequest</code>, it can be used to handle any format of data, and not just XML.</p>
+<h2 id="html-page">
+  HTML Page
+  <a class="anchor" href="#html-page">#</a>
+</h2>
+<p>We'll need a basic HTML page to start with.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#289870">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#888">&lt;</span><span style="color:#2838b0">html</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#888">&lt;</span><span style="color:#2838b0">head</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>  <span style="color:#888">&lt;</span><span style="color:#2838b0">title</span><span style="color:#888">&gt;</span>examples/ajax-books.html<span style="color:#888">&lt;/</span><span style="color:#2838b0">title</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  <span style="color:#888">&lt;</span><span style="color:#2838b0">script</span> <span style="color:#388038">src</span><span style="color:#666">=</span><span style="color:#b83838">&#34;ajax1.js&#34;</span><span style="color:#888">&gt;&lt;/</span><span style="color:#2838b0">script</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>  <span style="color:#888">&lt;</span><span style="color:#2838b0">link</span> <span style="color:#388038">rel</span><span style="color:#666">=</span><span style="color:#b83838">&#34;stylesheet&#34;</span> <span style="color:#388038">type</span><span style="color:#666">=</span><span style="color:#b83838">&#34;text/css&#34;</span> <span style="color:#388038">href</span><span style="color:#666">=</span><span style="color:#b83838">&#34;ajax.css&#34;</span> <span style="color:#888">/&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#888">&lt;/</span><span style="color:#2838b0">head</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#888">&lt;</span><span style="color:#2838b0">body</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>  <span style="color:#888">&lt;</span><span style="color:#2838b0">h1</span><span style="color:#888">&gt;</span>A Sample AJAX Page<span style="color:#888">&lt;/</span><span style="color:#2838b0">h1</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>  <span style="color:#888">&lt;</span><span style="color:#2838b0">section</span> <span style="color:#388038">id</span><span style="color:#666">=</span><span style="color:#b83838">&#34;books&#34;</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    <span style="color:#888">&lt;</span><span style="color:#2838b0">table</span> <span style="color:#388038">id</span><span style="color:#666">=</span><span style="color:#b83838">&#34;book-table&#34;</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>      <span style="color:#888">&lt;</span><span style="color:#2838b0">tr</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>        <span style="color:#888">&lt;</span><span style="color:#2838b0">th</span><span style="color:#888">&gt;</span>Title<span style="color:#888">&lt;/</span><span style="color:#2838b0">th</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        <span style="color:#888">&lt;</span><span style="color:#2838b0">th</span><span style="color:#888">&gt;</span>Author<span style="color:#888">&lt;/</span><span style="color:#2838b0">th</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>      <span style="color:#888">&lt;/</span><span style="color:#2838b0">tr</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    <span style="color:#888">&lt;/</span><span style="color:#2838b0">table</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    <span style="color:#888">&lt;</span><span style="color:#2838b0">button</span> <span style="color:#388038">id</span><span style="color:#666">=</span><span style="color:#b83838">&#34;book-button&#34;</span><span style="color:#888">&gt;</span>Get Books<span style="color:#888">&lt;/</span><span style="color:#2838b0">button</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>  <span style="color:#888">&lt;/</span><span style="color:#2838b0">section</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#888">&lt;/</span><span style="color:#2838b0">body</span><span style="color:#888">&gt;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span><span style="color:#888">&lt;/</span><span style="color:#2838b0">html</span><span style="color:#888">&gt;</span>
+</span></span></code></pre></div><p>This gives us some structure to deal with from the JavaScript side of things.  The JavaScript code is loaded on line 5 with the <code>&lt;script&gt;</code> element. This is a relative URL, so the browser requests <code>ajax1.js</code> from the same folder that the <code>.html</code> file is in.</p>
+<h2 id="javascript-with-xmlhttprequest">
+  JavaScript with XMLHttpRequest
+  <a class="anchor" href="#javascript-with-xmlhttprequest">#</a>
+</h2>
+<p>We'll go through the contents of <code>ajax1.js</code> in small chunks. You can <a href="../../../examples/ajax1.js">see the full file here</a>. The code snippets with line numbers below are directly pulled from the JavaScript file. Other code blocks are just additional examples.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;load&#39;</span>, <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>  <span style="color:#75715e">// Get a reference to our button
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;book-button&#39;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>  <span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#a6e22e">getBooks</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>});
+</span></span></code></pre></div><p>This uses the <code>window.addEventListener</code> method to attach a new listener to the <code>load</code> event. Whenever the window's load event completes, the second argument, containing the callback function, will be called.  Recall that the basic format for this method is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;eventName&#39;</span>, <span style="color:#a6e22e">callbackFunction</span>)
+</span></span></code></pre></div><p>In our example, the <em>eventName</em> is &quot;load&quot;, and the <em>callbackFunction</em> is an <em>inline function</em> defined right there:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">button</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;book-button&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">button</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#a6e22e">getBooks</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This callback function uses <code>document.getElementById</code> to get a reference to the <code>&lt;button id=&quot;book-button&quot;&gt;Get Books&lt;/button&gt;</code> element in our HTML file. Because we added an <code>id</code> attribute to the element's openning tag, it allows us to easily get access to it from JavaScript.</p>
+<p>Once we have our button element, we'll add an event listener to that element too. In this case we'll listen for the 'click' event, and pass in the <code>getBooks</code> function declaration which is defined next.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBooks</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Button Pressed&#39;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>  <span style="color:#75715e">// Create a new XMLHttpRequest Object
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">req</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>  <span style="color:#75715e">// Create a callback function when the State of the Connection changes
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span>)       <span style="color:#75715e">// state of 4 is &#39;done&#39;. The request has completed
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#75715e"></span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>      <span style="color:#a6e22e">loadBooks</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">responseText</span>); <span style="color:#75715e">// The .responseText property of the request object
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> {                       <span style="color:#75715e">// contains the Text returned from the request.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">readyState</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>  };
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>  <span style="color:#75715e">// Set up our HTTP Request
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">booksAPI</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://csc346picturegram.test.apps.uits.arizona.edu/Prod/books&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>  <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#39;GET&#39;</span>, <span style="color:#a6e22e">booksAPI</span>, <span style="color:#66d9ef">true</span>);  <span style="color:#75715e">// the 3rd parameter denotes if we want the request to
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span><span style="color:#75715e"></span>                                    <span style="color:#75715e">// be asynchronous or not. Here we do, so its true
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span><span style="color:#75715e"></span>  
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>  <span style="color:#75715e">// Finally initiate the request
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">send</span>();
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>}
+</span></span></code></pre></div><p>Here we have some <code>console.log</code> calls to print out progress as we go. This is useful for development and debugging, but remember to take these lines out of production code!  For this class, it's fine to leave in any log calls like this.</p>
+<p>Next, we create a new instance of the <code>XMLHttpRequest()</code> class, and store it in our <code>req</code> object.</p>
+<p>With our new <code>req</code> object, we create a new function expression, and assign it to the <code>.onreadystatechange</code> property of the <code>req</code> object.</p>
+<h3 id="readystatechange-event">
+  readystatechange event
+  <a class="anchor" href="#readystatechange-event">#</a>
+</h3>
+<blockquote class="book-hint info">
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readystatechange_event">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readystatechange_event</a>
+</blockquote>
+
+<p>The readystatechange event is fired every time the state of the <code>XMLHttpRequest</code> object changes. An HTTP request created and managed by the <code>XMLHttpRequest</code> object goes through various states:</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unsent</td>
+<td>0</td>
+<td>The object has been constructed.</td>
+</tr>
+<tr>
+<td>opened</td>
+<td>1</td>
+<td>The open() method has been successfully invoked. During this state request headers can be set using  setRequestHeader() and the fetch can be initiated using the send() method.</td>
+</tr>
+<tr>
+<td>headers received</td>
+<td>2</td>
+<td>All redirects (if any) have been followed and all headers of a response have been received.</td>
+</tr>
+<tr>
+<td>loading</td>
+<td>3</td>
+<td>The response body is being received.</td>
+</tr>
+<tr>
+<td>done</td>
+<td>4</td>
+<td>The data transfer has been completed or something went wrong during the transfer (e.g., infinite redirects).</td>
+</tr>
+</tbody>
+</table>
+<p>It's very rare that we'll actually care about anything other then the <code>done</code> state. So line 24 tests for a value of 4, which is done, and only does something when that's the case. For illustrative purposes though, we'll print out the other states.</p>
+<p>What we're basically doing here is saying &quot;when this request has completed, call the <code>loadBooks</code> function, and pass the <code>req.responseText</code> to it&quot; on line 26.</p>
+<p>Note that nothing has actually happened yet. We're still just configuring our <code>req</code> object. Next we have to initialize the request by calling the <code>open</code> method.</p>
+<h3 id="open">
+  open
+  <a class="anchor" href="#open">#</a>
+</h3>
+<blockquote class="book-hint info">
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open</a>
+</blockquote>
+
+<p>The method name <code>.open</code> is a bit misleading. It does not actually create the socket at this point. It just sets up how and where to connect.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#39;GET&#39;</span>, <span style="color:#a6e22e">booksAPI</span>, <span style="color:#66d9ef">true</span>)
+</span></span></code></pre></div><p>Similar to other ways we've created HTTP requests, here we specify the HTTP verb, and the URL to access.  The third parameter tells the browser to execute this call asynchronously, vs sychronously. Because <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop">JavaScript operates on an event loop</a>, it is possible to tell JavaScript to block execution of code until this request completes, or to continue on and let the callback functions handle changes. We almost always want to do things asychronously for a better user experience, even though this makes our job as develoeprs a little harder.</p>
+<h3 id="send">
+  send
+  <a class="anchor" href="#send">#</a>
+</h3>
+<blockquote class="book-hint info">
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send</a>
+</blockquote>
+
+<p>Finally, we have everything in place to <code>send</code> our request.</p>
+<p>We've set up where we want to send the request do in the <code>open</code> method, and we've defined how we will handle the reponse with the <code>readystatechange</code> event handler.  You can see how this differs from some other programming languages, where we usually assign the result of a request to some variable, such as with the python <code>requests</code> module. A similar API call with python would look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>booksResult <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(booksAPI)
+</span></span></code></pre></div><p>However with the asychronous JavaScript runtime, instead of blocking execution at the <code>send</code> call, JavaScript immediately returns control to the event loop. The event loop then tracks the progress of the request, and updates the <code>readyState</code> of the <code>req</code> object, calling our registered callback function at each change. When the request completes, and the callback method is finally called with a state value of 4, we know our call has completed (hopefully successfully) and we can access our expected data and do something with it.</p>
+<h2 id="javascript-and-the-fetch-api">
+  Javascript and the fetch API
+  <a class="anchor" href="#javascript-and-the-fetch-api">#</a>
+</h2>
+<p>While <code>XMLHttpRequest</code> works fine, as you can see, it's a little clunky. As you're probably thinking, this is a bit complicated to explain to new developers. Over the years many libaries attempted to abstract away this complexity: <a href="https://jquery.com">jQuery</a>, <a href="http://prototypejs.org">Prototype</a>, <a href="https://axios-http.com/docs/intro">axios</a>, and others.</p>
+<p>The web standards community worked on this for some time, and around 2018, the new <code>fetch</code> API became available in browsers. Today all modern browser support this.</p>
+<p>The <code>fetch</code> API is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Promise based API</a>. This means it avoids the callback nesting problem. It also does a much better job at handling failures. Probably most importantly, it's just simpler to write and read.</p>
+<p>Consider this alternate form of the <code>getBooks()</code> function above:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBooks</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Button Pressed&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;https://csc346picturegram.test.apps.uits.arizona.edu/Prod/books&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">response</span>) =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">text</span>())
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">responseText</span>) =&gt; <span style="color:#a6e22e">loadBooks</span>(<span style="color:#a6e22e">responseText</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>That's it! This acomplishes the same thing as the previous version, but is much more consice and easy to follow. The <code>fetch()</code> function itself has one required argument, the URL to connect with. There's a second optional argument to pass in configuration options. By default the HTTP method will be GET, since that is by far the most used method. If you need to use a different HTTP method, or pass along additional headers, those would all go into <a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">the second <code>options</code> argument</a>.</p>
+<h2 id="updating-the-page">
+  Updating the Page
+  <a class="anchor" href="#updating-the-page">#</a>
+</h2>
+<p>Regardless of which method is used to retrieve data from the API call, we now need to do something with that data.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#xml">XML?</a></li>
+      </ul>
+    </li>
+    <li><a href="#html-page">HTML Page</a></li>
+    <li><a href="#javascript-with-xmlhttprequest">JavaScript with XMLHttpRequest</a>
+      <ul>
+        <li><a href="#readystatechange-event">readystatechange event</a></li>
+        <li><a href="#open">open</a></li>
+        <li><a href="#send">send</a></li>
+      </ul>
+    </li>
+    <li><a href="#javascript-and-the-fetch-api">Javascript and the fetch API</a></li>
+    <li><a href="#updating-the-page">Updating the Page</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
