@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>mark fischer :: portfolio :: CS 346</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="portfolio.js"></script>
+</head>
+
+<body>
+
+
+
+
+<div id="page">
+
+	<div class="graphpaper">
+		<a href="index.html#csc346"><- back to the portfolio</a>
+		
+		<p>
+			Having the opportunity to teach again at the University of Arizona was a real treat. Getting to put my
+            new AWS cloud knowledge to use was especially fun. The CSC 346 Cloud Computing course teaches general 
+            cloud principles such as automation, scalability, and on-demand pricing as well as specific AWS technologies
+            such as EC2, Lambda and S3. 
+		</p>
+
+		<p>
+			Most of the course involved assignment projects where students learned and demonstrated skills with Docker, 
+            JavaScript, HTTP communications, Linux environments, automation templates as well as many specific AWS servcies.
+            Both fall 2022 and spring 2024 classes had 100 students in them, and involved using AWS Academy services to 
+            provide each student with their own account environment.
+		</p>
+
+		<p>
+			I also developed a web based testing application students could use throughout the course to test their work 
+            and cloud deployments. Because of the cloud nature of the assignments, it was not practical to simply have 
+            students turn in a set of code or template files. It was necessary to test their work in place. The testing 
+            application used the AWS Serverless Application Model (SAM) framework to host a basic python Flask application.
+            The Flask application incorporated the Playwright testing framework to directly test student assignments in 
+            their AWS accounts. This both simplified my teaching team's assessment of the work as well as provided immediate 
+            feedback to the students while working on their assignments.
+		</p>
+
+		<p>
+			If you want to see the course website from the spring 2024 course,
+			<a href="csc346/index.html">you can see a timecapsule of the site here</a>.
+		</p>
+
+	</div>
+	
+	<div class="webpage">
+		<img src="images/csc346-architectures.png" width="700" alt="Presentation slide showing a diagram of a user interacting with two Lambda functions which generate a signed URL for image uploading and then resize the uploaded image." />
+		
+		<div class="graphpaper comment rotate2" style="left: 520px; top: 20px">
+            Students used Lambda to process uploaded images for a Picture sharing app. 
+		</div>
+
+    </div>
+
+    <div class="webpage">
+		<img src="images/csc346-tests.png" width="700" alt="Screenshot of the testing application displaying passing results from a test." />
+		
+		<div class="graphpaper comment rotate2" style="left: 520px; top: 20px">
+            The testing application allowed students to evaluate their progress on assignments. 
+		</div>
+
+    </div>
+
+
+	<div class="graphpaper">
+		<a href="index.html#csc346"><- back to the portfolio</a>		
+	</div>
+
+</div>
+
+</body>
+
+</html>

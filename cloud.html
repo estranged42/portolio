@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>mark fischer :: portfolio :: University of Arizona Cloud Migration</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="portfolio.js"></script>
+</head>
+
+<body>
+
+
+
+
+<div id="page">
+
+	<div class="graphpaper">
+		<a href="index.html#cloud"><- back to the portfolio</a>
+		
+		<p>
+			Prior to 2015, the majority of University of Arizona IT infrastructure was highly virtualized in a pair of
+            datacenters managed by UITS - University Information Technology Services. The main datacenter was on campus
+            in the <a href="https://map.arizona.edu/73">Computer Center (building 77)</a>. The backup datacenter was a few miles 
+            away in downtown Tucson. We mostly used the VMWare VSphere virtualization platform at the time.
+		</p>
+
+        <p>
+            Our CTO at the time presented a few of us in UITS with the opportunity to help lead the migration of much of our
+            enterprise applications from on-prem virtualized servers to Amazon's public cloud AWS, and I was fortunate to be chosen to
+            join that project.
+        </p>
+
+        <p>
+            At the time, very few people in UITS knew much about AWS at all, so we were mostly starting from scratch.  We did have 
+            AWS come in and do some high level training, but it was very much a marketing style training. We mostly learned that AWS 
+            has a ton of services, and that they might be useful for us!  
+        </p>
+
+        <p>
+            Shortly after the project started, I was moved into the newly created Enterprise Cloud Services team. To start the team
+            was really just my boss Josh Shaloo, and myself. One of the biggest changes I brought to the initiative was a standardized
+            way for deploying new AWS accounts. 2015-2018 pre-dated many of AWS's current methods for making this less painful, such 
+            as Organizations and Control Tower. I developed a set of CloudFormation templates that established baseline user roles, 
+            federated login through SAML SSO, VPC network configurations, and basic security controls for all newly created AWS accounts.
+            Parts of these templates are still in use by the current Cloud Team as I write this in 2024.
+        </p>
+
+    </div>
+
+
+    <div class="webpage">
+        <img src="images/cloud-accountsetup.webp" width="700" alt="Graphic showing the basic flow of a new AWS account deployment with several CloudFormation templates being deployed by a central Ansible script." />
+        
+        <div class="graphpaper comment rotate2" style="right: 570px; top: 220px">
+            Ansible was used to sequence the deployment of several CloudFormation templates. 
+        </div>
+
+    </div>
+
+    <div class="graphpaper">
+
+            Over the course of the next few years, we successfully migrated our Student system, HR system, Financials system, Identity
+            and Access Management systems, into AWS along with dozens of other smaller services. Today in 2024 the University of Arizona
+            deploys nearly all new services to AWS, and the flexible architecture I helped the team put together has allowed us to stay 
+            compentitive. We're able to do things more quickly than ever before, and allow service teams the fexibility of running experiments
+            and troubleshoot problems with rapidly deployed temporary environments.
+
+
+	</div>
+
+	<div class="graphpaper">
+		<a href="index.html#cloud"><- back to the portfolio</a>		
+	</div>
+
+</div>
+
+</body>
+
+</html>
