@@ -38,6 +38,10 @@ p {
 	padding: 0px;
 }
 
+video {
+	display: block;
+}
+
 .graphpaper {
 	margin: 20px;
 	padding: 20px;
